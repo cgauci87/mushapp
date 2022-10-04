@@ -1,0 +1,244 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<head>
+  <!-- Title -->
+  <title>Mush! Product</title>
+
+  <!-- CSS Implementing Plugins -->
+  <link rel="stylesheet" href="{% static 'v2/vendor/icon-set/style.css' %}">
+  <link rel="stylesheet" href="{% static 'v2/vendor/select2/dist/css/select2.min.css' %}">
+  <link rel="stylesheet" href="{% static 'v2/vendor/quill/dist/quill.snow.css' %}">
+  <link rel="stylesheet" href="{% static 'v2/vendor/@yaireo/tagify/dist/tagify.css' %}">
+
+
+  <!-- CSS Front Template -->
+  <link rel="stylesheet" href="{% static 'v2/css/theme.min.css' %}">
+
+  <!--Bootstrap CSS-->
+  <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+
+  <style>
+    body {
+      overflow: hidden;
+    }
+    
+    .page-header {
+      margin-top: 40px;
+    }
+
+    .footer {
+      display: none;
+    }
+  </style>
+  <!--JS-->
+  <script src="{% static 'js/jquery.js' %}"></script>
+  <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="{% static 'js/bootstrap.js' %}"></script>
+  <script src="{% static 'js/apis_handler.js' %}"></script>
+</head>
+
+<body class="has-navbar-vertical-aside navbar-vertical-aside-show-xl   footer-offset">
+
+  <script src="assets/v2/vendor/hs-navbar-vertical-aside/hs-navbar-vertical-aside-mini-cache.js"></script>
+
+  <main id="content" role="main" class="main">
+    <!-- Content -->
+    <div class="content container-fluid">
+      <!-- Page Header -->
+      <div class="page-header">
+        <div class="row align-items-center">
+          <div class="col-sm mb-2 mb-sm-0">
+
+            <h1 class="page-header-title">Edit product</h1>
+          </div>
+        </div>
+        <!-- End Row -->
+      </div>
+      <!-- End Page Header -->
+
+      <div class="row">
+        <div class="col-lg-8">
+          <!-- Card -->
+          <div class="card mb-3 mb-lg-5">
+            <!-- Header -->
+            <div class="card-header">
+              <h4 class="card-header-title">Product information</h4>
+            </div>
+            <!-- End Header -->
+
+            <!-- Body -->
+            <div class="card-body">
+              <!-- Form Group -->
+              <div class="form-group">
+                <label for="productNameLabel" class="input-label">Title <i class="tio-help-outlined text-body ml-1"
+                    data-toggle="tooltip" data-placement="top"
+                    title="Products are the goods or services you sell."></i></label>
+
+                <input type="text" id="edit-product-title" class="form-control" name="productName" id="productNameLabel"
+                  placeholder="Mushroom Name" aria-label="Mushroom Name">
+              </div>
+
+              <!-- End Form Group -->
+
+              <label class="input-label">Description <span class="input-label-secondary">(Optional)</span></label>
+              <div class="form-group">
+                <textarea id="edit-product-description" class="form-control" name="description" rows="3"
+                  placeholder="Description"></textarea>
+              </div>
+
+              <!-- End Quill -->
+            </div>
+            <!-- Body -->
+          </div>
+          <!-- End Card -->
+
+          <!-- Card -->
+          <div class="card mb-3 mb-lg-5">
+            <!-- Header -->
+            <div class="card-header">
+              <h4 class="card-header-title">Media</h4>
+              <!-- End Unfold -->
+            </div>
+            <!-- End Header -->
+            <!-- Body -->
+            <div class="card-body">
+              <input id="edit-product-image" type="file" name="file">
+              <!-- End Dropzone -->
+            </div>
+            <div class="card-footer">
+              <button id="edit-product-button" onclick="edit_product()" type="button"
+                class="btn btn-primary">Save</button>
+            </div>
+            <!-- Body -->
+          </div>
+          <!-- End Card -->
+
+          <!-- End Card -->
+        </div>
+      </div>
+      <!-- End Row -->
+    </div>
+    <!-- End Content -->
+
+    <!-- End Footer -->
+  </main>
+  <!-- JS Global Compulsory  -->
+  <script src="assets/v2/vendor/jquery/dist/jquery.min.js"></script>
+  <script src="assets/v2/vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
+  <script src="assets/v2/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- JS Implementing Plugins -->
+  <script src="assets/v2/vendor/hs-navbar-vertical-aside/hs-navbar-vertical-aside.min.js"></script>
+  <script src="assets/v2/vendor/hs-unfold/dist/hs-unfold.min.js"></script>
+  <script src="assets/v2/vendor/hs-form-search/dist/hs-form-search.min.js"></script>
+  <script src="assets/v2/vendor/select2/dist/js/select2.full.min.js"></script>
+  <script src="assets/v2/vendor/quill/dist/quill.min.js"></script>
+  <script src="assets/v2/vendor/hs-add-field/dist/hs-add-field.min.js"></script>
+  <script src="assets/v2/vendor/@yaireo/tagify/dist/tagify.min.js"></script>
+  <script src="assets/v2/vendor/dropzone/dist/min/dropzone.min.js"></script>
+
+
+  <!-- JS Front -->
+  <script src="assets/v2/js/theme.min.js"></script>
+
+  <!-- JS Plugins Init. -->
+  <script>
+    get_product_by_id();
+    $(document).on('ready', function () {
+      // =======================================================
+
+
+      // BUILDER TOGGLE INVOKER
+      // =======================================================
+      $('.js-navbar-vertical-aside-toggle-invoker').click(function () {
+        $('.js-navbar-vertical-aside-toggle-invoker i').tooltip('hide');
+      });
+
+
+
+
+      // INITIALIZATION OF NAVBAR VERTICAL NAVIGATION
+      // =======================================================
+      var sidebar = $('.js-navbar-vertical-aside').hsSideNav();
+
+
+      // INITIALIZATION OF TOOLTIP IN NAVBAR VERTICAL MENU
+      // =======================================================
+      $('.js-nav-tooltip-link').tooltip({
+        boundary: 'window'
+      })
+
+      $(".js-nav-tooltip-link").on("show.bs.tooltip", function (e) {
+        if (!$("body").hasClass("navbar-vertical-aside-mini-mode")) {
+          return false;
+        }
+      });
+
+
+      // INITIALIZATION OF UNFOLD
+      // =======================================================
+      $('.js-hs-unfold-invoker').each(function () {
+        var unfold = new HSUnfold($(this)).init();
+      });
+
+
+      // INITIALIZATION OF FORM SEARCH
+      // =======================================================
+      $('.js-form-search').each(function () {
+        new HSFormSearch($(this)).init()
+      });
+
+
+      // INITIALIZATION OF SELECT2
+      // =======================================================
+      $('.js-select2-custom').each(function () {
+        var select2 = $.HSCore.components.HSSelect2.init($(this));
+      });
+
+
+      // INITIALIZATION OF QUILLJS EDITOR
+      // =======================================================
+      var quill = $.HSCore.components.HSQuill.init('.js-quill');
+
+
+      // INITIALIZATION OF ADD INPUT FILED
+      // =======================================================
+      $('.js-add-field').each(function () {
+        new HSAddField($(this), {
+          addedField: function () {
+            $('.js-add-field .js-select2-custom-dynamic').each(function () {
+              var select2dynamic = $.HSCore.components.HSSelect2.init($(this));
+            });
+          }
+        }).init();
+      });
+
+
+      // INITIALIZATION OF TAGIFY
+      // =======================================================
+      $('.js-tagify').each(function () {
+        var tagify = $.HSCore.components.HSTagify.init($(this));
+      });
+
+
+      // INITIALIZATION OF DROPZONE FILE ATTACH MODULE
+      // =======================================================
+      $('.js-dropzone').each(function () {
+        var dropzone = $.HSCore.components.HSDropzone.init('#' + $(this).attr('id'));
+      });
+    });
+  </script>
+
+  <!-- IE Support -->
+  <script>
+    if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) document.write(
+      '<script src="assets/v2/vendor/babel-polyfill/polyfill.min.js"><\/script>');
+  </script>
+</body>
+
+{% endblock %}

@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<head>
+    <title>Mush! Community - Who We Are</title>
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+
+    <!--Font Awesome -->
+    <script src="https://kit.fontawesome.com/de938dcd38.js" crossorigin="anonymous"></script>
+
+    <!--JS-->
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/apis_handler.js' %}"></script>
+    <!--Styling-->
+    <style>
+        :root {
+            --primary-font: 'Playfair Display', serif;
+            --secondary-font: 'Source Sans Pro', sans-serif;
+            --bg: #e7ecdd;
+            --light-bg: white;
+            --dark-bg: #1a1a1a;
+            --grey-bg: #2c2c2c;
+            --highlight: #f2ea9b;
+            --primary-text: #060606;
+            --secondary-text: #a7a4b2;
+            --grey-text: #c9c9c9;
+            --frame-box-shadow: 1px 1px 20px 0px rgba(87, 83, 83, 0.75);
+        }
+
+        h1,
+        h2,
+        p {
+            font-family: var(--primary-font);
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-transform: capitalize;
+            line-height: 1.5;
+            color: var(--primary-text);
+        }
+
+        .about {
+            background-color: white;
+            color: black;
+            padding-top: 20px;
+            padding-bottom: 30px;
+            margin-top: 40px;
+        }
+
+        .about h1 {
+            padding: 10px 0;
+            margin-bottom: 20px;
+
+        }
+
+        .about h2 {
+            opacity: .8;
+        }
+
+        .about span {
+            display: block;
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            margin: auto;
+            border-radius: 50%;
+            font-size: 40px;
+            color: #FFFFFF;
+            opacity: 0.7;
+            background: linear-gradient(-45deg,
+                    rgba(113, 72, 32, 0.75) 0%,
+                    rgba(81, 93, 51, 1) 100%) !important;
+            border: 2px solid rgb(113, 72, 32, 1);
+            webkit-transition: all .5s ease;
+            moz-transition: all .5s ease;
+            os-transition: all .5s ease;
+            transition: all .5s ease;
+
+        }
+
+        .about-item:hover span {
+            opacity: 1;
+            border: 2px solid rgb(113, 72, 32, 1);
+            font-size: 42px;
+            -webkit-transform: scale(1.1, 1.1) rotate(360deg);
+            -moz-transform: scale(1.1, 1.1) rotate(360deg);
+            -o-transform: scale(1.1, 1.1) rotate(360deg);
+            transform: scale(1.1, 1.1) rotate(360deg);
+        }
+
+        .about-item:hover h2 {
+            opacity: 1;
+            -webkit-transform: scale(1.1, 1.1);
+            -moz-transform: scale(1.1, 1.1);
+            -o-transform: scale(1.1, 1.1);
+            transform: scale(1.1, 1.1);
+        }
+
+        .about .lead {
+            font-size: 14px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="text-center about">
+        <h1>Who Are We</h1>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-4 col-sm-6 col-ex-12 about-item wow lightSpeedIn" data-wow-offset="200">
+                    <span class="fa fa-group"></span>
+                    <h2>Mush! Community</h2>
+                    <p class="lead">We are a learning network community sharing knowledge and reviews about mushrooms
+                        cultivated at home by us</p>
+                </div>
+                <div class="col-lg-4 col-sm-6 col-ex-12 about-item wow lightSpeedIn" data-wow-offset="200">
+                    <span class="fa fa-info"></span>
+                    <h2>Mush! KnowledgeBase </h2>
+                    <p class="lead">Easily retrievable information about the most popular mushrooms</p>
+                </div>
+                <div class="clearfix visible-md-block visible-sm-block"></div>
+                <div class="col-lg-4 col-sm-6 col-ex-12 about-item wow lightSpeedIn" dsata-wow-offset="200">
+                    <span class="fa fa-file"></span>
+                    <h2>Reviews</h2>
+                    <p class="lead">Audience can see mushroom reviews by variety. Registered users within Mush!
+                        community can post a review</p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+</body>
+
+{% endblock %}

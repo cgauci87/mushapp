@@ -1,0 +1,225 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<head>
+  <title>Mush! Community | Mushroom review blog</title>
+  <!-- Style CSS -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+
+  <!--Bootstrap CSS-->
+
+  <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+
+  <!--Font Awesome -->
+  <script src="https://kit.fontawesome.com/de938dcd38.js" crossorigin="anonymous"></script>
+
+  <!--JS-->
+  <script src="{% static 'js/jquery.js' %}"></script>
+  <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="{% static 'js/bootstrap.js' %}"></script>
+  <script src="{% static 'js/apis_handler.js' %}"></script>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="py-5 bg-image-full">
+    <div class="hero-img text-center mt-5">
+      <h1 class="text-info fs-3 brand-text">
+        Mushroom Growing Kits And Logs Tested By Our Mush! Community
+      </h1>
+      <p class="text-black mb-0 fw-bolder">
+        Reviews by people <span class="underline"> like you. </span>
+      </p>
+    </div>
+  </header>
+
+  <div class="container-md">
+    <div class="row">
+      <div class="col-md-12">
+        <div id="news-slider" class="owl-carousel">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="testimonials-reishi">
+    <!--Show Reishi Reviews Div On Click-->
+    <div class="testimonial-heading">
+      <h2 id="product_detail_title">REISHI</h2>
+    </div>
+    <div class="app-review-summary">
+      <hr />
+      <div class="row grid-x vertical">
+        <div class="small-12 text-center columns medium-4">
+          <div class="panel panel--white">
+            <div id="product_detail_average_rating" class="margin-sm h1" style="font-size: 4.375rem">3.71</div>
+            <div id="product_detail_average_rating_star_list" class="reviews-db">
+            </div>
+            <div class="body margin-sm">based on <span id="product_detail_total_reviews_count"></span> reviews</div>
+          </div>
+        </div>
+        <div class="small-12 medium-4 text-center columns">
+          <div class="panel panel--white">
+            <div class="circle-wrap">
+              <div class="circle">
+                <div class="mask full review_graph_circle" style="transform: rotate(0deg)">
+                  <div class="fill review_graph_circle" style="transform: rotate(0deg)"></div>
+                </div>
+                <div class="mask half">
+                  <div class="fill review_graph_circle" style="transform: rotate(0deg)"></div>
+                </div>
+                <div class="inside-circle"><span id="reviews_percentage">0</span>%</div>
+              </div>
+            </div>
+            <div class="margin-sm">
+              of respondents would recommend this to a friend
+            </div>
+          </div>
+        </div>
+      </div>
+      <!---->
+      <div class="small-12 medium-4 text-center columns">
+        <div class="panel panel--white">
+          <div class="row">
+            <div class="small-3 columns"></div>
+            <div class="small-7 columns">
+              <app-meter class="margin-xs" style="display: block">
+                <div class="meter">
+                  <div class="meter__value" style="width: 57.7778%"></div>
+                </div>
+              </app-meter>
+            </div>
+            <div class="container">
+              <div class="row">
+                <div class="well well-lg">
+                  <div class="col-md-auto">
+                    <div class="row rating-desc">
+
+                      <div class="col-xs-3 col-md-3 text-right">
+                        <span class="fa fa-star"></span>5
+                      </div>
+                      <div class="col-xs-8 col-md-9">
+                        <div class="progress">
+                          <div id="div_review_five_stars" class="progress-bar progress-bar-success" role="progressbar"
+                            aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                            <span id="review_five_stars" class="sr-onl">0%</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-xs-3 col-md-3 text-right">
+                        <span class="fa fa-star"></span>4
+                      </div>
+                      <div class="col-xs-8 col-md-9">
+                        <div class="progress">
+                          <div id="div_review_four_stars" class="progress-bar progress-bar-success" role="progressbar"
+                            aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                            <span id="review_four_stars" class="sr-onl">0%</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-xs-3 col-md-3 text-right">
+                        <span class="fa fa-star"></span>3
+                      </div>
+                      <div class="col-xs-8 col-md-9">
+                        <div class="progress">
+                          <div id="div_review_three_stars" class="progress-bar progress-bar-info" role="progressbar"
+                            aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                            <span id="review_three_stars" class="sr-onl">0%</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-xs-3 col-md-3 text-right">
+                        <span class="fa fa-star"></span>2
+                      </div>
+                      <div class="col-xs-8 col-md-9">
+                        <div class="progress">
+                          <div id="div_review_two_stars" class="progress-bar progress-bar-warning" role="progressbar"
+                            aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                            <span id="review_two_stars" class="sr-onl">0%</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-xs-3 col-md-3 text-right">
+                        <span class="fa fa-star"></span>1
+                      </div>
+                      <div class="col-xs-8 col-md-9">
+                        <div class="progress">
+                          <div id="div_review_one_stars" class="progress-bar progress-bar-danger" role="progressbar"
+                            aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                            <span id="review_one_stars" class="sr-onl">0%</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- end row -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3"></div>
+        </div>
+        <!---->
+      </div>
+    </div>
+    <!---->
+    <hr />
+    <!---->
+    <!--testimonials-box-container-->
+    <div id="users-testimonial-box" class="testimonial-box-container">
+    </div>
+    <!--BOX-2-->
+
+  </div>
+  <script>
+    //Carousel
+
+    get_all_products_for_user();
+
+    $(".owl-carousel").owlCarousel({
+      autoplay: true,
+      autoplayhoverpause: true,
+      autoplaytimeout: 100,
+      item: 4,
+      nav: true,
+      loop: false,
+      lazyLoad: true,
+      margin: 5,
+      padding: 5,
+      stagePadding: 5,
+      responsive: {
+        0: {
+          items: 1,
+          dots: false
+        },
+        485: {
+          items: 2,
+          dots: false
+        },
+        728: {
+          items: 3,
+          dots: false
+        },
+        960: {
+          items: 4,
+          dots: false
+        },
+        1200: {
+          items: 4,
+          dots: true
+        }
+      }
+    });
+  </script>
+</body>
+
+{% endblock %}
