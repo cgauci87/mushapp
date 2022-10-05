@@ -16,8 +16,7 @@ class CSRFCheck(CsrfViewMiddleware):
 
 class JWTAuthentication(BaseAuthentication):
     """
-        custom authentication class for DRF and JWT
-        https://github.com/encode/django-rest-framework/blob/master/rest_framework/authentication.py
+        custom authentication class for JWT
     """
 
     @csrf_exempt
@@ -48,8 +47,7 @@ class JWTAuthentication(BaseAuthentication):
 
 class JWTAdminAuthentication(BaseAuthentication):
     """
-        custom authentication class for DRF and JWT
-        https://github.com/encode/django-rest-framework/blob/master/rest_framework/authentication.py
+        custom authentication class for JWT
     """
 
     @csrf_exempt
