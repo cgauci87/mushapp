@@ -16,6 +16,7 @@ class UserTypeChoices(models.TextChoices):
 
 
 class User(LogsMixin, AbstractUser):
+     """ User Account Model """
     user_type = models.CharField(choices=UserTypeChoices.choices, null=True,
                                  blank=True, max_length=25, default=UserTypeChoices.USER)
     location = models.CharField(max_length=100, null=True, blank=True)
@@ -29,6 +30,7 @@ class User(LogsMixin, AbstractUser):
 
 
 class ContactUs(LogsMixin, models.Model):
+    """ ContactUs Form Model """
     first_name = models.CharField(max_length=100, null=True, blank=True)
     last_name = models.CharField(max_length=100, null=True, blank=True)
     email = models.EmailField(max_length=100, null=True, blank=True)
@@ -46,6 +48,7 @@ class ContactUs(LogsMixin, models.Model):
 
 
 class photos(models.Model):
+    """ Profile Photo Model """
     # title field
     title = models.CharField(max_length=100)
     # image field
