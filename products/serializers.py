@@ -105,6 +105,7 @@ class ProductDetailSerializer(serializers.ModelSerializer):
         model = Product
         fields = '__all__'
 
+# Product Review Serializer using ModelSerializer
 class ProductReviewSerializer(serializers.ModelSerializer):
     review_by = serializers.HiddenField(default=serializers.CurrentUserDefault())
 
