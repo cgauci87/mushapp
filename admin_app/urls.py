@@ -4,6 +4,7 @@ from admin_app.views import (
     ProductReviewAPIView
 )
 
+""" Admin Controls """
 urlpatterns = [
     path("products", ProductAPIView.as_view(), name="product control by admin"),
     path("reviews", ProductReviewAPIView.as_view(), name="product review control by admin"),
