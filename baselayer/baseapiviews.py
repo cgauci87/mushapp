@@ -77,7 +77,7 @@ class BaseAPIView(APIView):
         )
 
     def send_bad_request_response(self, message):
-        """compose response for bad request"""
+        """ compose response for bad request """
         return self.send_response(
             success=False,
             status_code=status.HTTP_400_BAD_REQUEST,
