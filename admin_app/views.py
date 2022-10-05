@@ -63,6 +63,7 @@ class ProductAPIView(BaseAPIView):
 
 
 class ProductReviewAPIView(BaseAPIView):
+    """ Product Review APIView """
     permission_classes = [IsAuthenticated]
     authentication_classes = [JWTAdminAuthentication]
     serializer_class = ProductReviewSerializer
