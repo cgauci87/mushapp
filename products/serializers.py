@@ -17,6 +17,7 @@ class ProductSerializer(serializers.ModelSerializer):
             representation['created_by'] = {"username": "", "email": ""}
         return representation
 
+# Product Detail Serializer using the below fields
 class ProductDetailSerializer(serializers.ModelSerializer):
     user_reviews = serializers.SerializerMethodField()
     total_reviews = serializers.SerializerMethodField()
