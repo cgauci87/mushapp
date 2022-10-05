@@ -18,7 +18,7 @@ logger = logging.getLogger(settings.LOGGER_NAME_PREFIX + __name__)
 
 
 class ProductAPIView(BaseAPIView):
-    """Product CRUD APIView"""
+    """ Product CRUD APIView """
 
     permission_classes = [IsAuthenticated]
     authentication_classes = [JWTAdminAuthentication]
