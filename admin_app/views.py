@@ -70,7 +70,6 @@ class ProductReviewAPIView(BaseAPIView):
     queryset = ProductReview.objects.all()
 
     def get(self, request, *args, **kwargs):
-        # self.queryset.filter().update(approval_status=ProductReviewApprovalStatusChoices.PENDING)
         instances = self.queryset.filter(approval_status=ProductReviewApprovalStatusChoices.PENDING)
         return self.send_success_response(
             payload=self.serializer_class(instances, many=True).data,
