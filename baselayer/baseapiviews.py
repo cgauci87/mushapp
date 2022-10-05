@@ -12,7 +12,7 @@ logger = logging.getLogger(settings.LOGGER_NAME_PREFIX + __name__)
 
 
 class BaseAPIView(APIView):
-    """Base class for API views."""
+    """Base class for API views"""
 
     @staticmethod
     def make_response_body(success=True,
