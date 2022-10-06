@@ -8,6 +8,7 @@ from users.views import (
     ForgotPassword
 )
 
+""" User Controls """
 urlpatterns = [
     path("registration/", RegistrationView.as_view(), name="register-new-user"),
     path("sign-in/", SignInView.as_view(), name="sign-in-user"),
