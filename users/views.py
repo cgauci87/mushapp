@@ -51,27 +51,6 @@ class RegistrationView(BaseAPIView):
     queryset = User.objects.all()
 
     def post(self, request, *args, **kwargs):
-        """Register a new user.
-
-        Example:
-            Request Body:
-                API URL: http://baseurl/users/registration/
-                {
-                    "first_name": "Chris",
-                    "last_name": "Gauci",
-                    "email": "chrisgauci@domain.com",
-                    "password": "pass@word",
-                    "location": "Malta",
-                }
-
-            Response Body:
-                {
-                    "success": true,
-                    "payload": {},
-                    "message": "OTP sent successfully."
-                }
-
-        """
         print(request)
         serializer_registration = self.serializer_class(data=request.data)
         if not serializer_registration.is_valid():
@@ -92,7 +71,7 @@ class RegistrationView(BaseAPIView):
 
 class SignInView(BaseAPIView):
     """User Sign in APIView
-    """
+"""
 
     permission_classes = [AllowAny]
 
