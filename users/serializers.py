@@ -20,6 +20,7 @@ class RegistrationSerializer(serializers.ModelSerializer):
         fields = "__all__"
         extra_kwargs = {"password": {"write_only": True}}
 
+    # Validation check if email already exists
     def validate(self, attrs):
         if attrs["email"]:
             if User.objects.filter(email=attrs["email"]).exists():
