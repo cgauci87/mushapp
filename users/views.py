@@ -70,8 +70,7 @@ class RegistrationView(BaseAPIView):
 
 
 class SignInView(BaseAPIView):
-    """User Sign in APIView
-"""
+    """User Sign in APIView"""
 
     permission_classes = [AllowAny]
 
