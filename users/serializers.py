@@ -31,6 +31,8 @@ class RegistrationSerializer(serializers.ModelSerializer):
         
         return attrs
 
+    # generate random username using split:
+    # first name + last name + current timestamp
     def create(self, validated_data):
         username = validated_data["first_name"] + validated_data["last_name"] + str(datetime.now().timestamp()).split(".")[1]
         validated_data["username"] = username
