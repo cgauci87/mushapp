@@ -75,25 +75,6 @@ class SignInView(BaseAPIView):
     permission_classes = [AllowAny]
 
     def post(self, request, *args, **kwargs):
-        # User.objects.filter(phone_number="+55355524558").delete()
-        """Login end user
-
-        Example:
-            Request Body:
-                API URL: http://users/sign-in/
-                {
-                    "email": "abc@gmail.com",
-                    "password": "pass@word"
-                }
-            Response Body:
-                {
-                    "success": true,
-                    "payload": {
-                        "token": "jwt-token"
-                    },
-                    "message": "Logged in successfully."
-                }
-        """
 
         username = request.data.get("username", None)
         password = request.data.get("password", None)
@@ -137,6 +118,7 @@ class SignInView(BaseAPIView):
 
 
 class UserProfile(BaseAPIView):
+     """User Profile in APIView"""
     permission_classes = [IsAuthenticated]
     authentication_classes = [JWTAuthentication]
 
