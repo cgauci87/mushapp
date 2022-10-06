@@ -11,7 +11,7 @@ from datetime import datetime
 logger = logging.getLogger(settings.LOGGER_NAME_PREFIX + __name__)
 
 
-
+# Registration Serializer using ModelSerializer to automatically generate a set of fields based on User model
 class RegistrationSerializer(serializers.ModelSerializer):
     username = serializers.CharField(required=False)
 
@@ -31,7 +31,6 @@ class RegistrationSerializer(serializers.ModelSerializer):
         return attrs
 
     def create(self, validated_data):
-        # generate random username
         username = validated_data["first_name"] + validated_data["last_name"] + str(datetime.now().timestamp()).split(".")[1]
         validated_data["username"] = username
         user = User.objects.create_user(**validated_data)
