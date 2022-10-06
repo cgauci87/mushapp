@@ -156,6 +156,7 @@ class UserProfile(BaseAPIView):
 
 
 class ContactUsAPIView(BaseAPIView):
+    """Contact Us in APIView"""
     permission_classes = [AllowAny]
 
     def post(self, request, *args, **kwargs):
