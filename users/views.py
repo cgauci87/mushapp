@@ -193,6 +193,7 @@ class ContactUsAPIView(BaseAPIView):
 
 
 class ChangeCurrentPasswordView(BaseAPIView):
+    """Change Current Password in APIView"""
     permission_classes = [IsAuthenticated]
     authentication_classes = [JWTAuthentication]
 
@@ -216,6 +217,7 @@ class ChangeCurrentPasswordView(BaseAPIView):
 
 
 class ForgotPassword(BaseAPIView):
+    """Forgot Password in APIView"""
     permission_classes = [AllowAny]
 
     def post(self, request, *args, **kwargs):
