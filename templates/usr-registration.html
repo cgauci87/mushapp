@@ -216,12 +216,14 @@
       <div class="form-holder">
         <div class="form-content">
           <div class="form-items">
+            <!-- Heading -->
             <h3>Register Today..</h3>
             <p>..and Be Part Of Mush! Community</p>
             <form  method="post" onsubmit="return registerUser();"
               id="user-registration-form">
               {% csrf_token %}
               <div class="col-auto">
+                <!-- First Name field -->
                 <input class="form-control" type="text" maxlength="24" name="first_name" placeholder="First Name"
                 required="required" />
                 <div class="invalid-feedback">
@@ -230,12 +232,14 @@
               </div>
 
               <div class="col-auto">
+                <!-- Last Name field -->
                 <input class="form-control" type="text" maxlength="24" name="last_name" placeholder="Last Name"
                 required="required" />
                 <div class="invalid-feedback">Last Name cannot be blank!</div>
               </div>
 
               <div class="col-auto">
+                <!-- Email address field -->
                 <input class="form-control" type="email" name="email" placeholder="E-mail Address" required="required" />
                 <div class="invalid-feedback">
                   Email field cannot be blank!
@@ -243,6 +247,7 @@
               </div>
 
               <div class="col-auto">
+                <!-- Location field -->
                 <select name="location" class="form-select mt-3" required="required">
                   <option selected disabled value="">Country</option>
                   <option value="AF">Afghanistan</option>
@@ -514,6 +519,7 @@
               </div>
 
               <div class="col-auto">
+                <!-- Password field -->
                 <input class="form-control" type="password" name="password" placeholder="Password" required="required" />
                 <div class="invalid-feedback">
                   Password field cannot be blank!
@@ -521,6 +527,7 @@
               </div>
 
               <br />
+              <!-- Skill level options -->
               <div class="skill-level">
                 <p>
                   Which skill level are you in home-based mushroom growing?
@@ -565,7 +572,7 @@
                   </div>
                 </div>
               </div>
-              <!-- login link -->
+              <!-- Submit button -->
               <div class="form-button mt-3">
                 <button id="submit" type="submit" class="btn btn-primary">
                   Register
@@ -581,11 +588,10 @@
     </div>
   </div>
   <script>
-    // User Registration form
+    // User Registration form submit event scipt
     const formReg = document.getElementById("user-registration-form");
     const resultReg = document.getElementById("result");
 
-    // submit
     formReg.addEventListener("submit", function (e) {
       const formData = new FormData(formReg);
       e.preventDefault();
