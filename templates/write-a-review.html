@@ -195,7 +195,8 @@
         margin-left: 100px;
       }
 
-      .form-items h3 , .form-items > p {
+      .form-items h3,
+      .form-items>p {
         margin-left: 100px;
       }
     }
@@ -209,18 +210,20 @@
 </head>
 
 <body>
-  <!-- input review form-->
   <div class="form-body">
     <div class="row">
       <div class="form-holder">
         <div class="form-content">
           <div class="form-items">
+            <!-- Heading -->
             <h3>Share your experience..</h3>
             <p>..and Write a Review</p>
+            <!-- Input review form main content START-->
             <form class="requires-validation" method="post" novalidate onsubmit="return write_a_review();"
               id="write-a-review-form">
               {% csrf_token %}
               <div class="col-md-12">
+                <!-- Drop down for user to choose a mushroom variety -->
                 <select name="product" id="write_review_product_dropdown" class="form-select mt-3" required>
                   <option selected disabled value="">
                     Choose Your Mushroom Variety
@@ -230,6 +233,7 @@
                 <div class="invalid-feedback">Please select a variery!</div>
               </div>
               <div class="col-md-12">
+                <!-- Category options -->
                 <select name="category" class="form-select mt-3" required>
                   <option selected disabled value="">
                     Choose Type Of Growing Kit
@@ -242,6 +246,7 @@
                 <div class="invalid-feedback">Please select a variery!</div>
               </div>
               <div class="col-md-12">
+                <!-- Season options -->
                 <select name="session" class="form-select mt-3" required>
                   <option selected disabled value="">
                     Choose Harvest Season
@@ -255,6 +260,7 @@
               </div>
               <div class="mb-3">
                 <br />
+                <!-- Star rating -->
                 <label for="exampleFormControlTextarea1" class="form-label">How was your mushroom growing experience
                   ?</label>
                 <textarea name="comment" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
@@ -267,11 +273,13 @@
                 <div onclick="save_rating(5)" class="star5"><i class="far fa-star starj5"></i></div>
               </div>
               <div class="form-button mt-3">
+                <!-- Submit button -->
                 <button id="submit" type="submit" class="btn btn-primary">
                   Submit Review
                 </button>
               </div>
             </form>
+            <!-- input review form main content END -->
           </div>
         </div>
       </div>
@@ -279,13 +287,12 @@
   </div>
 
   <script>
+        // star rating script
     var star1 = document.querySelector(".starj1");
     var star2 = document.querySelector(".starj2");
     var star3 = document.querySelector(".starj3");
     var star4 = document.querySelector(".starj4");
     var star5 = document.querySelector(".starj5");
-
-    //making the star system work
 
     star1.addEventListener("click", function () {
       if (star1.classList.contains("far")) {
