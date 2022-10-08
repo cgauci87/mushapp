@@ -9,11 +9,9 @@ from django.utils import timezone
 
 
 class UserTypeChoices(models.TextChoices):
+    """ User and Admin authentication """
     ADMIN = 1, "Admin"
     USER = 3, "User"
-
-# Create your models here.
-
 
 class User(LogsMixin, AbstractUser):
      """ User Account Model """

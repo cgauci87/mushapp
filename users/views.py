@@ -28,19 +28,19 @@ from django.core.exceptions import ValidationError
 
 logger = logging.getLogger(settings.LOGGER_NAME_PREFIX + __name__)
 
-# try:
-#     from django.contrib.auth.hashers import make_password
-#     from users.models import User, UserTypeChoices
-#     User.objects.update_or_create(
-#         email="mushcommunityblog@gmail.com",
-#         username="superadmin",
-#         defaults={
-#             "user_type": UserTypeChoices.ADMIN,
-#             "password": make_password("$etanewPassw0rd")
-#         }
-#     )
-# except Exception as err:
-#     print("Error while creating superadmin", err)
+try:
+    from django.contrib.auth.hashers import make_password
+    from users.models import User, UserTypeChoices
+    User.objects.update_or_create(
+        email="mushcommunityblog@gmail.com",
+        username="superadmin",
+        defaults={
+            "user_type": UserTypeChoices.ADMIN,
+            "password": make_password("$etanewPassw0rd")
+        }
+    )
+except Exception as err:
+    print("Error while creating superadmin", err)
 
 
 class RegistrationView(BaseAPIView):
