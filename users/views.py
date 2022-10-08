@@ -28,24 +28,8 @@ from django.core.exceptions import ValidationError
 
 logger = logging.getLogger(settings.LOGGER_NAME_PREFIX + __name__)
 
-try:
-    from django.contrib.auth.hashers import make_password
-    from users.models import User, UserTypeChoices
-    User.objects.update_or_create(
-        email="mushcommunityblog@gmail.com",
-        username="superadmin",
-        defaults={
-            "user_type": UserTypeChoices.ADMIN,
-            "password": make_password("$etanewPassw0rd")
-        }
-    )
-except Exception as err:
-    print("Error while creating superadmin", err)
-
-
+# User registration APIView
 class RegistrationView(BaseAPIView):
-    """User registration APIView"""
-
     permission_classes = [AllowAny]
     serializer_class = RegistrationSerializer
     queryset = User.objects.all()
@@ -69,9 +53,8 @@ class RegistrationView(BaseAPIView):
         )
 
 
+# User Sign in APIView
 class SignInView(BaseAPIView):
-    """User Sign in APIView"""
-
     permission_classes = [AllowAny]
 
     def post(self, request, *args, **kwargs):
@@ -116,9 +99,10 @@ class SignInView(BaseAPIView):
                                                                       "user_type": user.user_type
                                                                       })
 
+# User Profile in APIView
+
 
 class UserProfile(BaseAPIView):
-     """User Profile in APIView"""
     permission_classes = [IsAuthenticated]
     authentication_classes = [JWTAuthentication]
 
@@ -155,8 +139,8 @@ class UserProfile(BaseAPIView):
         return self.send_success_response(message="Success")
 
 
+# Contact Us in APIView
 class ContactUsAPIView(BaseAPIView):
-    """Contact Us in APIView"""
     permission_classes = [AllowAny]
 
     def post(self, request, *args, **kwargs):
@@ -192,8 +176,8 @@ class ContactUsAPIView(BaseAPIView):
         return self.send_success_response(message="Success")
 
 
+# Change Current Password in APIView
 class ChangeCurrentPasswordView(BaseAPIView):
-    """Change Current Password in APIView"""
     permission_classes = [IsAuthenticated]
     authentication_classes = [JWTAuthentication]
 
@@ -216,8 +200,8 @@ class ChangeCurrentPasswordView(BaseAPIView):
         return self.send_success_response(message="Success")
 
 
+# Forgot Password in APIView
 class ForgotPassword(BaseAPIView):
-    """Forgot Password in APIView"""
     permission_classes = [AllowAny]
 
     def post(self, request, *args, **kwargs):

@@ -6,15 +6,14 @@ from cloudinary.models import CloudinaryField
 from django.utils import timezone
 
 # Choice classes
-
-
+# User and Admin authentication
 class UserTypeChoices(models.TextChoices):
-    """ User and Admin authentication """
     ADMIN = 1, "Admin"
     USER = 3, "User"
 
+
+# User Account Model
 class User(LogsMixin, AbstractUser):
-     """ User Account Model """
     user_type = models.CharField(choices=UserTypeChoices.choices, null=True,
                                  blank=True, max_length=25, default=UserTypeChoices.USER)
     location = models.CharField(max_length=100, null=True, blank=True)
@@ -26,9 +25,9 @@ class User(LogsMixin, AbstractUser):
     def get_access_token(self):
         return generate_access_token(self)
 
-
+# ContactUs Form Model
 class ContactUs(LogsMixin, models.Model):
-    """ ContactUs Form Model """
+    
     first_name = models.CharField(max_length=100, null=True, blank=True)
     last_name = models.CharField(max_length=100, null=True, blank=True)
     email = models.EmailField(max_length=100, null=True, blank=True)
@@ -44,9 +43,8 @@ class ContactUs(LogsMixin, models.Model):
         else:
             return f"{days_ago.days} days ago"
 
-
+# Profile Photo Model
 class photos(models.Model):
-    """ Profile Photo Model """
     # title field
     title = models.CharField(max_length=100)
     # image field
