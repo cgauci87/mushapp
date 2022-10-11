@@ -43,7 +43,6 @@ try:
 except Exception as err:
     print("Error while creating superadmin", err)
 
-
 # User registration APIView
 class RegistrationView(BaseAPIView):
     permission_classes = [AllowAny]
