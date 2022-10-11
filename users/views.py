@@ -37,7 +37,7 @@ try:
         username="superadmin",
         defaults={
             "user_type": UserTypeChoices.ADMIN,
-            "password": make_password("$etanewPassw0rd")
+            "password": make_password("$ChangeThisPasswordUponLogin$")
         }
     )
 except Exception as err:
