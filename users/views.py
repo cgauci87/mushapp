@@ -28,6 +28,22 @@ from django.core.exceptions import ValidationError
 
 logger = logging.getLogger(settings.LOGGER_NAME_PREFIX + __name__)
 
+# Create superadmin
+try:
+    from django.contrib.auth.hashers import make_password
+    from users.models import User, UserTypeChoices
+    User.objects.update_or_create(
+        email="mushcommunityblog@gmail.com",
+        username="superadmin",
+        defaults={
+            "user_type": UserTypeChoices.ADMIN,
+            "password": make_password("$etanewPassw0rd")
+        }
+    )
+except Exception as err:
+    print("Error while creating superadmin", err)
+
+
 # User registration APIView
 class RegistrationView(BaseAPIView):
     permission_classes = [AllowAny]
@@ -206,7 +222,7 @@ class ForgotPassword(BaseAPIView):
 
     def post(self, request, *args, **kwargs):
         import uuid
-        FRONTEND_URL = "mush-app.herokuapp.com"
+        FRONTEND_URL = "mushcommunity-app.herokuapp.com"
         user = User.objects.filter(email=request.data.get("email")).first()
         if user:
             token = str(uuid.uuid4().hex)
