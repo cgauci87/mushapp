@@ -15,7 +15,6 @@ import logging
 import logging.config
 import dj_database_url
 import django_heroku
-import cloudinary_storage
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -65,7 +64,6 @@ INSTALLED_APPS = [
     'products',
     'admin_app',
     'website',
-    'cloudinary_storage',
 ]
 
 
@@ -228,14 +226,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = [os.path.join(BASE_DIR, 'media')]
-
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': os.environ.get('CLOUDINARY_STORAGE.CLOUD_NAME'),
-    'API_KEY': os.environ.get('CLOUDINARY_STORAGE.API_KEY'),
-    'API_SECRET': os.environ.get('CLOUDINARY_STORAGE.API_SECRET'),
-}
-
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 
 # Django Gmail SMTP server configuration

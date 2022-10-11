@@ -59,6 +59,3 @@ class ProductReview(LogsMixin):
             return "Yesterday"
         else:
             return f"{days_ago.days} days ago"
-
-class Photo(models.Model):
-    image = models.ImageField(upload_to="images/")

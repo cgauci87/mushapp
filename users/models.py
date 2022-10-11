@@ -2,7 +2,6 @@ from django.db import models
 from baselayer.basemodels import LogsMixin
 from django.contrib.auth.models import AbstractUser
 from baselayer.baseauthentication import generate_access_token
-from cloudinary.models import CloudinaryField
 from django.utils import timezone
 
 # Choice classes
@@ -43,9 +42,3 @@ class ContactUs(LogsMixin, models.Model):
         else:
             return f"{days_ago.days} days ago"
 
-# Profile Photo Model
-class photos(models.Model):
-    # title field
-    title = models.CharField(max_length=100)
-    # image field
-    image = CloudinaryField('image')
