@@ -28,14 +28,9 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-development = os.environ.get('DEVELOPMENT', True)
-DEBUG = development
+DEBUG = False
 
-ALLOWED_HOSTS = [os.environ.get('HEROKU_HOSTNAME')]
-if development:
-    ALLOWED_HOSTS = ['*']
-else:
-    ALLOWED_HOSTS = [os.environ.get('HEROKU_HOSTNAME')]
+ALLOWED_HOSTS = ['mushcommunity-app.herokuapp.com', 'localhost']
 
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_HEADERS = ["*"]
