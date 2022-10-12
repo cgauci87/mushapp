@@ -1,4 +1,4 @@
-var apiBaseUrl = "mushcommunity-app.herokuapp.com/"; //BaseURL
+var apiBaseUrl = "mushcommunity-app.herokuapp.com"; //BaseURL
 var userRegistrationUrl = apiBaseUrl + "/users/registration/"; // Sign Up API URL
 var userLoginUrl = apiBaseUrl + "/users/sign-in/"; // Sign In API URL
 var productUrl = apiBaseUrl + "/products/get-all-products"; // Get all Products API URL
