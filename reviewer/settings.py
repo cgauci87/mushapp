@@ -29,11 +29,11 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 ALLOWED_HOSTS = ['mushcommunity-app.herokuapp.com', 'localhost']
-
 CORS_ORIGIN_ALLOW_ALL = True
+CSRF_TRUSTED_ORIGINS = ["mushcommunity-app.herokuapp.com",
+                        ]
 CORS_ALLOW_HEADERS = ["*"]
 
 CORS_ALLOW_METHODS = [
@@ -131,7 +131,7 @@ else:
     # Heroku database
     DATABASES = {
         'default': dj_database_url.parse(os.environ.get("DATABASE_URL")),
-        }
+    }
 
 
 # Password validation
