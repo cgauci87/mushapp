@@ -195,9 +195,6 @@ function loginUser() {
 // To pull data related to products , all mushroom types.
 function get_all_products_for_user() {
     var headers = {};
-    for (var i = 0; i < payload.length; i++) {
-        var product = payload[i]; // declare product
-    }
     $.ajax({ //using AJAX
         url: productUrl,
         type: 'GET',
@@ -210,7 +207,8 @@ function get_all_products_for_user() {
             // showing response message
             payload = resp.payload;
             console.log(payload);
-            for (var i = 0; i < payload.length; i++) { // Show All products in sliders 
+            for (var i = 0; i < payload.length; i++) {
+                var product = payload[i]; // Show All products in sliders including cloudinary media
                 $('#news-slider').append('<div class="post-slide"> <div class="post-img">src="' + product.image + '" alt="Image Description"><a href="#" class="over-layer"><i class="fa fa-link"></i></a></div><div class="post-content"><h3 class="post-title"><a href="#">' + payload[i].title + '</a></h3><p class="post-description">' + payload[i].description + '</p> <a onclick="save_product_id(' + payload[i].id + ')" class="read-more reveal-click-reishi">Reviews</a></div></div>');
                 $('#write_review_product_dropdown').append('<option value="' + payload[i].id + '">' + payload[i].title + '</option>'); // show all product in write review dropdown
             }
