@@ -34,7 +34,7 @@ ALLOWED_HOSTS = ['mushcommunity-app.herokuapp.com', 'localhost']
 CORS_ORIGIN_ALLOW_ALL = True
 CSRF_TRUSTED_ORIGINS = ["mushcommunity-app.herokuapp.com",
                         ]
-CORS_ALLOW_HEADERS = ["*"]
+CORS_ALLOW_HEADERS = ["authorization"]
 
 CORS_ALLOW_METHODS = [
     "DELETE",
