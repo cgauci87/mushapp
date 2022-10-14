@@ -194,12 +194,13 @@ function loginUser() {
 }
 // To pull data related to products , all mushroom types.
 function get_all_products_for_user() {
-    var token = getCookie("token"); // Get the token from cookie which was stored on login, the token will use for futher APIs
     var headers = {};
+    for (var i = 0; i < payload.length; i++) {
+        var product = payload[i]; // declare product
+    }
     $.ajax({ //using AJAX
         url: productUrl,
         type: 'GET',
-        // contentType, dataType & headers are used to call the API , js
         contentType: 'application/json',
         dataType: 'json',
         headers: headers,
