@@ -621,7 +621,7 @@ function approval_of_all_reviews(status) {
     });
 }
 
-// getting user profile api
+// getting user profile api - wip
 function get_user_profile() {
     var token = getCookie("token");
     var headers = {
