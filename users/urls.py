@@ -7,6 +7,8 @@ from users.views import (
     ChangeCurrentPasswordView,
     ForgotPassword
 )
+from django.conf.urls.static import static
+from django.conf import settings
 
 """ User Controls """
 urlpatterns = [
