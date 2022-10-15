@@ -648,7 +648,7 @@ function get_user_profile() {
             if (payload.profile_image != "") {
                 $("#imagePreview").css(
                     "background-image",
-                    "url(" + apiBaseUrl + "/media/" + payload.profile_image + ")"
+                    "url(" + payload.profile_image + ")" // wip
                 );
                 $("#imagePreview").hide();
                 $("#imagePreview").fadeIn(650);
