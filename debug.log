@@ -1,8 +1,0 @@
-inside of custom exception handler.
- context: {'view': <users.views.UserProfile object at 0x7f3e703b4a30>, 'args': (), 'kwargs': {}, 'request': <rest_framework.request.Request: GET '/users/profile'>}
- exception: Token prefix missing
- response: <Response status_code=403, "text/html; charset=utf-8">
-inside of custom exception handler.
- context: {'view': <users.views.UserProfile object at 0x7fc6251dd370>, 'args': (), 'kwargs': {}, 'request': <rest_framework.request.Request: GET '/users/profile'>}
- exception: Token prefix missing
- response: <Response status_code=403, "text/html; charset=utf-8">

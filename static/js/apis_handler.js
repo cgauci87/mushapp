@@ -461,7 +461,7 @@ function get_product_detail() {
 
                 // Showing users review, skills, country, comment and user detail
                 if (payload.user_reviews[i].profile_image != "") {
-                    user_image = apiBaseUrl + "/media/" + payload.user_reviews[i].profile_image;
+                    user_image = payload.user_reviews[i].profile_image;
                 } else {
                     user_image = ("/static/images/user-default-avatar.png");
                 }
@@ -648,7 +648,7 @@ function get_user_profile() {
             if (payload.profile_image != "") {
                 $("#imagePreview").css(
                     "background-image",
-                    "url(" + apiBaseUrl+"/media/"+payload.profile_image + ")"
+                    "url("+payload.profile_image + ")"
                 );
                 $("#imagePreview").hide();
                 $("#imagePreview").fadeIn(650);
