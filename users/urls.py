@@ -17,3 +17,4 @@ urlpatterns = [
     path("change-password", ChangeCurrentPasswordView.as_view(), name="change-password"),
     path("forgot-password", ForgotPassword.as_view(), name="forgot-password"),
 ]
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
