@@ -521,7 +521,6 @@ function logout() {
     setCookie("product_id", "", 365)
     setCookie("rating", "", 365)
     setCookie("user_type", "", 365)
-    setCookie("profile_image", "", 365)
     setCookie("edit_product_id", "", 365)
     alert("Logout Successfully.")
 }
@@ -715,7 +714,7 @@ function update_profile() {
         "location": location,
         "skill_level": skill_level
     }
-    data.profile_image = getCookie("profile_image");
+    
     $.ajax({ //using AJAX
         url: userProfileUrl,
         type: 'PATCH',
