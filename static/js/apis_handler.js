@@ -738,15 +738,14 @@ function update_profile() {
     });
 }
 
-//convert image into base64
-function getBaseUrl() {
+// upload profile photo
+function upload_profile_photo() {
     var token = getCookie("token");
     var headers = {
         'Authorization': 'Token ' + token //Authentication - to verify the user login using token from cookies and provide security for the API
     };
-    var file = document.querySelector('input[type=file]')['files'][0];
     var fd = new FormData();
-    fd.append('profile_image', file);
+    fd.append('image', $('#profile-photo')[0].files[0]);
     $.ajax({
         url: userProfileUrl,
         data: fd,
