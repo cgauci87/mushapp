@@ -653,7 +653,7 @@ function get_user_profile() {
                 reader.onload = function (e) {
                     $("#imagePreview").css(
                         "background-image",
-                        "url(" + e.target.result + ")"
+                        "url(" + payload.profile_image + ")"
                     );
                     $("#imagePreview").hide();
                     $("#imagePreview").fadeIn(650);
