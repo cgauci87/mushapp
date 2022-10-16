@@ -647,9 +647,9 @@ function get_user_profile() {
             $('#profile_skill_level').append('Skill Level: ' + payload.skill_level);
             if (payload.profile_image != "") {
                 $("#imagePreview").css(
-                    "background-image",
-                    "url("+payload.profile_image + ")"
+                    "background-image"
                 );
+                $('#imagePreview').append('<img src="' + payload.profile_image + '" alt="Profile Photo">');
                 $("#imagePreview").hide();
                 $("#imagePreview").fadeIn(650);
             }
