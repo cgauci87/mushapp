@@ -209,7 +209,7 @@ function get_all_products_for_user() {
             console.log(payload);
             for (var i = 0; i < payload.length; i++) {
                 var product = payload[i]; // Show All products in sliders including images of cloudinary media uploaded by admin
-                $('#news-slider').append('<div class="post-slide"> <div class="post-img"><img src="' + product.image + '"alt="Mushroom Image"> <a href="#" class="over-layer"><i class="fa fa-link"></i></a></div><div class="post-content"><h3 class="post-title"><a href="#">' + payload[i].title + '</a></h3><p class="post-description">' + payload[i].description + '</p> <a onclick="save_product_id('+payload[i].id+')" class="read-more reveal-click-reishi">Reviews</a></div></div>');
+                $('#news-slider').append('<div class="post-slide"> <div class="post-img"><img src="' + product.image + '"alt="Mushroom Image"> <a href="#" class="over-layer"><i class="fa fa-link"></i></a></div><div class="post-content"><h3 class="post-title"><a href="#">' + payload[i].title + '</a></h3><p class="post-description">' + payload[i].description + '</p> <a onclick="save_product_id(' + payload[i].id + ')" class="read-more reveal-click-reishi">Reviews</a></div></div>');
                 $('#write_review_product_dropdown').append('<option value="' + payload[i].id + '">' + payload[i].title + '</option>'); // show all product in write review dropdown
             }
         },
@@ -649,9 +649,15 @@ function get_user_profile() {
                 $("#imagePreview").css(
                     "background-image"
                 );
-                $('#imagePreview').append('<img src="' + e.target.result + '" alt="Profile Photo">');
-                $("#imagePreview").hide();
-                $("#imagePreview").fadeIn(650);
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $("#imagePreview").css(
+                        "background-image",
+                        "url(" + e.target.result + ")"
+                    );
+                    $("#imagePreview").hide();
+                    $("#imagePreview").fadeIn(650);
+                };
             }
             $("#uf_first_name").val(payload.first_name);
             $("#uf_last_name").val(payload.last_name);
