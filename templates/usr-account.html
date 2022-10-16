@@ -715,7 +715,7 @@
         reader.onload = function (e) {
           $("#imagePreview").css(
             "background-image",
-            "url(" + payload.profile_image + ")"
+            "url(" + e.target.result + ")"
           );
           $("#imagePreview").hide();
           $("#imagePreview").fadeIn(650);

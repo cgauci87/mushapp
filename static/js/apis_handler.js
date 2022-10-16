@@ -621,7 +621,7 @@ function approval_of_all_reviews(status) {
     });
 }
 
-// getting user profile api - wip
+// getting user profile api
 function get_user_profile() {
     var token = getCookie("token");
     var headers = {
@@ -647,17 +647,11 @@ function get_user_profile() {
             $('#profile_skill_level').append('Skill Level: ' + payload.skill_level);
             if (payload.profile_image != "") {
                 $("#imagePreview").css(
-                    "background-image"
+                    "background-image",
+                    "url(" + apiBaseUrl + "/media/" + payload.profile_image + ")"
                 );
-                var reader = new FileReader();
-                reader.onload = function (e) {
-                    $("#imagePreview").css(
-                        "background-image",
-                        "url(" + payload.profile_image + ")"
-                    );
-                    $("#imagePreview").hide();
-                    $("#imagePreview").fadeIn(650);
-                };
+                $("#imagePreview").hide();
+                $("#imagePreview").fadeIn(650);
             }
             $("#uf_first_name").val(payload.first_name);
             $("#uf_last_name").val(payload.last_name);
