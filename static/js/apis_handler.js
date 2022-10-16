@@ -649,7 +649,7 @@ function get_user_profile() {
                 $("#imagePreview").css(
                     "background-image"
                 );
-                $('#imagePreview').append('<img src="' + payload.profile_image + '" alt="Profile Photo">');
+                $('#imagePreview').append('<img src="' + e.target.result + '" alt="Profile Photo">');
                 $("#imagePreview").hide();
                 $("#imagePreview").fadeIn(650);
             }
