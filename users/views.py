@@ -29,6 +29,8 @@ from django.core.exceptions import ValidationError
 logger = logging.getLogger(settings.LOGGER_NAME_PREFIX + __name__)
 
 # User registration APIView
+
+
 class RegistrationView(BaseAPIView):
     permission_classes = [AllowAny]
     serializer_class = RegistrationSerializer
@@ -53,7 +55,18 @@ class RegistrationView(BaseAPIView):
         )
 
 
+# Profile Photo
+
+
+    def profilephoto(request):
+        if 'image' in request.POST:
+            image = request.FILES['image']
+            user.profile_image = image
+            user.save()
+
 # User Sign in APIView
+
+
 class SignInView(BaseAPIView):
     permission_classes = [AllowAny]
 
