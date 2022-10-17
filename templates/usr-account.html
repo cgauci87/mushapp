@@ -349,6 +349,7 @@
       <div class="form-holder">
         <div class="profile-photo position-relative">
           <form method='post' action='{%url users.views.profilephoto %}'>
+            {% csrf_token %}
             <div class="avatar-upload position-absolute top-50 start-50 translate-middle">
               <div class="avatar-edit">
                 <input type="file" id="imageUpload" name="image">
