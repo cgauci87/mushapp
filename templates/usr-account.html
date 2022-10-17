@@ -353,7 +353,7 @@
             {{ ProfilePhotoForm }}
             <div class="avatar-upload position-absolute top-50 start-50 translate-middle">
               <div class="avatar-edit">
-                <input type="file" id="imageUpload" name="image">
+                <input type="file" id="imageUpload" onchange="getBaseUrl()" name="image" />
               </div>
               <label for="imageUpload"></label>
           </form>
