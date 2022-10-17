@@ -225,6 +225,8 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 # MEDIA STORAGE
 
 MEDIA_URL = '/media/'
+MEDIA_DIR = BASE_DIR / 'media'
+MEDIA_ROOT = MEDIA_DIR
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 CLOUDINARY_STORAGE = {

@@ -7,6 +7,8 @@ from users.views import (
     ChangeCurrentPasswordView,
     ForgotPassword
 )
+from django.conf.urls.static import static
+from django.conf import settings
 
 """ User Controls """
 urlpatterns = [
@@ -14,7 +16,7 @@ urlpatterns = [
     path("sign-in/", SignInView.as_view(), name="sign-in-user"),
     path("profile", UserProfile.as_view(), name="User profile"),
     path("contact-us", ContactUsAPIView.as_view(), name="contact-us"),
-    path("change-password", ChangeCurrentPasswordView.as_view(),
-         name="change-password"),
+    path("change-password", ChangeCurrentPasswordView.as_view(), name="change-password"),
     path("forgot-password", ForgotPassword.as_view(), name="forgot-password"),
 ]
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
