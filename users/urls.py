@@ -19,6 +19,6 @@ urlpatterns = [
     path("contact-us", ContactUsAPIView.as_view(), name="contact-us"),
     path("change-password", ChangeCurrentPasswordView.as_view(), name="change-password"),
     path("forgot-password", ForgotPassword.as_view(), name="forgot-password"),
-    path("profilephoto", ProfilePhotoView.as_view(), name="profile-photo"),
+    path("", ProfilePhotoView.as_view(), name="profile-photo"),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
