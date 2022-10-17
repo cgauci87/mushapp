@@ -5,8 +5,7 @@ from users.views import (
     UserProfile,
     ContactUsAPIView,
     ChangeCurrentPasswordView,
-    ForgotPassword,
-    ProfilePhotoView
+    ForgotPassword
 )
 from django.conf.urls.static import static
 from django.conf import settings
@@ -19,6 +18,5 @@ urlpatterns = [
     path("contact-us", ContactUsAPIView.as_view(), name="contact-us"),
     path("change-password", ChangeCurrentPasswordView.as_view(), name="change-password"),
     path("forgot-password", ForgotPassword.as_view(), name="forgot-password"),
-    path("profile-photo", ProfilePhotoView.as_view(), name="profile-photo"),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
