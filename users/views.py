@@ -57,10 +57,14 @@ class RegistrationView(BaseAPIView):
 
 # Profile Photo
 
+class ProfilePhotoView(BaseAPIView):
+    permission_classes = [IsAuthenticated]
+    authentication_classes = [JWTAuthentication]
+
     def profilephoto(request):
         if 'image' in request.POST:
-            image = request.POST.get('image')
-            user.profile_image.url = image
+            image = request.FILES['image']
+            user.profile_image = image
             user.save()
 
 
