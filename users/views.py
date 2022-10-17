@@ -57,12 +57,12 @@ class RegistrationView(BaseAPIView):
 
 # Profile Photo
 
-
     def profilephoto(request):
         if 'image' in request.POST:
-            image = request.FILES['image']
-            user.profile_image = image
+            image = request.POST.get('image')
+            user.profile_image.url = image
             user.save()
+
 
 # User Sign in APIView
 
