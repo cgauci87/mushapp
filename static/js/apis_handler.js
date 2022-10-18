@@ -647,7 +647,7 @@ function get_user_profile() {
             if (payload.profile_image != "") {
                 $("#imagePreview").css(
                     "background-image",
-                    "url(" + payload.profile_image + ")" // wip
+                    "url(https://res.cloudinary.com/diudkwkuw/image/upload/v1/" + payload.profile_image + ")" // wip
                 );
                 $("#imagePreview").hide();
                 $("#imagePreview").fadeIn(650);
