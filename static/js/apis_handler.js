@@ -461,7 +461,7 @@ function get_product_detail() {
 
                 // Showing users review, skills, country, comment and user detail
                 if (payload.user_reviews[i].profile_image != "") {
-                    user_image = payload.user_reviews[i].profile_image;
+                    user_image = 'https://res.cloudinary.com/diudkwkuw/image/upload/v1/'  + payload.user_reviews[i].profile_image;
                 } else {
                     user_image = ("/static/images/user-default-avatar.png");
                 }
