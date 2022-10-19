@@ -30,7 +30,6 @@ logger = logging.getLogger(settings.LOGGER_NAME_PREFIX + __name__)
 
 # User registration APIView
 
-
 class RegistrationView(BaseAPIView):
     permission_classes = [AllowAny]
     serializer_class = RegistrationSerializer

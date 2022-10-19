@@ -15,6 +15,9 @@ import logging
 import logging.config
 import dj_database_url
 import django_heroku
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -129,28 +132,36 @@ if os.environ.get("DEVELOPMENT") == "True":
             'NAME': BASE_DIR / 'db.sqlite3',
         }
     }
+
+    DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
 else:
     # Heroku database
     DATABASES = {
         'default': dj_database_url.parse(os.environ.get("DATABASE_URL")),
     }
 
+    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+
+# Password validation
+# https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
-    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-        'OPTIONS': {
-            'min_length': 12, }
-     },
-    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator', },
-    {'NAME': 'reviewer.auth.validators.NumberValidator',
-        'OPTIONS': {
-            'min_digits': 3, }},
-    {'NAME': 'reviewer.auth.validators.UppercaseValidator', },
-    {'NAME': 'reviewer.auth.validators.LowercaseValidator', },
-    {'NAME': 'reviewer.auth.validators.SymbolValidator', },
+    {
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    },
 ]
 
 # Internationalization
@@ -225,14 +236,12 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 # MEDIA STORAGE
 
 MEDIA_URL = '/media/'
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': os.environ.get('CLOUDINARY_STORAGE.CLOUD_NAME'),
     'API_KEY': os.environ.get('CLOUDINARY_STORAGE.API_KEY'),
     'API_SECRET': os.environ.get('CLOUDINARY_STORAGE.API_SECRET'),
-    'CLOUDINARY_URL': os.environ.get('CLOUDINARY_STORAGE.CLOUDINARY_URL'),
 }
 
 # Default primary key field type
