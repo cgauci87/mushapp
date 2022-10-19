@@ -28,6 +28,7 @@ from django.core.exceptions import ValidationError
 
 logger = logging.getLogger(settings.LOGGER_NAME_PREFIX + __name__)
 
+
 # User registration APIView
 
 class RegistrationView(BaseAPIView):

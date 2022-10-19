@@ -461,7 +461,7 @@ function get_product_detail() {
 
                 // Showing users review, skills, country, comment and user detail
                 if (payload.user_reviews[i].profile_image != "") {
-                    user_image = 'https://res.cloudinary.com/diudkwkuw/image/upload/v1/'  + payload.user_reviews[i].profile_image;
+                    user_image = 'https://res.cloudinary.com/diudkwkuw/image/upload/v1/' + payload.user_reviews[i].profile_image;
                 } else {
                     user_image = ("/static/images/user-default-avatar.png");
                 }
@@ -647,7 +647,7 @@ function get_user_profile() {
             if (payload.profile_image != "") {
                 $("#imagePreview").css(
                     "background-image",
-                    "url(https://res.cloudinary.com/diudkwkuw/image/upload/v1/" + payload.profile_image + ")" // wip
+                    "url(https://res.cloudinary.com/diudkwkuw/image/upload/v1/" + payload.profile_image + ")"
                 );
                 $("#imagePreview").hide();
                 $("#imagePreview").fadeIn(650);
@@ -714,7 +714,7 @@ function update_profile() {
         "location": location,
         "skill_level": skill_level
     }
-    
+
     $.ajax({ //using AJAX
         url: userProfileUrl,
         type: 'PATCH',
@@ -890,7 +890,7 @@ function get_products() {
                             '</td>' +
                             '<td class="table-column-pl-0">' +
                             '<a class="media align-items-center">' +
-                            '<img class="avatar avatar-lg mr-3" src="' + product.image + '" alt="Image Description">' +
+                            '<img class="rounded-circle mr-3" src="' + product.image + '" alt="Image Description" style="width: 100px;">' +
                             '<div class="media-body">' +
                             '<h5 class="text-hover-primary mb-0">' + product.title + '</h5>' +
                             '</div>' +
@@ -904,6 +904,7 @@ function get_products() {
                             '</span>' +
                             '</label>' +
                             '</td>' +
+                            '<td>' + product.created_at + '</td>' +
                             '<td>' +
                             '<div class="btn-group" role="group">' +
                             '<a href="edit-product.html" onclick="save_product_id_for_editing(' + product.id + ')" class="btn btn-sm btn-white">' +

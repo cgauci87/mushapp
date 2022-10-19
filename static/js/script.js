@@ -64,3 +64,4 @@ $(document).ready(function () {
         $("#testimonials-goldenoyster").get(0).scrollIntoView();
     });
 });
+
