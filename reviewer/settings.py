@@ -232,6 +232,7 @@ CLOUDINARY_STORAGE = {
     'CLOUD_NAME': os.environ.get('CLOUDINARY_STORAGE.CLOUD_NAME'),
     'API_KEY': os.environ.get('CLOUDINARY_STORAGE.API_KEY'),
     'API_SECRET': os.environ.get('CLOUDINARY_STORAGE.API_SECRET'),
+    'CLOUDINARY_URL': os.environ.get('CLOUDINARY_STORAGE.CLOUDINARY_URL'),
 }
 
 # Default primary key field type
