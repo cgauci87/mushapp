@@ -10,7 +10,6 @@ from datetime import datetime
 
 logger = logging.getLogger(settings.LOGGER_NAME_PREFIX + __name__)
 
-
 # Registration Serializer using ModelSerializer to automatically generate a set of fields based on User model
 class RegistrationSerializer(serializers.ModelSerializer):
     username = serializers.CharField(required=False)

@@ -298,6 +298,7 @@ function get_all_products_reviews_for_user() {
                         '<td><button type="button" class="btn btn-danger" onclick="approve_or_disapprove_review(' + payload[i].id + ',' + 2 + ')">Reject</button></td>' +
                         '</tr>'
                     )
+
                 }
             },
             error: function (resp) {

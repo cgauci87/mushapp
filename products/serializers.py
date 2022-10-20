@@ -4,7 +4,7 @@ from products.models import Product, ProductReview, ProductApprovalStatusChoices
 # Product Serializer using ModelSerializer to automatically generate a set of fields based on Product model
 class ProductSerializer(serializers.ModelSerializer):
     created_by = serializers.CharField(default=serializers.CurrentUserDefault())
-    created_at = serializers.DateTimeField(format='%m/%d/%y %H:%M')
+    created_at = serializers.DateTimeField(format='%d/%m/%y %H:%M')
 
     class Meta:
         model = Product
@@ -109,6 +109,8 @@ class ProductDetailSerializer(serializers.ModelSerializer):
 # Product Review Serializer using ModelSerializer
 class ProductReviewSerializer(serializers.ModelSerializer):
     review_by = serializers.HiddenField(default=serializers.CurrentUserDefault())
+    created_at = serializers.DateTimeField(format='%d/%m/%y %H:%M')
+
 
     class Meta:
         model = ProductReview
