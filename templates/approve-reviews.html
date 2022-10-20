@@ -5,139 +5,42 @@
 {% block content %}
 
 <head>
-  <title>Mush! - My Account</title>
-  <!--Bootstrap CSS-->
+  <!-- Title -->
+  <title>Mush! - Product Review Pending List</title>
+
+  <!-- CSS-->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
   <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
-  <!--Font Awesome -->
-  <script src="https://kit.fontawesome.com/de938dcd38.js" crossorigin="anonymous"></script>
-  <!--JS-->
-  <script src="{% static 'js/jquery.js' %}"></script>
-  <script src="{% static 'js/owl.carousel.min.js' %}"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-  <script src="{% static 'js/bootstrap.js' %}"></script>
-  <script src="{% static 'js/apis_handler.js' %}"></script>
-  <!--Styling-->
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
   <style>
-    body {
-      padding: 0;
-      margin: 0;
-    }
-
-    .wrapper {
-      margin: 100px 10px;
-    }
-
-    table {
-      width: 100%;
-    }
-
-    .radio-toolbar input[type="radio"] {
-      opacity: 0;
-      position: fixed;
-      width: 0;
-    }
-
-    .radio-toolbar label {
-      display: inline-block;
-      background-color: #ddd;
-      padding: 4px 12px;
-      font-family: sans-serif, Arial;
-      font-size: 14px;
-      border: 2px solid #444;
-    }
-
-    .radio-toolbar label:first-of-type {
-      border-top-left-radius: 10px;
-      border-bottom-left-radius: 10px;
-    }
-
-    .radio-toolbar label:nth-of-type(2) {
-      position: relative;
-      left: -6px;
-    }
-
-    .radio-toolbar label:last-of-type {
-      border-top-right-radius: 10px;
-      border-bottom-right-radius: 10px;
-      position: relative;
-      left: -12px;
-    }
-
-    td:first-child i {
-      visibility: hidden;
-    }
-
-    td:first-child:hover i {
-      visibility: visible;
-    }
-
-    td:first-child a {
-      display: block;
-      width: 100%;
-      height: 100%;
-    }
-
-    i.fas {
-      margin-right: 3px;
-    }
-
-    .radio-toolbar label:hover {
-      background-color: #dfd;
-    }
-
-    .radio-toolbar input[type="radio"]:checked+label {
-      background-color: #bfb;
-      border-color: #4c4;
-    }
-
-    a {
-      text-decoration: none;
-      color: black;
-    }
-
-    button {
-      padding: 6px 20px;
-      border-radius: 5px;
-      transition: all 100ms ease-in-out;
-    }
-
-    button:hover {
-      background-color: #dfd;
-      font-size: 1rem;
-      font-weight: bold;
-    }
-
-    #changesCount {
-      font-size: 0.7rem;
-      color: #474646;
-    }
-
-    .review-content {
-      width: 800px;
-      min-width: 100%;
-    }
-
     .footer {
       display: none;
     }
   </style>
+  <!--JS-->
+  <script src="{% static 'js/jquery.js' %}"></script>
+  <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+  <script src="{% static 'js/bootstrap.js' %}"></script>
+  <script src="{% static 'js/apis_handler.js' %}"></script>
 </head>
 
-<body>
-  <div class="wrapper">
-    <!--toolbar-->
-    <div class="radio-toolbar">
-      <input type="radio" id="approveAll" name="allReqs" value="approve" />
-      <label onclick="approval_of_all_reviews(1)" for="approveAll"><i class="fas fa-check-circle"></i> Approve
-        All</label>
 
-      <input type="radio" id="denyAll" name="allReqs" value="reject" />
-      <label onclick="approval_of_all_reviews(2)" for="denyAll"><i class="fas fa-times-circle"></i> Reject All</label>
+<body>
+  <div class="table-container">
+    <div class="table-wrapper">
+      <div class="table-title">
+        <div class="row">
+          <div class="col-sm-6">
+            <h2>All Pending Reviews</h2>
+          </div>
+        </div>
+      </div>
     </div>
-    <hr>
     <!--table displaying a list of pending reviews-->
-    <table class="table caption-top">
-      <caption>List of pending reviews</caption>
+    <table id="pending_reviews_datatable" class="table table-striped table-hover">
       <thead>
         <tr>
           <td>Date submitted</td>
@@ -145,9 +48,9 @@
           <td>Variety</td>
           <td>Review</td>
           <td>Rating</td>
-          <td>Decision</td>
-          <td>Approve</td>
-          <td>Disapprove</td>
+          <td>Status</td>
+          <td></td>
+          <td></td>
         </tr>
       </thead>
       <tbody id="pending_review_list_id">
@@ -156,8 +59,23 @@
 
     <script>
       // Call function to retrieve data of pending reviews
-
       get_all_products_reviews_for_user();
+    </script>
+
+    <script>
+      // Activate Pagination & Search
+      $(document).ready(function () {
+        $('#pending_reviews_datatable').DataTable({
+          pagingType: 'full_numbers',
+        });
+      });
+    </script>
+
+    <script>
+      // Activate tooltip
+      $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+      });
     </script>
 </body>
 

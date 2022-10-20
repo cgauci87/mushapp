@@ -108,7 +108,6 @@ function get_messages() {
                 console.log(resp);
                 // showing response message
                 payload = resp.payload;
-
                 console.log(payload);
                 $('#messages_list_table').empty();
                 if (payload.length > 0) {
@@ -117,20 +116,13 @@ function get_messages() {
                         var message = payload[i];
                         $("#messages_list_table").append(
                             '<tr>' +
-                            '<td class="table-column-pr-0">' +
-                            '<div class="custom-control">' +
-                            '<label class="" for=""></label>' +
-                            '</div>' +
-                            '</td>' +
                             '<td>' + message.created_at + '</td>' +
                             '<td>' + message.email + '</td>' +
                             '<td>' + message.first_name + '</td>' +
                             '<td>' + message.last_name + '</td>' +
                             '<td>' + message.message + '</td>' +
                             '<td>' +
-                            '<div class="btn-group" role="group">' +
-                            '<a onclick="delete_message(' + message.id + ')" class="btn btn-sm btn-danger">' +
-                            '<i class="tio-delete-outlined"></i> Delete' +
+                            '<a onclick="delete_message(' + message.id + ')" class="delete"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>' +
                             '</a>' +
                             '</div>' +
                             '</td>' +
@@ -270,6 +262,8 @@ function write_a_review() {
 }
 
 function get_all_products_reviews_for_user() {
+    
+    
     user_type = getCookie("user_type");
     user_token = getCookie("token");
 
@@ -300,10 +294,9 @@ function get_all_products_reviews_for_user() {
                         '<td>' + payload[i].comment + '</td>' +
                         '<td>' + payload[i].rating + '</td>' +
                         '<td>Pending</td>' +
-                        '<td><button onclick="approve_or_disapprove_review(' + payload[i].id + ',' + 1 + ')">Approve</button></td>' +
-                        '<td><button onclick="approve_or_disapprove_review(' + payload[i].id + ',' + 2 + ')">Disapprove</button></td>' +
+                        '<td><button type="button" class="btn btn-success" onclick="approve_or_disapprove_review(' + payload[i].id + ',' + 1 + ')">Approve</button></td>' +
+                        '<td><button type="button" class="btn btn-danger" onclick="approve_or_disapprove_review(' + payload[i].id + ',' + 2 + ')">Reject</button></td>' +
                         '</tr>'
-
                     )
                 }
             },
@@ -337,7 +330,6 @@ function save_rating(value) {
 
 // function is show the whole information regarding product, user review on it, average rating, 1,2,3,4 and 5 rating in percentage sepratly etc
 function get_product_detail() {
-    var token = getCookie("token");
     var headers = {};
     $.ajax({
         url: productDetailUrl + getCookie("product_id"),
@@ -883,16 +875,11 @@ function get_products() {
                         }
                         $("#product_list_table").append(
                             '<tr>' +
-                            '<td class="table-column-pr-0">' +
-                            '<div class="custom-control">' +
-                            '<label class="" for=""></label>' +
-                            '</div>' +
-                            '</td>' +
-                            '<td class="table-column-pl-0">' +
-                            '<a class="media align-items-center">' +
+                            '<td>' +
+                            '<a href="edit-product.html" onclick="save_product_id_for_editing(' + product.id + ')" class="media align-items-center">' +
                             '<img class="rounded-circle mr-3" src="' + product.image + '" alt="Image Description" style="width: 100px;">' +
-                            '<div class="media-body">' +
-                            '<h5 class="text-hover-primary mb-0">' + product.title + '</h5>' +
+                            '<div>' +
+                            '<h5 class="text-center">' + product.title + '</h5>' +
                             '</div>' +
                             '</a>' +
                             '</td>' +
@@ -904,14 +891,13 @@ function get_products() {
                             '</span>' +
                             '</label>' +
                             '</td>' +
+                            '<td>' + product.description + '</td>' +
                             '<td>' + product.created_at + '</td>' +
                             '<td>' +
                             '<div class="btn-group" role="group">' +
-                            '<a href="edit-product.html" onclick="save_product_id_for_editing(' + product.id + ')" class="btn btn-sm btn-white">' +
-                            '<i class="tio-edit"></i> Edit' +
+                            '<a href="edit-product.html" onclick="save_product_id_for_editing(' + product.id + ')" class="edit"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>' +
                             '</a>' +
-                            '<a onclick="delete_product(' + product.id + ')" class="btn btn-sm btn-danger">' +
-                            '<i class="tio-delete-outlined"></i> Delete' +
+                            '<a onclick="delete_product(' + product.id + ')" class="delete"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>' +
                             '</a>' +
                             '</div>' +
                             '</td>' +
@@ -963,15 +949,14 @@ function toggle_product(product_id) {
 
 
 
-function delete_product(product_id) {
+function delete_product(product_id) { // wip
 
     let text = "Are you sure you want to delete this product?\nAll reviews associated with this product would be deleted as well. This action cannot be undone.";
-    if (confirm(text) == true) {
+    if (confirm(text) == true) { 
         text = "Deleted"
     } else {
         return false
     }
-
 
     var headers = {
         'Authorization': 'Token ' + getCookie("token") //Authentication - to verify the user login using token from cookies and provide security for the API

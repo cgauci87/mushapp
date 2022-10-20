@@ -5,312 +5,77 @@
 {% block content %}
 
 <head>
-  <meta charset="UTF-8" />
+  <!-- Title -->
   <title>Mush! - Contact Us</title>
-  <!--Bootstrap CSS-->
-  <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
-  <!--Style-->
-  <style>
-    body {
-      box-sizing: border-box;
-      text-align: center;
-      height: 100%;
-      min-height: 100vh;
-      overflow-x: hidden;
-      margin-top: 100px;
-    }
 
+  <!-- CSS-->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+  <style>
     .footer {
       display: none;
     }
   </style>
-  <!--Font Awesome -->
-  <script src="https://kit.fontawesome.com/de938dcd38.js" crossorigin="anonymous"></script>
   <!--JS-->
   <script src="{% static 'js/jquery.js' %}"></script>
-  <script src="{% static 'js/owl.carousel.min.js' %}"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
   <script src="{% static 'js/bootstrap.js' %}"></script>
   <script src="{% static 'js/apis_handler.js' %}"></script>
 </head>
 
-<body class="has-navbar-vertical-aside navbar-vertical-aside-show-xl   footer-offset">
-  <main id="" role="main" class="">
-    <!-- Content -->
-    <div class="content container-fluid">
 
-      <!-- Nav Scroller -->
-      <div class="js-nav-scroller hs-nav-scroller-horizontal">
-
-
-        <!-- Table Nav -->
-        <ul class="nav nav-tabs page-header-tabs" id="pageHeaderTab" role="tablist">
-          <li class="nav-item">
-            <a class="nav-link active" href="#">All Messages</a>
-          </li>
-        </ul>
-        <!-- End Table Nav -->
-      </div>
-      <!-- End Nav Scroller -->
-    </div>
-    <!-- End Page Header -->
-
-    <div class="row justify-content-end mb-3">
-      <div class="col-lg">
-        <!-- Datatable Info -->
-        <div id="datatableCounterInfo" style="display: none;">
-          <div class="d-sm-flex justify-content-lg-end align-items-sm-center">
-            <span class="d-block d-sm-inline-block font-size-sm mr-3 mb-2 mb-sm-0">
-              <span id="datatableCounter">0</span>
-              Selected
-            </span>
-            <a class="btn btn-sm btn-outline-danger mb-2 mb-sm-0 mr-2" href="javascript:;">
-              <i class="tio-delete-outlined"></i> Delete
-            </a>
+<body>
+  <div class="table-container">
+    <div class="table-wrapper">
+      <div class="table-title">
+        <div class="row">
+          <div class="col-sm-6">
+            <h2>All Messages</h2>
           </div>
         </div>
-        <!-- End Datatable Info -->
       </div>
+      <table id="messages_datatable" class="table table-striped table-hover">
+        <thead class="thead-light">
+          <tr>
+            <th>Date Received</th>
+            <th>Email</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Message</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <!-- Display messages list START -->
+        <tbody id="messages_list_table">
+
+        </tbody>
+        <!-- Display messages list END -->
+      </table>
     </div>
-    <!-- End Row -->
+  </div>
 
-    <!-- Card -->
-    <div class="card">
-      <!-- Header -->
-
-      <!-- Table -->
-      <div class="table-responsive datatable-custom">
-        <table id="datatable"
-          class="table table-borderless table-thead-bordered table-nowrap table-align-middle card-table"
-          data-hs-datatables-options='{
-                     "columnDefs": [{
-                        "targets": [0, 4, 9],
-                        "width": "5%",
-                        "orderable": false
-                      }],
-                     "order": [],
-                     "info": {
-                       "totalQty": "#datatableWithPaginationInfoTotalQty"
-                     },
-                     "search": "#datatableSearch",
-                     "entries": "#datatableEntries",
-                     "pageLength": 12,
-                     "isResponsive": false,
-                     "isShowPaging": false,
-                     "pagination": "datatablePagination"
-                   }'>
-          <thead class="thead-light">
-            <tr>
-              <th scope="col" class="table-column-pr-0">
-                <div class="">
-                  <label class="" for=""></label>
-                </div>
-              </th>
-              <th>Date Received</th>
-              <th>Email</th>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Message</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-
-          <tbody id="messages_list_table">
-
-          </tbody>
-        </table>
-      </div>
-      <!-- End Table -->
-
-      <!-- Footer -->
-      <!-- End Footer -->
-    </div>
-    <!-- End Card -->
-    </div>
-    <!-- End Content -->
-
-
-
-
-    <!-- End Footer -->
-  </main>
-  <!-- ========== END MAIN CONTENT ========== -->
-
-
-  <!-- End Product Filter Modal -->
-  <!-- ========== END SECONDARY CONTENTS ========== -->
-
-  <!-- JS Global Compulsory  -->
-  <script src="{% static 'v2/vendor/jquery/dist/jquery.min.js' %}"></script>
-  <script src="{% static 'v2/vendor/jquery-migrate/dist/jquery-migrate.min.js' %}"></script>
-  <script src="{% static 'v2/vendor/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
-
-  <!-- JS Implementing Plugins -->
-  <script src="{% static 'v2/vendor/hs-navbar-vertical-aside/hs-navbar-vertical-aside.min.js' %}"></script>
-  <script src="{% static 'v2/vendor/hs-unfold/dist/hs-unfold.min.js' %}"></script>
-  <script src="{% static 'v2/vendor/hs-form-search/dist/hs-form-search.min.js' %}"></script>
-  <script src="{% static 'v2/vendor/hs-nav-scroller/dist/hs-nav-scroller.min.js' %}"></script>
-  <script src="{% static 'v2/vendor/select2/dist/js/select2.full.min.js' %}"></script>
-  <script src="{% static 'v2/vendor/datatables/media/js/jquery.dataTables.min.js' %}"></script>
-  <script src="{% static 'v2/vendor/datatables.net.extensions/select/select.min.js' %}"></script>
-  <script src="{% static 'v2/vendor/@yaireo/tagify/dist/tagify.min.js' %}"></script>
-
-
-  <!-- JS Front -->
-  <script src="{% static 'v2/js/theme.min.js' %}"></script>
-
-  <!-- Retrieve messages function-->
   <script>
+    // Get all messages so to be displayed in the datatable
     get_messages();
-    $(document).on('ready', function () {
-      // =======================================================
-
-
-      // BUILDER TOGGLE INVOKER
-      // =======================================================
-      $('.js-navbar-vertical-aside-toggle-invoker').click(function () {
-        $('.js-navbar-vertical-aside-toggle-invoker i').tooltip('hide');
-      });
-
-
-
-
-      // INITIALIZATION OF NAVBAR VERTICAL NAVIGATION
-      // =======================================================
-      var sidebar = $('.js-navbar-vertical-aside').hsSideNav();
-
-
-      // INITIALIZATION OF TOOLTIP IN NAVBAR VERTICAL MENU
-      // =======================================================
-      $('.js-nav-tooltip-link').tooltip({
-        boundary: 'window'
-      })
-
-      $(".js-nav-tooltip-link").on("show.bs.tooltip", function (e) {
-        if (!$("body").hasClass("navbar-vertical-aside-mini-mode")) {
-          return false;
-        }
-      });
-
-
-      // INITIALIZATION OF UNFOLD
-      // =======================================================
-      $('.js-hs-unfold-invoker').each(function () {
-        var unfold = new HSUnfold($(this)).init();
-      });
-
-
-      // INITIALIZATION OF FORM SEARCH
-      // =======================================================
-      $('.js-form-search').each(function () {
-        new HSFormSearch($(this)).init()
-      });
-
-
-      // INITIALIZATION OF NAV SCROLLER
-      // =======================================================
-      $('.js-nav-scroller').each(function () {
-        new HsNavScroller($(this)).init()
-      });
-
-
-      // INITIALIZATION OF SELECT2
-      // =======================================================
-      $('.js-select2-custom').each(function () {
-        var select2 = $.HSCore.components.HSSelect2.init($(this));
-      });
-
-
-      // INITIALIZATION OF DATATABLES
-      // ========================================================
-      var datatable = $.HSCore.components.HSDatatables.init($('#datatable'), {
-        select: {
-          style: 'multi',
-          selector: 'td:first-child input[type="checkbox"]',
-          classMap: {
-            checkAll: '#datatableCheckAll',
-            counter: '#datatableCounter',
-            counterInfo: '#datatableCounterInfo'
-          }
-        }
-      });
-
-      $('.js-datatable-filter').on('change', function () {
-        var $this = $(this),
-          elVal = $this.val(),
-          targetColumnIndex = $this.data('target-column-index');
-
-        datatable.column(targetColumnIndex).search(elVal).draw();
-      });
-
-      $('#datatableSearch').on('mouseup', function (e) {
-        var $input = $(this),
-          oldValue = $input.val();
-
-        if (oldValue == "") return;
-
-        setTimeout(function () {
-          var newValue = $input.val();
-
-          if (newValue == "") {
-            // Gotcha
-            datatable.search('').draw();
-          }
-        }, 1);
-      });
-
-      $('#toggleColumn_product').change(function (e) {
-        datatable.columns(1).visible(e.target.checked)
-      })
-
-      $('#toggleColumn_type').change(function (e) {
-        datatable.columns(2).visible(e.target.checked)
-      })
-
-      $('#toggleColumn_vendor').change(function (e) {
-        datatable.columns(3).visible(e.target.checked)
-      })
-
-      $('#toggleColumn_stocks').change(function (e) {
-        datatable.columns(4).visible(e.target.checked)
-      })
-
-      $('#toggleColumn_sku').change(function (e) {
-        datatable.columns(5).visible(e.target.checked)
-      })
-
-      $('#toggleColumn_price').change(function (e) {
-        datatable.columns(6).visible(e.target.checked)
-      })
-
-      $('#toggleColumn_quantity').change(function (e) {
-        datatable.columns(7).visible(e.target.checked)
-      })
-
-      $('#toggleColumn_variants').change(function (e) {
-        datatable.columns(8).visible(e.target.checked)
-      })
-
-
-      // INITIALIZATION OF TAGIFY
-      // =======================================================
-      $('.js-tagify').each(function () {
-        var tagify = $.HSCore.components.HSTagify.init($(this));
+  </script>
+  <script>
+    // Activate Pagination & Search
+    $(document).ready(function () {
+      $('#messages_datatable').DataTable({
+        pagingType: 'full_numbers',
       });
     });
   </script>
 
-  <!-- Navbar Vertical -->
-  <script src="{% static 'v2/vendor/hs-navbar-vertical-aside/hs-navbar-vertical-aside-mini-cache.js' %}"></script>
-
   <script>
-    //error message
-    $.fn.dataTable.ext.errMode = 'none';
-
-    $('#datatable').on('error.dt', function (e, settings, techNote, message) {
-      console.log('An error has been reported by DataTables: ', message);
-    }).DataTable();
-    $('#datatable').DataTable();
+    // Activate tooltip
+    $(document).ready(function () {
+      $('[data-toggle="tooltip"]').tooltip();
+    });
   </script>
 
 </body>
