@@ -36,6 +36,7 @@ class Product(LogsMixin):
 
 class ProductReview(LogsMixin):
     """ Product Review Model """
+    created_at = models.DateTimeField(auto_now_add=True)
     comment = models.TextField(blank=True, null=True)
     rating = models.FloatField(default=0.0)
     category = models.CharField(max_length=150, null=True, blank=True)
