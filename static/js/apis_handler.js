@@ -622,37 +622,36 @@ function get_user_profile() {
         'Authorization': 'Token ' + token //Authentication - to verify the user login using token from cookies and provide security for the API
     };
     $.ajax({ //using AJAX
-            url: userProfileUrl,
-            type: 'GET',
-            // contentType, dataType & headers are used to call the API , js
-            contentType: 'application/json',
-            dataType: 'json',
-            headers: headers,
-            async: false,
-            success: function (resp) {
-                console.log(resp);
-                // showing response message
-                payload = resp.payload;
+        url: userProfileUrl,
+        type: 'GET',
+        // contentType, dataType & headers are used to call the API , js
+        contentType: 'application/json',
+        dataType: 'json',
+        headers: headers,
+        async: false,
+        success: function (resp) {
+            console.log(resp);
+            // showing response message
+            payload = resp.payload;
 
-                $('#profile_usename').append('@' + payload.username);
-                $('#profile_email').append(payload.email);
-                $('#profile_location').append('Location: ' + payload.location);
-                $('#profile_name').append(payload.name);
-                $('#profile_skill_level').append('Skill Level: ' + payload.skill_level);
-                if (payload.profile_image != "") {
-                    $("#imagePreview").css(
-                        "background-image",
+            $('#profile_usename').append('@' + payload.username);
+            $('#profile_email').append(payload.email);
+            $('#profile_location').append('Location: ' + payload.location);
+            $('#profile_name').append(payload.name);
+            $('#profile_skill_level').append('Skill Level: ' + payload.skill_level);
+            if (payload.profile_image != "") {
+                $("#imagePreview").css(
+                    "background-image",
                     // Show uploaded image of the user
 
-                        "url(https://res.cloudinary.com/diudkwkuw/image/upload/v1/" + payload.profile_image + ")"
-                    );
-                } else {
-                    // Show static image as a default if user has not uploaded his/her image
-                    user_image = ("https://res.cloudinary.com/diudkwkuw/image/upload/v1666370872/static/images/user-default-avatar.png");
-                }
-                $("#imagePreview").hide();
-                $("#imagePreview").fadeIn(650);
+                    "url(https://res.cloudinary.com/diudkwkuw/image/upload/v1/" + payload.profile_image + ")");
+            } else {
+                // Show static image as a default if user has not uploaded his/her image
+                profile_image = ("https://res.cloudinary.com/diudkwkuw/image/upload/v1666370872/static/images/user-default-avatar.png");
             }
+            $("#imagePreview").hide();
+            $("#imagePreview").fadeIn(650);
+
             $("#uf_first_name").val(payload.first_name);
             $("#uf_last_name").val(payload.last_name);
             $("#uf_email").val(payload.email);
