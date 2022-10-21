@@ -20,7 +20,7 @@ class User(LogsMixin, AbstractUser):
     location = models.CharField(max_length=100, null=True, blank=True)
     skill_level = models.CharField(max_length=100, null=True, blank=True)
     profile_image = models.ImageField(
-        upload_to="users/", default="static/images/user-default-avatar.png")
+        upload_to="users/")
     reset_password_token = models.CharField(
         max_length=100, null=True, blank=True)
 

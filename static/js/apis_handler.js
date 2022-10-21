@@ -262,8 +262,8 @@ function write_a_review() {
 }
 
 function get_all_products_reviews_for_user() {
-    
-    
+
+
     user_type = getCookie("user_type");
     user_token = getCookie("token");
 
@@ -454,9 +454,11 @@ function get_product_detail() {
 
                 // Showing users review, skills, country, comment and user detail
                 if (payload.user_reviews[i].profile_image != "") {
+                    // Show uploaded image of the user
                     user_image = 'https://res.cloudinary.com/diudkwkuw/image/upload/v1/' + payload.user_reviews[i].profile_image;
                 } else {
-                    user_image = ("/static/images/user-default-avatar.png");
+                    // Show static image as a default if user has not uploaded his/her image
+                    user_image = ("https://res.cloudinary.com/diudkwkuw/image/upload/v1666370872/static/images/user-default-avatar.png");
                 }
                 $('#users-testimonial-box').append(
                     '<div class="testimonial-box">' +
@@ -620,28 +622,34 @@ function get_user_profile() {
         'Authorization': 'Token ' + token //Authentication - to verify the user login using token from cookies and provide security for the API
     };
     $.ajax({ //using AJAX
-        url: userProfileUrl,
-        type: 'GET',
-        // contentType, dataType & headers are used to call the API , js
-        contentType: 'application/json',
-        dataType: 'json',
-        headers: headers,
-        async: false,
-        success: function (resp) {
-            console.log(resp);
-            // showing response message
-            payload = resp.payload;
+            url: userProfileUrl,
+            type: 'GET',
+            // contentType, dataType & headers are used to call the API , js
+            contentType: 'application/json',
+            dataType: 'json',
+            headers: headers,
+            async: false,
+            success: function (resp) {
+                console.log(resp);
+                // showing response message
+                payload = resp.payload;
 
-            $('#profile_usename').append('@' + payload.username);
-            $('#profile_email').append(payload.email);
-            $('#profile_location').append('Location: ' + payload.location);
-            $('#profile_name').append(payload.name);
-            $('#profile_skill_level').append('Skill Level: ' + payload.skill_level);
-            if (payload.profile_image != "") {
-                $("#imagePreview").css(
-                    "background-image",
-                    "url(https://res.cloudinary.com/diudkwkuw/image/upload/v1/" + payload.profile_image + ")"
-                );
+                $('#profile_usename').append('@' + payload.username);
+                $('#profile_email').append(payload.email);
+                $('#profile_location').append('Location: ' + payload.location);
+                $('#profile_name').append(payload.name);
+                $('#profile_skill_level').append('Skill Level: ' + payload.skill_level);
+                if (payload.profile_image != "") {
+                    $("#imagePreview").css(
+                        "background-image",
+                    // Show uploaded image of the user
+
+                        "url(https://res.cloudinary.com/diudkwkuw/image/upload/v1/" + payload.profile_image + ")"
+                    );
+                } else {
+                    // Show static image as a default if user has not uploaded his/her image
+                    user_image = ("https://res.cloudinary.com/diudkwkuw/image/upload/v1666370872/static/images/user-default-avatar.png");
+                }
                 $("#imagePreview").hide();
                 $("#imagePreview").fadeIn(650);
             }
@@ -953,7 +961,7 @@ function toggle_product(product_id) {
 function delete_product(product_id) { // wip
 
     let text = "Are you sure you want to delete this product?\nAll reviews associated with this product would be deleted as well. This action cannot be undone.";
-    if (confirm(text) == true) { 
+    if (confirm(text) == true) {
         text = "Deleted"
     } else {
         return false
