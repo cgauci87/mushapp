@@ -41,7 +41,7 @@ function registerUser() {
     var $inputs = $('#user-registration-form :input'); // Get Data from user form by its inputs
     var data = {};
     $inputs.each(function () { // Iterate each input and get the values by it name
-        data[this.name] = $(this).val();
+        data[this.name] = $(this).val(); // wip
     });
     $.ajax({ // Ajax API call
         url: userRegistrationUrl, // API URL
@@ -697,6 +697,7 @@ function update_profile() {
                 console.log(resp); // show error message on API failing
                 alert("Please login first"); // show alert to user
                 window.location.href = 'login.html'; //redirect to login page
+                return false;
             }
         });
     } else
@@ -706,7 +707,7 @@ function update_profile() {
     };
     var first_name = $("#uf_first_name").val();
     var last_name = $("#uf_last_name").val();
-    var skill_level = $('input[name="level"]:checked').val();
+    var skill_level = $('input[name="level"]:checked').val(); // wip
     var location = $("#uf_location_select").val();
     var data = {
         "first_name": first_name,

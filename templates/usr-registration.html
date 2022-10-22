@@ -587,54 +587,7 @@
       </div>
     </div>
   </div>
-  <script>
-    // User Registration form submit event scipt
-    const formReg = document.getElementById("user-registration-form");
-    const resultReg = document.getElementById("result");
 
-    formReg.addEventListener("submit", function (e) {
-      const formData = new FormData(formReg);
-      e.preventDefault();
-      var object = {};
-      formData.forEach((value, key) => {
-        object[key] = value;
-      });
-      var json = JSON.stringify(object);
-      resultReg.innerHTML = "Please wait...";
-
-      fetch("https://api.web3forms.com/submit", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json"
-          },
-          body: json
-        })
-        .then(async (response) => {
-          let json = await response.json();
-          if (response.status == 200) {
-            resultReg.innerHTML = json.message;
-            resultReg.classList.remove("text-gray-500");
-            resultReg.classList.add("text-green-500");
-          } else {
-            console.log(response);
-            resultReg.innerHTML = json.message;
-            resultReg.classList.remove("text-gray-500");
-            resultReg.classList.add("text-red-500");
-          }
-        })
-        .catch((error) => {
-          console.log(error);
-          resultReg.innerHTML = "Something went wrong!";
-        })
-        .then(function () {
-          form.reset();
-          setTimeout(() => {
-            resultReg.style.display = "none";
-          }, 5000);
-        });
-    });
-  </script>
 </body>
 
 {% endblock %}

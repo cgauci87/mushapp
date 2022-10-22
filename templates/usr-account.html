@@ -672,21 +672,21 @@
                   <label class="form-check-label">
                     <input class="form-check-input" type="radio" name="level" value="Beginner" id="beginner"
                       required="required" />
-                    <span class="level">Beginner</span>
+                    <span>Beginner</span>
                   </label>
                 </div>
                 <div class="stars form-check">
                   <label class="form-check-label">
                     <input class="form-check-input" type="radio" name="level" value="Intermediate" id="intermediate"
                       required="required" />
-                    <span class="level">Intermediate</span>
+                    <span>Intermediate</span>
                   </label>
                 </div>
                 <div class="stars form-check">
                   <label class="form-check-label">
                     <input class="form-check-input" type="radio" name="level" value="Expert" id="expert"
                       required="required" />
-                    <span class="level">Expert</span>
+                    <span>Expert</span>
                   </label>
                 </div>
               </div>
@@ -710,24 +710,6 @@
   <script>
     // upload profile photo
     get_user_profile();
-
-    function readURL(input) {
-      if (input.files && input.files[0]) {
-        var reader = new FileReader();
-        reader.onload = function (e) {
-          $("#imagePreview").css(
-            "background-image",
-            "url(" + e.target.result + ")"
-          );
-          $("#imagePreview").hide();
-          $("#imagePreview").fadeIn(650);
-        };
-        reader.readAsDataURL(input.files[0]);
-      }
-    }
-    $("#imageUpload").change(function () {
-      readURL(this);
-    });
   </script>
 </body>
 
