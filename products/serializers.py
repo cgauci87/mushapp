@@ -74,7 +74,6 @@ class ProductDetailSerializer(serializers.ModelSerializer):
                 {
                     "username": review.review_by.username,
                     "full_name": review.review_by.first_name + review.review_by.last_name,
-                    "skill_level": review.review_by.skill_level,
                     "location": review.review_by.location,
                     "category": review.category,
                     "session": review.session,
