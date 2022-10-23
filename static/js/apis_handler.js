@@ -580,8 +580,6 @@ function approve_or_disapprove_review(review_id, status) {
             alert(resp.message);
             $('#pending_review_list_id').empty();
             get_all_products_reviews_for_user();
-            window.location.href = "index.html";
-            // redirect to home page
         },
         error: function (resp) {
             console.log(resp);

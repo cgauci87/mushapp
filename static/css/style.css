@@ -4,14 +4,14 @@
 	--primary-font: 'Playfair Display', serif;
 	--secondary-font: 'Source Sans Pro', sans-serif;
 	--bg: #e7ecdd;
-	--light-bg: white;
+	--light-bg: rgba(245, 235, 215, 0.851);
 	--dark-bg: #1a1a1a;
 	--grey-bg: #2c2c2c;
-	--highlight: #f2ea9b;
+	--highlight: #e7ddc3;
 	--primary-text: #060606;
 	--secondary-text: #a7a4b2;
 	--grey-text: #c9c9c9;
-	--frame-box-shadow: 1px 1px 20px 0px rgba(87, 83, 83, 0.75);
+	--frame-box-shadow: 1px 1px 20px 0px rgba(87, 83, 83, 0.9);
 }
 
 * {
@@ -921,7 +921,7 @@ h2 {
 
 table.table tr th,
 table.table tr td {
-	border-color: #e9e9e9;
+	border-color: var(--highlight);
 	padding: 12px 15px;
 	vertical-align: middle;
 }
@@ -934,12 +934,12 @@ table.table tr th:last-child {
 	width: 100px;
 }
 
-table.table-striped tbody tr:nth-of-type(odd) {
-	background-color: #fcfcfc;
+table.table-striped tbody tr:nth-of-type(odd) { /*wip*/
+	background-color:var(--light-bg);
 }
 
 table.table-striped.table-hover tbody tr:hover {
-	background: #f5f5f5;
+	background: var(--highlight);
 }
 
 table.table th i {
@@ -1086,7 +1086,7 @@ table.table td i {
 
 @media (max-width: 790px) {
 
-	/*wip*/
+
 	.reviews-box {
 		width: 100%;
 	}
