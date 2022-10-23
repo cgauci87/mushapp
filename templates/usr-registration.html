@@ -115,23 +115,6 @@
       margin-top: 16px;
     }
 
-    .bulbs {
-      display: flex;
-      padding: 0 20px;
-    }
-
-    .bulbs>label>span {
-      margin-left: 12px;
-    }
-
-    .bulb1,
-    .bulb2,
-    .bulb3 {
-      margin-top: 0px;
-      margin-right: 5px;
-      margin-left: 10px;
-      font-size: 1rem;
-    }
 
     .btn-primary {
       background-color: rgba(32, 73, 113, 1);
@@ -211,7 +194,7 @@
 <!-- user registration form -->
 
 <body>
-  <div id="formReg">
+  <div id="form">
     <div class="row">
       <div class="form-holder">
         <div class="form-content">
@@ -219,13 +202,12 @@
             <!-- Heading -->
             <h3>Register Today..</h3>
             <p>..and Be Part Of Mush! Community</p>
-            <form  method="post" onsubmit="return registerUser();"
-              id="user-registration-form">
+            <form method="post" onsubmit="return registerUser();" id="user-registration-form">
               {% csrf_token %}
               <div class="col-auto">
                 <!-- First Name field -->
                 <input class="form-control" type="text" maxlength="24" name="first_name" placeholder="First Name"
-                required="required" />
+                  required="required" />
                 <div class="invalid-feedback">
                   First Name cannot be blank!
                 </div>
@@ -234,13 +216,14 @@
               <div class="col-auto">
                 <!-- Last Name field -->
                 <input class="form-control" type="text" maxlength="24" name="last_name" placeholder="Last Name"
-                required="required" />
+                  required="required" />
                 <div class="invalid-feedback">Last Name cannot be blank!</div>
               </div>
 
               <div class="col-auto">
                 <!-- Email address field -->
-                <input class="form-control" type="email" name="email" placeholder="E-mail Address" required="required" />
+                <input class="form-control" type="email" name="email" placeholder="E-mail Address"
+                  required="required" />
                 <div class="invalid-feedback">
                   Email field cannot be blank!
                 </div>
@@ -520,58 +503,15 @@
 
               <div class="col-auto">
                 <!-- Password field -->
-                <input class="form-control" type="password" name="password" placeholder="Password" required="required" />
+                <input class="form-control" type="password" name="password" placeholder="Password"
+                  required="required" />
                 <div class="invalid-feedback">
                   Password field cannot be blank!
                 </div>
               </div>
 
               <br />
-              <!-- Skill level options -->
-              <div class="skill-level">
-                <p>
-                  Which skill level are you in home-based mushroom growing?
-                </p>
 
-                <div class="bulbs form-check">
-                  <label class="form-check-label" for="option1">
-                    <input value="Beginner" class="form-check-input" type="radio" name="skill_level" required="required" />
-                    <span class="level">Beginner</span>
-                  </label>
-
-                  <div class="bulb1">
-                    <img src="{% static 'images/knowledge-icon.png' %}" alt="Knowledge" width="25" height="25" />
-                  </div>
-                </div>
-                <div class="bulbs form-check">
-                  <label class="form-check-label" for="option2">
-                    <input value="Intermediate" class="form-check-input" type="radio" name="skill_level" required="required" />
-                    <span class="level">Intermediate</span>
-                  </label>
-
-                  <div class="bulb1">
-                    <img src="{% static 'images/knowledge-icon.png' %}" alt="Knowledge" width="25" height="25" />
-                  </div>
-                  <div class="bulb2">
-                    <img src="{% static 'images/knowledge-icon.png' %}" alt="Knowledge" width="25" height="25" />
-                  </div>
-                </div>
-                <div class="bulbs form-check">
-                  <label class="form-check-label" for="option3">
-                    <input value="Expert" class="form-check-input" type="radio" name="skill_level" required="required" />
-                    <span class="level">Expert</span>
-                  </label>
-                  <div class="bulb1">
-                    <img src="{% static 'images/knowledge-icon.png' %}" alt="Knowledge level" width="25" height="25" />
-                  </div>
-                  <div class="bulb2">
-                    <img src="{% static 'images/knowledge-icon.png' %}" alt="Knowledge level" width="25" height="25" />
-                  </div>
-                  <div class="bulb3">
-                    <img src="{% static 'images/knowledge-icon.png' %}" alt="Knowledge level" width="25" height="25" />
-                  </div>
-                </div>
-              </div>
               <!-- Submit button -->
               <div class="form-button mt-3">
                 <button id="submit" type="submit" class="btn btn-primary">
@@ -581,6 +521,7 @@
               <div class="form-button mt-3">
                 <p>already have account? <a href="login.html">Login</a></p>
               </div>
+              <p id="result"></p>
             </form>
           </div>
         </div>

@@ -41,7 +41,7 @@ function registerUser() {
     var $inputs = $('#user-registration-form :input'); // Get Data from user form by its inputs
     var data = {};
     $inputs.each(function () { // Iterate each input and get the values by it name
-        data[this.name] = $(this).val(); // wip
+        data[this.name] = $(this).val();
     });
     $.ajax({ // Ajax API call
         url: userRegistrationUrl, // API URL
@@ -50,17 +50,20 @@ function registerUser() {
         data: JSON.stringify(data), // Parse data into json before sending it to backend
         dataType: 'json', // The data type of body is json
         async: false,
-        success: function (resp) {
+        success: function (resp) { // wip
             console.log(resp);
-            alert("You account has been created successfully.")
-            window.location.href = "login.html";
+            alert("You account has been created successfully."); // wip
+            setTimeout(function () {
+                document.location.href = "login.html"
+            }, 100);
         },
         error: function (resp) {
-            console.log(resp);
-            alert(resp.message); // show error message on API failing
+            console.log(resp); // show error message on API failing
+            alert("Something went wrong.."); // show alert to user
         }
     });
 }
+
 
 function contactUsFrom() {
     var $inputs = $('#user-contactus-form :input'); // Get Data from user form by its inputs
@@ -178,7 +181,7 @@ function loginUser() {
             window.location.href = "index.html";
             return false;
         },
-        error: function (xhr, status, error) {
+        error: function (xhr, eval, err) {
             var err = eval("(" + xhr.responseText + ")");
             alert(err.message);
         }
@@ -452,7 +455,7 @@ function get_product_detail() {
                 }
 
 
-                // Showing users review, skills, country, comment and user detail
+                // Showing users review, country, comment and user detail
                 if (payload.user_reviews[i].profile_image != "") {
                     // Show uploaded image of the user
                     user_image = 'https://res.cloudinary.com/diudkwkuw/image/upload/v1/' + payload.user_reviews[i].profile_image;
@@ -488,7 +491,6 @@ function get_product_detail() {
                     '<div class="tags">' +
                     '<span>' + payload.user_reviews[i].category + '</span>' +
                     '<span>' + payload.user_reviews[i].session + '</span>' +
-                    '<span>' + payload.user_reviews[i].skill_level + '</span>' +
                     '</div>' +
                     '</div>'
                 )
@@ -575,7 +577,7 @@ function approve_or_disapprove_review(review_id, status) {
             $('#pending_review_list_id').empty();
             get_all_products_reviews_for_user();
             window.location.href = "index.html";
-            // redirect to login page
+            // redirect to home page
         },
         error: function (resp) {
             console.log(resp);
@@ -638,7 +640,6 @@ function get_user_profile() {
             $('#profile_email').append(payload.email);
             $('#profile_location').append('Location: ' + payload.location);
             $('#profile_name').append(payload.name);
-            $('#profile_skill_level').append('Skill Level: ' + payload.skill_level);
             if (payload.profile_image != "") {
                 $("#imagePreview").css(
                     "background-image",
@@ -657,22 +658,6 @@ function get_user_profile() {
             $("#uf_email").val(payload.email);
             $("#uf_location").val(payload.location);
             $("#uf_location").text(payload.location);
-            $('input:radio[name="level"]').filter('[value="' + payload.skill_level + '"]').attr('checked', true);
-
-            if (payload.skill_level == "Expert") {
-                $('#beginner_level_icon').show();
-                $('#intermediate_level_icon').show();
-                $('#expert_level_icon').show();
-            } else if (payload.skill_level == "Intermediate") {
-                $('#beginner_level_icon').show();
-                $('#intermediate_level_icon').show();
-                $('#expert_level_icon').hide();
-            } else if (payload.skill_level == "Beginner") {
-                $('#beginner_level_icon').show();
-                $('#intermediate_level_icon').hide();
-                $('#expert_level_icon').hide();
-            }
-            console.log(payload);
         },
         error: function (resp) {
             console.log(resp);
@@ -707,13 +692,11 @@ function update_profile() {
     };
     var first_name = $("#uf_first_name").val();
     var last_name = $("#uf_last_name").val();
-    var skill_level = $('input[name="level"]:checked').val(); // wip
     var location = $("#uf_location_select").val();
     var data = {
         "first_name": first_name,
         "last_name": last_name,
-        "location": location,
-        "skill_level": skill_level
+        "location": location
     }
 
     $.ajax({ //using AJAX
@@ -958,7 +941,7 @@ function toggle_product(product_id) {
 
 
 
-function delete_product(product_id) { // wip
+function delete_product(product_id) {
 
     let text = "Are you sure you want to delete this product?\nAll reviews associated with this product would be deleted as well. This action cannot be undone.";
     if (confirm(text) == true) {

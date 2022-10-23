@@ -129,7 +129,6 @@ class UserProfile(BaseAPIView):
             "email": request.user.email,
             "name": request.user.first_name + request.user.last_name,
             "location": request.user.location,
-            "skill_level": request.user.skill_level,
             "first_name": request.user.first_name,
             "last_name": request.user.last_name,
             "profile_image": str(request.user.profile_image) if request.user.profile_image else ""
@@ -146,8 +145,6 @@ class UserProfile(BaseAPIView):
             "last_name") else user.last_name
         user.email = request.data.get("email") if request.data.get(
             "email") else user.email
-        user.skill_level = request.data.get("skill_level") if request.data.get(
-            "skill_level") else user.skill_level
         user.profile_image = request.data.get("profile_image") if request.data.get(
             "profile_image") else user.profile_image
         user.location = request.data.get("location") if request.data.get(

@@ -239,24 +239,6 @@
       cursor: pointer;
     }
 
-    .bulbs {
-      display: flex;
-      padding: 0 20px;
-    }
-
-    .bulbs>label>span {
-      margin-left: 12px;
-    }
-
-    .bulb1,
-    .bulb2,
-    .bulb3 {
-      margin-top: 0px;
-      margin-right: 5px;
-      margin-left: 10px;
-      font-size: 1rem;
-    }
-
     .btn-primary {
       background-color: rgba(32, 73, 113, 1);
       outline: none;
@@ -357,22 +339,7 @@
                 <label for="imageUpload"></label>
               </div>
           </form>
-
-          <div class="avatar-edit" id="beginner_level_icon">
-            <div class="beginner">
-              <img src="{% static 'images/knowledge-icon.png' %}" alt="Knowledge level" width="30" height="30" />
-            </div>
-          </div>
-          <div class="avatar-edit" id="intermediate_level_icon">
-            <div class="intermediate">
-              <img src="{% static 'images/knowledge-icon.png' %}" alt="Knowledge level" width="30" height="30" />
-            </div>
-          </div>
-          <div class="avatar-edit" id="expert_level_icon">
-            <div class="expert">
-              <img src="{% static 'images/knowledge-icon.png' %}" alt="Knowledge level" width="30" height="30" />
-            </div>
-          </div>
+          
           <div class="avatar-preview">
             <div id="imagePreview"></div>
           </div>
@@ -663,33 +630,6 @@
                 </select>
               </div>
               <br />
-              <!-- skill level options -->
-              <div class="skill-level">
-                <p>
-                  Which skill level are you in home-based mushroom growing?
-                </p>
-                <div class="stars form-check">
-                  <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="level" value="Beginner" id="beginner"
-                      required="required" />
-                    <span>Beginner</span>
-                  </label>
-                </div>
-                <div class="stars form-check">
-                  <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="level" value="Intermediate" id="intermediate"
-                      required="required" />
-                    <span>Intermediate</span>
-                  </label>
-                </div>
-                <div class="stars form-check">
-                  <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="level" value="Expert" id="expert"
-                      required="required" />
-                    <span>Expert</span>
-                  </label>
-                </div>
-              </div>
               <!-- Password reset link -->
               <div class="password-reset">
                 <a href="password-reset.html">
