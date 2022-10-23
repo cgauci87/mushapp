@@ -39,26 +39,29 @@
     </div>
   </header>
 
+  <!-- Show Carousel -->
+
   <div class="container-md">
     <div class="row">
       <div class="col-md-12">
-        <!-- Carousel -->
-        <div id="news-slider" class="owl-carousel">
+        <div id="slider" class="owl-carousel">
         </div>
       </div>
     </div>
   </div>
-  <div id="testimonials-reishi">
-    <!-- Show Reviews On Click -->
-    <div class="testimonial-heading">
-      <h2 id="product_detail_title">REISHI</h2>
+
+  <!--Show Reviews of a specific product once user clicks "Reviews" button on a particular product-->
+
+  <div id="product-reviews">
+    <div class="product-heading">
+      <h2 id="product_detail_title"></h2>
     </div>
     <div class="app-review-summary">
       <hr />
       <div class="row grid-x vertical">
         <div class="small-12 text-center columns medium-4">
           <div class="panel panel--white">
-            <div id="product_detail_average_rating" class="margin-sm h1" style="font-size: 4.375rem">3.71</div>
+            <div id="product_detail_average_rating" class="margin-sm h1" style="font-size: 4.375rem"></div>
             <div id="product_detail_average_rating_star_list" class="reviews-db">
             </div>
             <div class="body margin-sm">based on <span id="product_detail_total_reviews_count"></span> reviews</div>
@@ -83,7 +86,7 @@
           </div>
         </div>
       </div>
-      <!---->
+      <!-- Start row -->
       <div class="small-12 medium-4 text-center columns">
         <div class="panel panel--white">
           <div class="row">
@@ -161,7 +164,7 @@
                         </div>
                       </div>
                     </div>
-                    <!-- end row -->
+                    <!-- End row -->
                   </div>
                 </div>
               </div>
@@ -175,16 +178,16 @@
     <!---->
     <hr />
     <!---->
-    <!-- testimonials-box-container -->
-    <div id="users-testimonial-box" class="testimonial-box-container">
+    <div id="users-reviews-box" class="reviews-box-container">
     </div>
 
   </div>
   <script>
-    // Carousel script
-
+    // Get all published products (excluding hidden products)
     get_all_products_for_user();
 
+
+    // Show all published products in Carousel (excluding hidden products)
     $(".owl-carousel").owlCarousel({
       autoplay: true,
       autoplayhoverpause: true,
@@ -218,6 +221,18 @@
           dots: true
         }
       }
+    });
+  </script>
+
+  <script>
+    //Show all published Reviews once user click button "Reviews" On a specific product displayed on Carousel (excluding pending reviews)
+    $(document).ready(function () {
+      $(".reveal-product-reviews").click(function () {
+        get_product_detail();
+        $("#product-reviews").show();
+        $("#product-reviews").css('display', 'flex');
+        $("#product-reviews").get(0).scrollIntoView();
+      });
     });
   </script>
 </body>

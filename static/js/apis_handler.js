@@ -204,7 +204,7 @@ function get_all_products_for_user() {
             console.log(payload);
             for (var i = 0; i < payload.length; i++) {
                 var product = payload[i]; // Show All products in sliders including images of cloudinary media uploaded by admin
-                $('#news-slider').append('<div class="post-slide"> <div class="post-img"><img src="' + product.image + '"alt="Mushroom Image"> <a href="#" class="over-layer"><i class="fa fa-link"></i></a></div><div class="post-content"><h3 class="post-title"><a href="#">' + payload[i].title + '</a></h3><p class="post-description">' + payload[i].description + '</p> <a onclick="save_product_id(' + payload[i].id + ')" class="read-more reveal-click-reishi">Reviews</a></div></div>');
+                $('#slider').append('<div class="post-slide"> <div class="post-img"><img src="' + product.image + '"alt="Mushroom Image"> <a href="#" class="over-layer"><i class="fa fa-link"></i></a></div><div class="post-content"><h3 class="post-title"><a href="#">' + payload[i].title + '</a></h3><p class="post-description">' + payload[i].description + '</p> <a onclick="save_product_id(' + payload[i].id + ')" class="read-more reveal-product-reviews">Reviews</a></div></div>');
                 $('#write_review_product_dropdown').append('<option value="' + payload[i].id + '">' + payload[i].title + '</option>'); // show all product in write review dropdown
             }
         },
@@ -355,7 +355,7 @@ function get_product_detail() {
             $('.review_graph_circle').css({
                 'transform': 'rotate(' + 0 + 'deg)'
             });
-            $('#users-testimonial-box').text('');
+            $('#users-reviews-box').text('');
 
             $('#review_one_stars').text(0 + '%');
             $('#review_two_stars').text(0 + '%');
@@ -389,7 +389,7 @@ function get_product_detail() {
             $('.review_graph_circle').css({
                 'transform': 'rotate(' + payload.graph_circle + 'deg)'
             });
-            $('#users-testimonial-box').text('');
+            $('#users-reviews-box').text('');
 
 
             // Show the average stars
@@ -408,7 +408,7 @@ function get_product_detail() {
 
 
             if (payload.average_rating < 1) {
-                $('#users-testimonial-box').append('<p>No Reviews</p>')
+                $('#users-reviews-box').append('<p>No Reviews</p>')
                 return false;
             }
 
@@ -463,8 +463,8 @@ function get_product_detail() {
                     // Show static image as a default if user has not uploaded his/her image
                     user_image = ("https://res.cloudinary.com/diudkwkuw/image/upload/v1666370872/static/images/user-default-avatar.png");
                 }
-                $('#users-testimonial-box').append(
-                    '<div class="testimonial-box">' +
+                $('#users-reviews-box').append(
+                    '<div class="reviews-box">' +
                     '<div class="box-top">' +
                     ' <div class="profile">' +
                     '  <div class="profile-img">' +
@@ -522,7 +522,11 @@ function logout() {
     alert("Logout Successfully.")
 }
 
-// this will hide and show the login/logout/write review according login and logout functionality. and show pending reveiew buttons according user type (3) admin
+// This will show or hide the [Login/Logout/Write a Review/Pending Reviews/Products/Incoming Messages] buttons according to the user_token and user_type of the user.
+// If user has empty token = Show Login button
+// If user is logged in = Hide Login and show Logout button
+// If user has the user_type as 3 (Admin) = Show  [Write a Review/Pending Reviews/Products/Incoming Messages] buttons
+// If user has the user_type as 1 (Regular User) = Hide [Write a Review/Pending Reviews/Products/Incoming Messages] buttons
 function change_buttons_behaviors(button) {
     user_type = getCookie("user_type");
     user_token = getCookie("token");

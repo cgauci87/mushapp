@@ -282,7 +282,7 @@ h2 {
 
 /*carousel*/
 
-#news-slider {
+#slider {
 	margin-top: 80px;
 }
 
@@ -634,14 +634,7 @@ h2 {
 
 /*Show Div On Click*/
 
-#testimonials-reishi,
-#testimonials-lionsmane,
-#testimonials-oyster,
-#testimonials-enoki,
-#testimonials-kingoyster,
-#testimonials-goldenoyster,
-#testimonials-pinkoyster,
-#testimonials-blueoyster {
+#product-reviews {
 	position: relative;
 	z-index: 10;
 	display: none;
@@ -652,7 +645,7 @@ h2 {
 }
 
 
-.testimonial-heading {
+.product-heading {
 	letter-spacing: 1px;
 	margin: 30px 0px;
 	padding: 50px;
@@ -666,7 +659,7 @@ h2 {
 	width: 100%;
 }
 
-.testimonial-heading h2 {
+.product-heading h2 {
 	font-size: 4.5rem;
 	letter-spacing: 10px;
 	text-transform: uppercase;
@@ -677,14 +670,14 @@ h2 {
 	text-align: center;
 }
 
-.testimonial-box-container {
+.reviews-box-container {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-wrap: wrap;
 }
 
-.testimonial-box {
+.reviews-box {
 	width: 100%;
 	max-width: 1000px;
 	box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.1);
@@ -843,7 +836,7 @@ h2 {
 	color: #4b4b4b;
 }
 
-.testimonial-box:hover {
+.reviews-box:hover {
 	transform: translateY(-10px);
 	transition: all ease 0.3s;
 }
@@ -1085,7 +1078,7 @@ table.table td i {
 /* media queeries - testimonial section */
 
 @media (max-width: 1060px) {
-	.testimonial-box {
+	.reviews-box {
 		width: 45%;
 		padding: 10px;
 	}
@@ -1094,7 +1087,7 @@ table.table td i {
 @media (max-width: 790px) {
 
 	/*wip*/
-	.testimonial-box {
+	.reviews-box {
 		width: 100%;
 	}
 
