@@ -3,15 +3,16 @@
 :root {
 	--primary-font: 'Playfair Display', serif;
 	--secondary-font: 'Source Sans Pro', sans-serif;
-	--bg: #e7ecdd;
+	--light: #e7ecdd;
 	--light-bg: rgba(245, 235, 215, 0.851);
 	--dark-bg: #1a1a1a;
 	--grey-bg: #2c2c2c;
 	--highlight: #e7ddc3;
-	--primary-text: #060606;
+	--dark: #060606;
 	--secondary-text: #a7a4b2;
 	--grey-text: #c9c9c9;
 	--frame-box-shadow: 1px 1px 20px 0px rgba(87, 83, 83, 0.9);
+	--links: #816e4d;
 }
 
 * {
@@ -854,13 +855,31 @@ h2 {
 	bottom: 0;
 }
 
-.fab {
-	width: 80px;
+.footer-copyright{
+	margin-top: -30px;
 }
 
 #w-a-r-btn,
 .sm-icons {
 	filter: invert(100);
+}
+
+.social-icon,
+.social-icon__item {
+	list-style: none;
+	display: inline-block;
+}
+
+.social-icon__link {
+	font-size: calc( 12px + (10 - 5) * (100vw - 400px) / (800 - 400));
+	color: rgba(255, 255, 255, .75);
+	margin: 0 10px;
+	display: inline-block;
+	transition: 0.5s;
+}
+
+.social-icon__link:hover {
+	transform: translateY(-10px);
 }
 
 
