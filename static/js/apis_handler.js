@@ -181,7 +181,7 @@ function loginUser() {
             window.location.href = "index.html";
             return false;
         },
-        error: function (xhr, eval, err) {
+        error: function (xhr, status, error) {
             var err = eval("(" + xhr.responseText + ")");
             alert(err.message);
         }
