@@ -5,8 +5,6 @@
 {% block content %}
 
 <head>
-    <!-- Title -->
-    <title>Mush! - Contact Us</title>
     <!--Bootstrap CSS-->
     <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
     <!--Styling-->
@@ -228,9 +226,9 @@
                         <!-- Form -->
                         <form method="post" onsubmit="return contactUsFrom();" id="user-contactus-form">
                             {% csrf_token %}
-                            <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
-                            <input type="hidden" name="subject" value="New Submission from Web3Forms" />
-                            <input type="checkbox" name="botcheck" id="" style="display: none;" />
+                            <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                            <input type="hidden" name="subject" value="New Submission from Web3Forms">
+                            <input type="checkbox" name="botcheck" id="" style="display: none;">
 
                             <div class="flex mb-6 space-x-4">
                                 <div class="w-full md:w-1/2">
@@ -238,14 +236,15 @@
                                     <label for="fname" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">First
                                         Name</label>
                                     <input type="text" name="first_name" id="first_name" placeholder="John" required
-                                        class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" />
+                                        class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500">
                                 </div>
                                 <div class="w-full md:w-1/2">
                                     <!-- Last Name field-->
-                                    <label id="cu-last-name" for="lname" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Last
+                                    <label id="cu-last-name" for="lname"
+                                        class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Last
                                         Name</label>
                                     <input type="text" name="last_name" id="lname" placeholder="Doe" required
-                                        class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" />
+                                        class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500">
                                 </div>
                             </div>
 
@@ -256,7 +255,7 @@
                                         class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Email
                                         Address</label>
                                     <input type="email" name="email" id="email" placeholder="you@company.com" required
-                                        class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" />
+                                        class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500">
                                 </div>
                             </div>
                             <div class="mb-6">

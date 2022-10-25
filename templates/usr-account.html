@@ -5,7 +5,6 @@
 {% block content %}
 
 <head>
-  <title>Mush! Community - My Account</title>
   <style>
     *,
     *:before,
@@ -335,7 +334,7 @@
             {{ ProfilePhotoForm }}
             <div class="avatar-upload position-absolute top-50 start-50 translate-middle">
               <div class="avatar-edit">
-                <input type="file" id="imageUpload" onchange="getBaseUrl()" name="image" />
+                <input type="file" id="imageUpload" onchange="getBaseUrl()" name="image">
                 <label for="imageUpload"></label>
               </div>
           </form>
@@ -349,14 +348,14 @@
             <div class="form-items">
               <h3>Account Details</h3>
               <div class="col-auto">
-                <input class="form-control" type="text" value="John" aria-label="input first name" id="uf_first_name" />
+                <input class="form-control" type="text" value="John" aria-label="input first name" id="uf_first_name">
               </div>
               <div class="col-auto">
-                <input class="form-control" type="text" value="Doe" aria-label="input last name" id="uf_last_name" />
+                <input class="form-control" type="text" value="Doe" aria-label="input last name" id="uf_last_name">
               </div>
               <div class="col-auto">
                 <input class="form-control" type="email" name="email" placeholder="E-mail Address" readonly
-                  id="uf_email" />
+                  id="uf_email">
                 <div class="invalid-feedback">
                 </div>
               </div>
@@ -629,11 +628,11 @@
                   <option value="ZW">Zimbabwe</option>
                 </select>
               </div>
-              <br />
+              <br>
               <!-- Password reset link -->
               <div class="password-reset">
                 <a href="password-reset.html">
-                  <img src="{% static 'images/password-reset-icon.png' %}" alt="password reset" width="100" />
+                  <img src="{% static 'images/password-reset-icon.png' %}" alt="password reset" width="100">
                 </a>
               </div>
               <!-- Submit button  -->

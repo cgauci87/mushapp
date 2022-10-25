@@ -5,7 +5,6 @@
 {% block content %}
 
 <head>
-  <title>Mush! - Login</title>
   <style>
     /* Styling form*/
     * {
@@ -249,10 +248,10 @@
       <form class="form" method="post" novalidate onsubmit="loginUser(); return false" id="user-login-form">
         {% csrf_token %}
         <div class="form-control">
-          <input type="text" name="username" class="input username" placeholder="Username" />
+          <input type="text" name="username" class="input username" placeholder="Username">
         </div>
         <div class="form-control">
-          <input type="password" name="password" class="input password" placeholder="Password" />
+          <input type="password" name="password" class="input password" placeholder="Password">
         </div>
         <button type="submit" class="btn btn-login">Log In</button>
         <p class="forgot"><a href="forgot-password.html">Forgot Password?</a></p>
