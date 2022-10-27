@@ -257,9 +257,9 @@ function write_a_review() {
             // redirect to layout page
             window.location.href = "index.html";
         },
-        error: function (resp) {
-            console.log(resp);
-            alert(resp.message);
+        error: function (xhr, status, error) {
+            var err = eval("(" + xhr.responseText + ")");
+            alert(err.message);
         }
     });
 }

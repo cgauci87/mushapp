@@ -89,12 +89,6 @@
       margin-bottom: 30px;
     }
 
-    .form-content label,
-    .was-validated .form-check-input:invalid~.form-check-label,
-    .was-validated .form-check-input:valid~.form-check-label {
-      color: #fff;
-    }
-
     .form-content input[type="text"],
     .form-content input[type="password"],
     .form-content input[type="email"],
@@ -176,14 +170,6 @@
       margin-bottom: 8px !important;
     }
 
-    .invalid-feedback {
-      color: #ff606e;
-    }
-
-    .valid-feedback {
-      color: #2acc80;
-    }
-
     .footer {
       display: none;
     }
@@ -218,7 +204,7 @@
             <h3>Share your experience..</h3>
             <p>..and Write a Review</p>
             <!-- Input review form main content START-->
-            <form class="requires-validation" method="post" novalidate onsubmit="return write_a_review();"
+            <form method="post" novalidate onsubmit="return write_a_review();"
               id="write-a-review-form">
               {% csrf_token %}
               <div class="col-md-12">
@@ -229,7 +215,6 @@
                   </option>
 
                 </select>
-                <div class="invalid-feedback">Please select a variery!</div>
               </div>
               <div class="col-md-12">
                 <!-- Category options -->
@@ -242,7 +227,6 @@
                   </option>
                   <option value="Hardwood Log">Hardwood Log</option>
                 </select>
-                <div class="invalid-feedback">Please select a variery!</div>
               </div>
               <div class="col-md-12">
                 <!-- Season options -->
@@ -255,7 +239,6 @@
                   <option value="Autumn">Autumn</option>
                   <option value="Winter">Winter</option>
                 </select>
-                <div class="invalid-feedback">Please select a variety!</div>
               </div>
               <div class="mb-3">
                 <br>
@@ -284,7 +267,10 @@
       </div>
     </div>
   </div>
-
+  <script>
+    // Retrieve all products
+    get_all_products_for_user();
+  </script>
   <script>
     // star rating script
     var star1 = document.querySelector(".starj1");
@@ -399,78 +385,6 @@
       }
     });
   </script>
-  <script>
-    // Form validation script
-    (function () {
-      "use strict";
-      const forms = document.querySelectorAll(".requires-validation");
-      Array.from(forms).forEach(function (form) {
-        form.addEventListener(
-          "submit",
-          function (event) {
-            if (!form.checkValidity()) {
-              event.preventDefault();
-              event.stopPropagation();
-            }
-
-            form.classList.add("was-validated");
-          },
-          false
-        );
-      });
-    })();
-
-    // Retrieve all products
-    get_all_products_for_user();
-  </script>
-  <script>
-    const form = document.getElementById("write-a-review-form");
-    const result = document.getElementById("result");
-
-    form.addEventListener("submit", function (e) {
-      const formData = new FormData(form);
-      e.preventDefault();
-      var object = {};
-      formData.forEach((value, key) => {
-        object[key] = value;
-      });
-      var json = JSON.stringify(object);
-      result.innerHTML = "Please wait...";
-
-      fetch("https://api.web3forms.com/submit", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json"
-          },
-          body: json
-        })
-        .then(async (response) => {
-          let json = await response.json();
-          if (response.status == 200) {
-            result.innerHTML = json.message;
-            result.classList.remove("text-gray-500");
-            result.classList.add("text-green-500");
-          } else {
-            console.log(response);
-            result.innerHTML = json.message;
-            result.classList.remove("text-gray-500");
-            result.classList.add("text-red-500");
-          }
-        })
-        .catch((error) => {
-          console.log(error);
-          result.innerHTML = "Something went wrong!";
-        })
-        .then(function () {
-          form.reset();
-          setTimeout(() => {
-            result.style.display = "none";
-          }, 5000);
-        });
-    });
-  </script>
-
 </body>
 
 {% endblock %}
