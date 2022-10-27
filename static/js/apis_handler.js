@@ -37,7 +37,8 @@ function getCookie(cname) { // Get cookie value function
 }
 
 // Sign Up API Call Function
-function registerUser() {
+function registerUser(e) {
+    e.preventDefault()
     var $inputs = $('#user-registration-form :input'); // Get Data from user form by its inputs
     var data = {};
     $inputs.each(function () { // Iterate each input and get the values by it name
@@ -59,7 +60,7 @@ function registerUser() {
         },
         error: function (resp) {
             console.log(resp); // show error message on API failing
-            alert("Something went wrong.."); // show alert to user
+            alert(resp.responseJSON.message); // show alert to user
         }
     });
 }
@@ -215,7 +216,9 @@ function get_all_products_for_user() {
     });
 }
 // copy
-function write_a_review() {
+function write_a_review(e) {
+    debugger
+    e.preventDefault();
     user_token = getCookie("token");
     var headers = {
         'Authorization': 'Token ' + getCookie("token") //Authentication - to verify the user login using token from cookies and provide security for the API
@@ -241,7 +244,7 @@ function write_a_review() {
     $inputs.each(function () {
         data[this.name] = $(this).val();
     });
-    data.rating = getCookie("rating"); // Get the rating from the cookie data
+    data.rating = parseInt(getCookie("rating")) || 0; // Get the rating from the cookie data
     $.ajax({
         url: writeAreviewUrl,
         type: 'POST',
@@ -262,6 +265,7 @@ function write_a_review() {
             alert(err.message);
         }
     });
+    return false;
 }
 
 function get_all_products_reviews_for_user() {

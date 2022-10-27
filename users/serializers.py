@@ -21,7 +21,9 @@ class RegistrationSerializer(serializers.ModelSerializer):
 
     # Validation check if email already exists
     def validate(self, attrs):
+        print(attrs)
         if attrs["email"]:
+            print('email exists', User.objects.filter(email=attrs["email"]).exists())
             if User.objects.filter(email=attrs["email"]).exists():
                 logger.error(f"Email already exists: {attrs['email']}")
                 raise serializers.ValidationError(

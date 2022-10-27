@@ -13,7 +13,7 @@
           <h3>Share your experience..</h3>
           <p>..and Write a Review</p>
           <!-- Input review form main content START-->
-          <form method="post" novalidate onsubmit="return write_a_review();" id="write-a-review-form">
+          <form method="post" novalidate onsubmit="return write_a_review(event);" id="write-a-review-form">
             {% csrf_token %}
             <div class="col-md-12">
               <!-- Drop down for user to choose a mushroom variety -->

@@ -13,7 +13,7 @@
           <!-- Heading -->
           <h3>Register Today..</h3>
           <p>..and Be Part Of Mush! Community</p>
-          <form method="post" onsubmit="return registerUser();" id="user-registration-form">
+          <form method="post" onsubmit="return registerUser(event);" id="user-registration-form">
             {% csrf_token %}
             <div class="col-auto">
               <!-- First Name field -->
