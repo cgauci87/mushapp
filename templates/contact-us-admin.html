@@ -4,31 +4,6 @@
 
 {% block content %}
 
-<head>
-  <!-- CSS-->
-  <link rel="stylesheet" href="{% static 'css/style.css' %}">
-  <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
-
-  <!-- Datatables CSS-->
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
-
-  <!-- Icons -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
-  <style>
-    .footer {
-      display: none;
-    }
-  </style>
-  <!--JS-->
-  <script src="{% static 'js/jquery.js' %}"></script>
-  <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-  <script src="{% static 'js/bootstrap.js' %}"></script>
-  <script src="{% static 'js/apis_handler.js' %}"></script>
-</head>
-
-
-<body>
   <div class="table-container">
     <div class="table-wrapper">
       <div class="table-title">
@@ -77,7 +52,5 @@
       $('[data-toggle="tooltip"]').tooltip();
     });
   </script>
-
-</body>
 
 {% endblock %}

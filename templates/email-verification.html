@@ -4,95 +4,43 @@
 
 {% block content %}
 
-<head>
-  <!-- Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<!-- ======== MAIN CONTENT ======== -->
+<main id="content" role="main" class="main">
+  <!-- Content -->
+  <div class="container py-5 py-sm-7">
+    <a class="d-flex justify-content-center mb-10" href="index.html">
+    </a>
 
-  <!-- CSS Implementing Plugins -->
-  <link rel="stylesheet" href="{% static 'v2/vendor/icon-set/style.css' %}">
+    <div class="row justify-content-center">
+      <div class="col-md-7 col-lg-5">
+        <!-- Card -->
+        <div class="card card-lg mb-5">
+          <div class="card-body text-center">
+            <h1 class="display-4">Verify your email</h1>
 
-  <!-- CSS Front Template -->
-  <link rel="stylesheet" href="{% static 'v2/css/theme.min.css' %}">
+            <p class="mb-1">We've sent a link to your email address: If your email address exists in our system, you will receive
+              the email. </p>
 
-  <!-- Style -->
-  <style>
-    .footer {
-      display: none;
-    }
-  </style>
+            <span id="email-sent-display" class="d-block text-dark font-weight-bold mb-1"></span>
 
-  <!-- JS Global Compulsory  -->
-  <script src="{% static 'v2/vendor/jquery/dist/jquery.min.js' %}"></script>
-  <script src="{% static 'v2/vendor/jquery-migrate/dist/jquery-migrate.min.js' %}"></script>
-  <script src="{% static 'v2/vendor/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+            <p>Please follow the link inside to continue.</p>
 
-  <!-- JS Implementing Plugins -->
-  <script src="{% static 'v2/vendor/jquery-validation/dist/jquery.validate.min.js' %}"></script>
-
-  <!-- JS Front -->
-  <script src="{% static 'v2/js/theme.min.js' %}"></script>
-
-  <!--JS-->
-  <script src="{% static 'js/apis_handler.js' %}"></script>
-
-</head>
-
-<body>
-  <!-- ======== MAIN CONTENT ======== -->
-  <main id="content" role="main" class="main">
-    <div class="position-fixed top-0 right-0 left-0 bg-img-hero"
-      style="height: 32rem;">
-      <!-- SVG Bottom Shape -->
-      <figure class="position-absolute right-0 bottom-0 left-0">
-        <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 1921 273">
-          <polygon fill="#fff" points="0,273 1921,273 1921,0 ">
-        </svg>
-      </figure>
-      <!-- End SVG Bottom Shape -->
-    </div>
-
-    <!-- Content -->
-    <div class="container py-5 py-sm-7">
-      <a class="d-flex justify-content-center mb-10" href="index.html">
-      </a>
-
-      <div class="row justify-content-center">
-        <div class="col-md-7 col-lg-5">
-          <!-- Card -->
-          <div class="card card-lg mb-5">
-            <div class="card-body text-center">
-              <div class="mb-4">
-                <img class="avatar avatar-xxl avatar-4by3" src="{% static 'v2/svg/illustrations/click.svg' %}"
-                  alt="Image Description">
-              </div>
-
-              <h1 class="display-4">Verify your email</h1>
-
-              <p class="mb-1">We've sent a link to your email address: If your exists in our system, you will receive
-                the email </p>
-
-              <span id="email-sent-display" class="d-block text-dark font-weight-bold mb-1"></span>
-
-              <p>Please follow the link inside to continue.</p>
-
-              <div class="mt-4 mb-3">
-                <a class="btn btn-primary btn-wide" style="background:#816e4d;" href="login.html">Back to Sign in</a>
-              </div>
+            <div class="mt-4 mb-3">
+              <a class="btn btn-primary btn-wide" style="background:#816e4d;" href="login.html">Back to Sign in</a>
             </div>
           </div>
-          <!-- End Card -->
         </div>
+        <!-- End Card -->
       </div>
     </div>
-    <!-- End Content -->
-  </main>
-  <script>
-    // email look-up
-    var email = location.search.split('email=')[1]
-    document.getElementById('email-sent-display').innerHTML = email
-  </script>
-  <!-- ========== END MAIN CONTENT ========== -->
-
-</body>
+  </div>
+  <!-- End Content -->
+</main>
+<script>
+  // email look-up
+  var email = location.search.split('email=')[1]
+  document.getElementById('email-sent-display').innerHTML = email
+</script>
+<!-- ========== END MAIN CONTENT ========== -->
 
 {% endblock %}
