@@ -37,10 +37,10 @@ class Product(LogsMixin):
 class ProductReview(LogsMixin):
     """ Product Review Model """
     created_at = models.DateTimeField(auto_now_add=True)
-    comment = models.TextField(blank=True, null=True)
+    comment = models.TextField(max_length=800)
     rating = models.FloatField(default=0.0)
-    category = models.CharField(max_length=150, null=True, blank=True)
-    session = models.CharField(max_length=150, null=True, blank=True)
+    category = models.CharField(max_length=150)
+    session = models.CharField(max_length=150)
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name="reviews")
     review_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name="reviews")
     approval_status = models.CharField(
