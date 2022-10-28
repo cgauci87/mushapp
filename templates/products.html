@@ -37,24 +37,22 @@
 </div>
 
 <script>
-  // Get all products so to be displayed in the datatable
+  // ### Datatable ###
+
+  // Call function to retrieve all data of products
   get_products();
-</script>
-<script>
+
   // Activate Pagination & Search
   $(document).ready(function () {
     $('#products_datatable').DataTable({
       pagingType: 'full_numbers',
     });
   });
-</script>
 
-<script>
   // Activate tooltip
   $(document).ready(function () {
     $('[data-toggle="tooltip"]').tooltip();
   });
 </script>
-
 
 {% endblock %}

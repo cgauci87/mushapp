@@ -13,44 +13,45 @@
         </div>
       </div>
     </div>
+    <table id="pending_reviews_datatable" class="table table-striped table-hover" style="width:100%">
+      <thead class="thead-light">
+        <tr>
+          <th>Date submitted</th>
+          <th>Username</th>
+          <th>Variety</th>
+          <th>Review</th>
+          <th>Rating</th>
+          <th>Approve</th>
+          <th>Reject</th>
+        </tr>
+      </thead>
+      <!-- Display review list START -->
+      <tbody id="pending_review_list_id">
+
+      </tbody>
+      <!-- Display review list END -->
+    </table>
   </div>
-  <!--table displaying a list of pending reviews-->
-  <table id="pending_reviews_datatable" class="table table-striped table-hover" style="width:100%">
-    <thead>
-      <tr>
-        <td>Date submitted</td>
-        <td>Username</td>
-        <td>Variety</td>
-        <td>Review</td>
-        <td>Rating</td>
-        <td>Status</td>
-        <td></td>
-        <td></td>
-      </tr>
-    </thead>
-    <tbody id="pending_review_list_id">
-    </tbody>
-  </table>
+</div>
 
-  <script>
-    // Call function to retrieve data of pending reviews
-    get_all_products_reviews_for_user();
-  </script>
+<script>
+  // ### Datatable ###
 
-  <script>
-    // Activate Pagination & Search
-    $(document).ready(function () {
-      $('#pending_reviews_datatable').DataTable({
+// Call function to retrieve data of pending reviews
+get_all_products_reviews_for_user();
+
+// Activate Pagination & Search
+$(document).ready(function () {
+    $('#pending_reviews_datatable').DataTable({
         pagingType: 'full_numbers',
-      });
     });
-  </script>
+});
 
-  <script>
-    // Activate tooltip
-    $(document).ready(function () {
-      $('[data-toggle="tooltip"]').tooltip();
-    });
-  </script>
+// Activate tooltip
+$(document).ready(function () {
+    $('[data-toggle="tooltip"]').tooltip();
+});
+</script>
+
 
 {% endblock %}

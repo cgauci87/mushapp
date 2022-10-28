@@ -4,53 +4,51 @@
 
 {% block content %}
 
-  <div class="table-container">
-    <div class="table-wrapper">
-      <div class="table-title">
-        <div class="row">
-          <div class="col-sm-6">
-            <h2>All Messages</h2>
-          </div>
+<div class="table-container">
+  <div class="table-wrapper">
+    <div class="table-title">
+      <div class="row">
+        <div class="col-sm-6">
+          <h2>All Messages</h2>
         </div>
       </div>
-      <table id="messages_datatable" class="table table-striped table-hover" style="width:100%">
-        <thead class="thead-light">
-          <tr>
-            <th>Date Received</th>
-            <th>Email</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Message</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <!-- Display messages list START -->
-        <tbody id="messages_list_table">
-
-        </tbody>
-        <!-- Display messages list END -->
-      </table>
     </div>
+    <table id="messages_datatable" class="table table-striped table-hover" style="width:100%">
+      <thead class="thead-light">
+        <tr>
+          <th>Date Received</th>
+          <th>Email</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Message</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <!-- Display messages list START -->
+      <tbody id="messages_list_table">
+
+      </tbody>
+      <!-- Display messages list END -->
+    </table>
   </div>
+</div>
 
-  <script>
-    // Get all messages so to be displayed in the datatable
-    get_messages();
-  </script>
-  <script>
-    // Activate Pagination & Search
-    $(document).ready(function () {
-      $('#messages_datatable').DataTable({
-        pagingType: 'full_numbers',
-      });
+<script>
+  // ### Datatable ###
+
+  // Call function to get all messages submitted from contact-us.html
+  get_messages();
+
+  // Activate Pagination & Search
+  $(document).ready(function () {
+    $('#messages_datatable').DataTable({
+      pagingType: 'full_numbers',
     });
-  </script>
+  });
 
-  <script>
-    // Activate tooltip
-    $(document).ready(function () {
-      $('[data-toggle="tooltip"]').tooltip();
-    });
-  </script>
-
+  // Activate tooltip
+  $(document).ready(function () {
+    $('[data-toggle="tooltip"]').tooltip();
+  });
+</script>
 {% endblock %}

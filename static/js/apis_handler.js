@@ -300,7 +300,6 @@ function get_all_products_reviews_for_user() {
                         '<td>' + payload[i].product + '</td>' +
                         '<td>' + payload[i].comment + '</td>' +
                         '<td>' + payload[i].rating + '</td>' +
-                        '<td>Pending</td>' +
                         '<td><button type="button" class="btn btn-success" onclick="approve_or_disapprove_review(' + payload[i].id + ',' + 1 + ')">Approve</button></td>' +
                         '<td><button type="button" class="btn btn-danger" onclick="approve_or_disapprove_review(' + payload[i].id + ',' + 2 + ')">Reject</button></td>' +
                         '</tr>'
