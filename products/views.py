@@ -40,6 +40,7 @@ class PublicProductAPIView(BaseAPIView):
             message=ResponseMessages.SUCCESS.value
         )
 
+
 class ProductAPIView(BaseAPIView):
     """Product CRUD APIView"""
 
@@ -49,7 +50,8 @@ class ProductAPIView(BaseAPIView):
     queryset = Product.objects.all()
 
     def post(self, request, *args, **kwargs):
-        serializer = self.serializer_class(data=request.data, context={"request": request})
+        serializer = self.serializer_class(
+            data=request.data, context={"request": request})
         if not serializer.is_valid():
             logger.error(serializer.errors)
             return self.send_bad_request_response(
@@ -71,10 +73,14 @@ class ProductAPIView(BaseAPIView):
             )
         instance = self.queryset.filter(id=request.query_params["id"]).first()
         if instance:
-            instance.title = request.data.get("title") if request.data.get("title") not in [None, "undefined"] else instance.title
-            instance.description = request.data.get("description") if request.data.get("description") not in [None, "undefined"] else instance.description
-            instance.category = request.data.get("category") if request.data.get("category") not in [None, "undefined"] else instance.category
-            instance.image = request.data.get("image") if request.data.get("image") not in [None, "undefined"] else instance.image
+            instance.title = request.data.get("title") if request.data.get(
+                "title") not in [None, "undefined"] else instance.title
+            instance.description = request.data.get("description") if request.data.get(
+                "description") not in [None, "undefined"] else instance.description
+            instance.category = request.data.get("category") if request.data.get(
+                "category") not in [None, "undefined"] else instance.category
+            instance.image = request.data.get("image") if request.data.get(
+                "image") not in [None, "undefined"] else instance.image
             instance.save()
         return self.send_success_response(
             payload=dict(),
@@ -94,7 +100,8 @@ class ProductAPIView(BaseAPIView):
     def get(self, request, *args, **kwargs):
         instance = self.queryset.all()
         return self.send_success_response(
-            payload=self.serializer_class(instance, context={"request": request}, many=True).data,
+            payload=self.serializer_class(
+                instance, context={"request": request}, many=True).data,
             message=ResponseMessages.SUCCESS.value
         )
 
@@ -123,6 +130,7 @@ class ProductToogleAPIView(BaseAPIView):
             payload=dict(),
             message=ResponseMessages.PRODUCT_TOGGLED_SUCCESSFULLY.value
         )
+
 
 class ProductDetailAPIView(BaseAPIView):
 
@@ -162,7 +170,8 @@ class ProductReviewAPIView(BaseAPIView):
             return self.send_bad_request_response(
                 message=ResponseMessages.PRODUCT_NOT_FOUND.value
             )
-        serializer = self.serializer_class(data=request.data, context={"request": request})
+        serializer = self.serializer_class(
+            data=request.data, context={"request": request})
         if not serializer.is_valid():
             logger.error(serializer.errors)
             return self.send_bad_request_response(

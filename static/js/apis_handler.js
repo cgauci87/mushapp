@@ -217,7 +217,6 @@ function get_all_products_for_user() {
 }
 // copy
 function write_a_review(e) {
-    debugger
     e.preventDefault();
     user_token = getCookie("token");
     var headers = {
@@ -259,13 +258,14 @@ function write_a_review(e) {
             alert("Success, Once the admin approves your review, it will be displayed on the website");
             // redirect to layout page
             window.location.href = "index.html";
+            setCookie("rating", "", 365);
         },
         error: function (xhr, status, error) {
             var err = eval("(" + xhr.responseText + ")");
             alert(err.message);
+            setCookie("rating", "", 365);
         }
     });
-    return false;
 }
 
 function get_all_products_reviews_for_user() {

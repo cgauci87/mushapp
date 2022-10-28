@@ -37,3 +37,6 @@ class ResponseMessages(str, Enum):
     SUCCESS = "Success."
     PASSWORD_MISMATCH = "Password mismatch."
     INVALID_TOKEN = "Invalid token."
+
+
+    MISSING_COMMENT = "Please input your comment!"

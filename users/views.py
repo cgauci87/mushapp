@@ -228,8 +228,8 @@ class ForgotPassword(BaseAPIView):
             user.reset_password_token = token
             user.save()
             url = FRONTEND_URL + "/change-password.html?reset_token=" + token
-            body = "Click on the link to reset your password <a href='" + \
-                url + "'>Reset Password</a>"
+            body = ("Click on the link to reset your password <a href = '" +
+                    url + "' >Reset Password</a>")
             try:
                 send_mail("Reset Password: ", body,
                           EMAIL_HOST_USER, [user.email])

@@ -1,12 +1,15 @@
 from django.db import models
+from django.core.validators import MinLengthValidator
 from baselayer.basemodels import LogsMixin
 from users.models import User
 from django.utils import timezone
+
 
 class ProductApprovalStatusChoices(models.TextChoices):
     PENDING = 1, "Pending"
     APPROVED = 2, "Approved"
     REJECTED = 3, "Rejected"
+
 
 class ProductReviewApprovalStatusChoices(models.TextChoices):
     PENDING = 0, "Pending"
@@ -37,12 +40,19 @@ class Product(LogsMixin):
 class ProductReview(LogsMixin):
     """ Product Review Model """
     created_at = models.DateTimeField(auto_now_add=True)
-    comment = models.TextField(max_length=800)
-    rating = models.FloatField(default=0.0)
+    comment = models.TextField(max_length=800,
+        validators=[
+            MinLengthValidator(
+                10, 'Your comment must be longer than that!')
+        ]
+    )
+    rating = models.FloatField(default=1.0)
     category = models.CharField(max_length=150)
     session = models.CharField(max_length=150)
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name="reviews")
-    review_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name="reviews")
+    product = models.ForeignKey(
+        Product, on_delete=models.CASCADE, related_name="reviews")
+    review_by = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="reviews")
     approval_status = models.CharField(
         choices=ProductReviewApprovalStatusChoices.choices,
         null=True,
