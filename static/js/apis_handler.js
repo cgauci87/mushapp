@@ -477,14 +477,14 @@ function get_product_detail() {
                     '<strong>' + payload.user_reviews[i].full_name + '</strong>' +
                     '<span>@' + payload.user_reviews[i].username + '</span>' +
                     '</div>' +
-                    '<div class="location-user">' +
+                    '<div class="location-user px-2">' +
                     '<i class="fa-solid fa-location-dot"></i><span>' + payload.user_reviews[i].location + '</span>' +
                     '</div>' +
-                    '<div class="date-submitted">' +
+                    '<div class="date-submitted text-nowrap px-2">' +
                     '<i class="fa-regular fa-clock"></i><span>' + payload.user_reviews[i].date + '</span>' +
                     '</div>' +
                     '</div>' +
-                    '<div class="reviews">' +
+                    '<div class="reviews text-nowrap offset">' +
                     reviews_i +
                     '</div>' +
                     '</div>' +

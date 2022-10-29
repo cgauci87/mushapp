@@ -57,9 +57,6 @@ nav {
 	left: unset;
 }
 
-.fa-fw {
-	margin-right: 10px;
-}
 
 .toggle-change::after {
 	border-top: 0;
@@ -650,7 +647,7 @@ article {
 	width: 100%;
 }
 
-.product-heading h2 {
+.product-heading p {
 	font-size: 4.5rem;
 	letter-spacing: 10px;
 	text-transform: uppercase;
@@ -777,7 +774,6 @@ article {
 	height: 100%;
 	transition: .3s ease;
 	z-index: 999;
-	background-color: none;
 	border: transparent;
 }
 
@@ -1306,11 +1302,6 @@ table.table td i {
 			rgba(113, 72, 32, 0.75) 0%,
 			rgba(81, 93, 51, 1) 100%) !important;
 	border: 2px solid rgb(113, 72, 32, 1);
-	webkit-transition: all .5s ease;
-	moz-transition: all .5s ease;
-	os-transition: all .5s ease;
-	transition: all .5s ease;
-
 }
 
 .about-item:hover span {
@@ -1529,26 +1520,6 @@ table.table td i {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* password-reset.html styling */
 
 .pr-container {
@@ -1584,7 +1555,7 @@ table.table td i {
 	justify-content: center;
 }
 
-.section-login .form-container {
+.section-login .form-container { /*wip*/
 	background: linear-gradient(-45deg,
 			rgba(113, 72, 32, 0.75) 0%,
 			rgba(81, 93, 51, 1) 100%) !important;
@@ -1643,9 +1614,7 @@ table.table td i {
 
 .section-login .form-container .form .btn-login {
 	margin-top: 25px;
-	border: 1px solid linear-gradient(-45deg,
-			rgba(113, 72, 32, 0.75) 0%,
-			rgba(81, 93, 51, 1) 100%) !important;
+	border: 1px solid rgba(81, 93, 51, 1);
 	background: linear-gradient(-45deg,
 			rgba(113, 72, 32, 0.75) 0%,
 			rgba(81, 93, 51, 1) 100%) !important;
@@ -2122,6 +2091,10 @@ a:nth-child(1) {
 
 /* media query for mobile devices - reviews section */
 
+.reviews {
+	margin-left: 0px;
+}
+
 @media (max-width: 1060px) {
 	.reviews-box {
 		width: 45%;
@@ -2138,7 +2111,7 @@ a:nth-child(1) {
 
 	.reviews {
 		margin-top: 40px;
-		margin-left: -100px;
+		margin-left: -100px !important;
 	}
 
 	.date-submitted {
