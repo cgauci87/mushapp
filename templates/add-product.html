@@ -4,79 +4,69 @@
 
 {% block content %}
 
-<div class="has-navbar-vertical-aside navbar-vertical-aside-show-xl ad-container">
+<div class="container">
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="row align-items-center">
+      <div class="col-sm mb-2 mb-sm-0">
 
-  <main id="content" role="main" class="main">
-    <!-- Content -->
-    <div class="content container-fluid">
-      <!-- Page Header -->
-      <div class="page-header">
-        <div class="row align-items-center">
-          <div class="col-sm mb-2 mb-sm-0">
+        <h1 class="page-header-title">Add product</h1>
+      </div>
+    </div>
+  </div>
+  <!-- Row -->
+  <div class="row">
+    <div class="col-lg-8">
+      <!-- Card -->
+      <div class="card mb-3 mb-lg-5">
+        <!-- Header -->
+        <div class="card-header">
+          <h4 class="card-header-title">Product information</h4>
+        </div>
+        <!-- End Header -->
 
-            <h1 class="page-header-title">Add product</h1>
+        <!-- Body -->
+        <div class="card-body">
+          <!-- Form Group -->
+          <div class="form-group">
+            <label for="productNameLabel" class="input-label">Title <i class="tio-help-outlined text-body ml-1"
+                data-toggle="tooltip" data-placement="top"
+                title="Products are the goods or services you sell."></i></label>
+
+            <input type="text" id="add-product-title" class="form-control" name="productName" id="productNameLabel"
+              placeholder="Mushroom Name" aria-label="Mushroom Name">
           </div>
+
+          <!-- End Form Group -->
+
+          <label class="input-label">Description <span class="input-label-secondary">(Optional)</span></label>
+          <div class="form-group">
+            <textarea id="add-product-description" class="form-control" name="description" rows="3"
+              placeholder="Description"></textarea>
+          </div>
+
         </div>
       </div>
-      <!-- Row -->
-      <div class="row">
-        <div class="col-lg-8">
-          <!-- Card -->
-          <div class="card mb-3 mb-lg-5">
-            <!-- Header -->
-            <div class="card-header">
-              <h4 class="card-header-title">Product information</h4>
-            </div>
-            <!-- End Header -->
-
-            <!-- Body -->
-            <div class="card-body">
-              <!-- Form Group -->
-              <div class="form-group">
-                <label for="productNameLabel" class="input-label">Title <i class="tio-help-outlined text-body ml-1"
-                    data-toggle="tooltip" data-placement="top"
-                    title="Products are the goods or services you sell."></i></label>
-
-                <input type="text" id="add-product-title" class="form-control" name="productName" id="productNameLabel"
-                  placeholder="Mushroom Name" aria-label="Mushroom Name">
-              </div>
-
-              <!-- End Form Group -->
-
-              <label class="input-label">Description <span class="input-label-secondary">(Optional)</span></label>
-              <div class="form-group">
-                <textarea id="add-product-description" class="form-control" name="description" rows="3"
-                  placeholder="Description"></textarea>
-              </div>
-
-            </div>
-          </div>
-          <!-- Card -->
-          <div class="card mb-3 mb-lg-5">
-            <!-- Header -->
-            <div class="card-header">
-              <h4 class="card-header-title">Media</h4>
-              <!-- End Unfold -->
-            </div>
-            <!-- End Header -->
-            <!-- Body -->
-            <div class="card-body">
-              <!-- Product image -->
-              <input id="add-product-image" type="file" name="file">
-            </div>
-            <div class="card-footer">
-              <button id="add-product-button" onclick="add_product()" type="button"
-                class="btn btn-primary">Save</button>
-            </div>
-          </div>
+      <!-- Card -->
+      <div class="card mb-3 mb-lg-5">
+        <!-- Header -->
+        <div class="card-header">
+          <h4 class="card-header-title">Media</h4>
+          <!-- End Unfold -->
+        </div>
+        <!-- End Header -->
+        <!-- Body -->
+        <div class="card-body">
+          <!-- Product image -->
+          <input id="add-product-image" type="file" name="file">
+        </div>
+        <div class="card-footer">
+          <button id="add-product-button" onclick="add_product()" type="button" class="btn btn-success">Save</button>
         </div>
       </div>
     </div>
-    <!-- End Content -->
-
-    <!-- End Footer -->
-  </main>
-
+  </div>
 </div>
+<!-- End Content -->
 
 {% endblock %}

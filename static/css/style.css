@@ -16,17 +16,21 @@
 }
 
 * {
-	-webkit-box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 	box-sizing: border-box;
 }
 
 body {
 	scroll-behavior: smooth;
-	height: 100%;
 	overflow-x: hidden;
 	overflow-y: auto;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	max-width: 100%;
+	height: 100vh;
 }
-
 
 h1,
 h2,
@@ -869,6 +873,12 @@ article {
 }
 
 
+@media screen and (max-width: 600px) {
+	#mq {
+		position: relative;
+		display: inline-block;
+	}
+}
 
 /*datatables style*/
 
@@ -1111,7 +1121,7 @@ table.table td i {
 	padding: 40px;
 	display: inline-block;
 	width: 100%;
-	min-width: 540px;
+	min-width: auto;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
@@ -1120,10 +1130,17 @@ table.table td i {
 	transition: all 0.4s ease;
 }
 
+.form-content .form-items label {
+	padding-top: 5%;
+	margin: 0;
+	color: #fff;
+	font-weight: 500;
+}
+
 .form-items {
 	background: linear-gradient(-45deg,
 			rgba(113, 72, 32, 0.75) 0%,
-			rgba(81, 93, 51, 1) 100%) !important;
+			rgba(81, 93, 51, 1) 100%);
 }
 
 .form-content h3 {
@@ -1235,9 +1252,15 @@ table.table td i {
 /*media query for mobile devices*/
 
 @media screen and (max-width: 600px) {
+
+	.form-body {
+		overflow: hidden;
+	}
+
 	form {
-		width: 295px !important;
+		width: 295px;
 		margin-left: 100px;
+		overflow: hidden;
 	}
 
 	.form-items h3,
@@ -1245,6 +1268,9 @@ table.table td i {
 		margin-left: 100px;
 	}
 }
+
+
+
 
 /* who-are-we.html styling*/
 
@@ -1311,24 +1337,28 @@ table.table td i {
 }
 
 
-/* usr-registration.html styling */
+/* usr-registration.html styling  */
 
 /* media query for mobile devices */
 
 @media screen and (max-width: 600px) {
-	form {
-		width: 295px !important;
-		margin-left: 100px;
-	}
 
-	.form-items h3,
-	.form-items>p {
-		margin-left: 100px;
+	.form-items {
+		margin-left: -25%;
+		background: linear-gradient(-45deg,
+				rgba(113, 72, 32, 1) 0%,
+				rgba(81, 93, 51, 1) 100%);
 	}
 }
 
 
-/*usr-account.html styling*/
+/* usr-account.html styling */
+
+#uf_first_name,
+#uf_last_name,
+#uf_location_select {
+	font-weight: 600;
+}
 
 /*============Profile Photo===============*/
 .profile-photo {
@@ -1343,7 +1373,7 @@ table.table td i {
 
 .avatar-upload .avatar-edit {
 	position: absolute;
-	left: 60px;
+	left: 150px;
 	top: 0;
 	z-index: 90;
 }
@@ -1380,23 +1410,24 @@ table.table td i {
 	font-family: "FontAwesome";
 	color: #757575;
 	position: absolute;
-	top: 10px;
+	top: 5px;
 	left: 0;
 	right: 0;
 	text-align: center;
 	margin: auto;
 }
 
-.avatar-upload .avatar-preview {
+.avatar-upload {
 	width: 192px;
 	height: 192px;
-	position: relative;
 	border-radius: 100%;
 	border: 6px solid #f8f8f8;
 	box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
-	margin-left: -100px;
 	z-index: 100;
+	margin-left: -22%;
+	margin-top: -6%;
 }
+
 
 .avatar-upload .avatar-preview>div {
 	width: 100%;
@@ -1414,27 +1445,109 @@ table.table td i {
 	box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
 }
 
-.submit-button {
-	float: left;
+.password-reset img {
+	width: 80px;
 }
 
-.neg {
-	margin-top: -300px;
+.submit-button {
+	float: left;
+	padding: 10px;
+	margin-top: 40px;
 }
+
 
 /*==========media query for mobile devices==========*/
 
 @media screen and (max-width: 600px) {
-	.form-holder {
-		width: 295px !important;
-		margin-left: 200px;
+
+	.avatar-upload {
+		width: 80px;
+		height: 80px;
+		margin-left: -38%;
+		margin-top: -20%;
+		border: 3px solid #816e4d;
 	}
 
-	.form-items h3,
-	.form-items>p {
-		margin-left: 100px;
+	.avatar-upload .avatar-edit {
+		left: 70px;
+		top: -10px;
+	}
+
+	.avatar-edit input+label {
+		width: 24px;
+		height: 24px;
+	}
+
+	.avatar-upload .avatar-edit input+label:after {
+		top: 0px;
+	}
+
+	.password-reset {
+		border: 3px solid #fefcff;
+		margin-right: 30%;
+	}
+
+	.password-reset img {
+		width: 50px;
+	}
+
+	.submit-button {
+		margin-top: 10%;
+		margin-left: 12%;
 	}
 }
+
+
+@media screen and (max-width: 892px) and (orientation: landscape) {
+
+	.avatar-upload {
+		width: 80px;
+		height: 80px;
+		margin-top: -2%;
+		margin-left: 15%;
+		border: 3px solid #f8f8f8;
+	}
+
+	.avatar-upload .avatar-edit {
+		left: 70px;
+		top: -10px;
+	}
+
+	.password-reset {
+		border: 3px solid #f8f8f8;
+	}
+
+	.password-reset img {
+		width: 50px;
+	}
+
+	.submit-button {
+		margin-top: 5%;
+		margin-left: 12%;
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* password-reset.html styling */
 
@@ -1455,7 +1568,7 @@ table.table td i {
 	color: black;
 }
 
-/* login.html Styling form*/
+/* login.html Styling form */
 
 .section-login {
 	margin-top: 200px;
@@ -1585,15 +1698,22 @@ table.table td i {
 
 
 @media screen and (max-width: 600px) {
-	.section-login {
-		margin-top: -5%;
-	}
 
 	.section-login .form-container {
 		display: block;
 		width: 70%;
 		max-width: 500px;
-		padding: 12%;
+		padding: 5%;
+		margin-top: -36%;
+	}
+
+	#user-login-form {
+		height: 100%;
+		margin-left: 38%;
+	}
+
+	.sign-up .text {
+		margin-top: 10%;
 	}
 
 	.section-login .form-container .form,
@@ -1606,19 +1726,24 @@ table.table td i {
 	.section-login .form-container .form {
 		width: 130%;
 		position: relative;
-		left: 50%;
 		transform: translateX(-50%);
 	}
 
-	.section-login .form-container .sign-up {
-		margin-top: 50px;
-	}
-
 	.forgot {
-		right: -60%;
+		right: 0%;
 	}
 
 }
+
+@media screen and (max-width: 892px) and (orientation: landscape) {
+
+	.section-login .form-container {
+		margin-top: -12%;
+		padding: 0;
+	}
+
+}
+
 
 /*know-your-mushrooms.html styling*/
 
@@ -1931,35 +2056,67 @@ a:nth-child(1) {
 	margin-top: 100px;
 }
 
+@media screen and (max-width: 600px) {
+
+	#content {
+		margin-left: -30%;
+		padding: 5%;
+	}
+
+}
+
+
+
 
 /*edit-product.html styling*/
 
 .page-header {
 	margin-top: 40px;
-  }
+}
 
 
 /*contact-us form*/
 
-@media screen and (max-width: 600px) {s
+/* @media screen and (max-width: 600px) {
 	.form-holder {
 		zoom: .7 !important;
 		margin-top: 120px !important;
 	}
+} */
+
+/* add-product.html & edit-product.html styling */
+
+.page-header {
+	margin-top: 5%;
 }
 
-/* add-product.html styling */
+@media screen and (max-width: 600px) {
+	.page-header {
+		margin-top: 20%;
 
-.ad-container {
-	height: 100%;
-	min-height: 140vh;
-  }
+	}
+}
+
+@media screen and (max-width: 892px) and (orientation: landscape) {
+	.page-header {
+		margin-top: 15%;
+
+	}
+}
 
 
+/*approve-reviews.html , products.html & contact-us-admin styling*/
 
+.table-container {
+	height: 100vh;
+	width: 100%;
+}
 
-
-
+@media screen and (max-width: 600px) {
+	.table-container {
+		overflow: auto;
+	}
+}
 
 
 

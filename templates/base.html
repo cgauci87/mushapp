@@ -6,7 +6,7 @@
     <title>Mush! Community | Mushroom Review Blog</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description"
         content="Mush! Community provides insight to people who are passionate about mushrooms and want to know more along with reviews by people like you.">
     <meta name="keywords"
@@ -47,7 +47,7 @@
 
 </head>
 
-<body class="d-flex flex-column h-100">
+<body>
     <!-- Resposinve Navigation bar -->
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
         <div class="container-fluid">
@@ -93,53 +93,57 @@
 
     {% endblock %}
 
+
+
     <!-- Responsive Footer -->
+
     <footer class="footer mt-auto py-3 bg-dark" style="height: 100%; max-height: 28vh;">
-        <!--Footer Links-->
         <div class="container">
+            <div class="row">
+                <hr>
+                <!-- Footer buttons -- Call to action -->
+                <div class="col-xl-12">
+                    <div class="call-to-action text-center bg-success bg-gradient">
+                        <ul id="footer-buttons">
+                        </ul>
+                    </div>
 
-            <hr>
+                    <hr>
 
-            <!--Call to action-->
-            <div class="call-to-action text-center bg-success bg-gradient">
-                <ul id="footer-buttons">
-                </ul>
-            </div>
-            <!--/.Call to action-->
+                    <!--Social buttons-->
+                    <div class="text-center">
+                        <ul class="social-icon">
+                            <li class="social-icon__item"><a class="social-icon__link" href="https://www.facebook.com/"
+                                    target="_blank" rel="noopener" aria-label="Facebook">
+                                    <i class="fab fa-facebook-square"></i></a>
+                            </li>
+                            <li class="social-icon__item"><a class="social-icon__link" href="https://www.twitter.com/"
+                                    target="_blank" rel="noopener" aria-label="Twitter">
+                                    <i class="fab fa-twitter-square"></i></a>
+                            </li>
+                            <li class="social-icon__item"><a class="social-icon__link" href="https://www.linkedin.com/"
+                                    target="_blank" rel="noopener" aria-label="Linkedin">
+                                    <i class="fab fa-linkedin"></i></a>
+                            </li>
+                            <li class="social-icon__item"><a class="social-icon__link" href="https://www.instagram.com/"
+                                    target="_blank" rel="noopener" aria-label="Instagram">
+                                    <i class="fab fa-instagram-square"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--/.Social buttons-->
 
-            <hr>
-
-            <!--Social buttons-->
-            <div class="text-center">
-                <ul class="social-icon">
-                    <li class="social-icon__item"><a class="social-icon__link" href="https://www.facebook.com/"
-                            target="_blank" rel="noopener" aria-label="Facebook">
-                            <i class="fab fa-facebook-square"></i></a>
-                    </li>
-                    <li class="social-icon__item"><a class="social-icon__link" href="https://www.twitter.com/"
-                            target="_blank" rel="noopener" aria-label="Twitter">
-                            <i class="fab fa-twitter-square"></i></a>
-                    </li>
-                    <li class="social-icon__item"><a class="social-icon__link" href="https://www.linkedin.com/"
-                            target="_blank" rel="noopener" aria-label="Linkedin">
-                            <i class="fab fa-linkedin"></i></a>
-                    </li>
-                    <li class="social-icon__item"><a class="social-icon__link" href="https://www.instagram.com/"
-                            target="_blank" rel="noopener" aria-label="Instagram">
-                            <i class="fab fa-instagram-square"></i></a>
-                    </li>
-                </ul>
-            </div>
-            <!--/.Social buttons-->
-
-            <!--Copyright-->
-            <div class="footer-copyright py-3 text-center text-white-50">
-                <div>
-                    © 2022 Copyright
+                    <!--Copyright-->
+                    <div class="footer-copyright py-3 text-center text-white-50">
+                        <div>
+                            © 2022 Copyright
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </footer>
+
 
     <!--  JS script -->
     <script src="{% static 'js/script.js' %}"></script>
