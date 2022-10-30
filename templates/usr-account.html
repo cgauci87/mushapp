@@ -17,7 +17,7 @@
   <script src="{% static 'js/apis_handler.js' %}"></script>
 </head>
 
-<div class="container">
+<div class="container offset">
   <div class="profile-photo position-relative">
 
     <form method="post" enctype="multipart/form-data">
@@ -27,13 +27,14 @@
         <div class="avatar-edit">
           <input type="file" id="imageUpload" onchange="getBaseUrl()" name="image">
           <label for="imageUpload"></label>
+          <div class="avatar-preview">
+            <div id="imagePreview"></div>
+          </div>
         </div>
       </div>
     </form>
   </div>
-  <div class="avatar-preview">
-    <div id="imagePreview"></div>
-  </div>
+
 
   <form method="post" onsubmit="update_profile()">
     {% csrf_token %}

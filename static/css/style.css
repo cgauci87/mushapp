@@ -667,7 +667,7 @@ article {
 
 .reviews-box {
 	width: 100%;
-	max-width: 1000px;
+	max-width:fit-content !important;
 	box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.1);
 	background-color: #ffffff;
 	padding: 20px;
@@ -1366,18 +1366,19 @@ table.table td i {
 	position: absolute;
 	left: 150px;
 	top: 0;
-	z-index: 90;
+	z-index: 999 !important;
 }
 
 #imagePreview {
 	background-image: url("https://res.cloudinary.com/diudkwkuw/image/upload/v1666370872/static/images/user-default-avatar.png");
 }
 
-.avatar-edit input {
+.avatar-upload .avatar-edit input {
 	display: none;
 }
 
-.avatar-edit input+label {
+
+.avatar-upload .avatar-edit input+label {
 	display: inline-block;
 	width: 34px;
 	height: 34px;
@@ -1402,21 +1403,21 @@ table.table td i {
 	color: #757575;
 	position: absolute;
 	top: 5px;
-	left: 0;
+	left: -80%;
 	right: 0;
 	text-align: center;
 	margin: auto;
 }
 
-.avatar-upload {
+.avatar-upload .avatar-preview {
 	width: 192px;
 	height: 192px;
 	border-radius: 100%;
 	border: 6px solid #f8f8f8;
 	box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
 	z-index: 100;
-	margin-left: -22%;
-	margin-top: -6%;
+	margin-left: -80%;
+	margin-top: -40%;
 }
 
 
@@ -1451,7 +1452,11 @@ table.table td i {
 
 @media screen and (max-width: 600px) {
 
-	.avatar-upload {
+	.offset {
+		overflow: hidden;
+	}
+
+	.avatar-upload .avatar-preview {
 		width: 80px;
 		height: 80px;
 		margin-left: -38%;
@@ -1460,17 +1465,19 @@ table.table td i {
 	}
 
 	.avatar-upload .avatar-edit {
-		left: 70px;
+		left: -10px;
 		top: -10px;
 	}
 
-	.avatar-edit input+label {
+	.avatar-upload .avatar-edit input+label {
 		width: 24px;
 		height: 24px;
+		margin-left: 30px;
 	}
 
 	.avatar-upload .avatar-edit input+label:after {
 		top: 0px;
+		left: 1px;
 	}
 
 	.password-reset {
@@ -1491,21 +1498,27 @@ table.table td i {
 
 @media screen and (max-width: 892px) and (orientation: landscape) {
 
-	.avatar-upload {
+	.avatar-upload .avatar-preview {
 		width: 80px;
 		height: 80px;
-		margin-top: -2%;
-		margin-left: 15%;
-		border: 3px solid #f8f8f8;
+		border: 3px solid #816e4d;
+		margin-left: -100%;
 	}
 
 	.avatar-upload .avatar-edit {
-		left: 70px;
+		left: -30px;
 		top: -10px;
+	}
+
+	
+	.avatar-upload .avatar-edit input+label:after {
+		top: 5px;
+		left: -45px;
 	}
 
 	.password-reset {
 		border: 3px solid #f8f8f8;
+
 	}
 
 	.password-reset img {
