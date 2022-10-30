@@ -22,11 +22,13 @@
   <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ ProfilePhotoForm }}
-    <div id="imagePreview">
-      <div class="avatar-upload position-absolute top-50 start-50 translate-middle">
-        <div class="avatar-edit">
-          <input type="file" id="imageUpload" onchange="getBaseUrl()" name="image">
-          <label for="imageUpload"></label>
+    <div class="avatar-preview">
+      <div id="imagePreview">
+        <div class="avatar-upload position-absolute top-50 start-50 translate-middle">
+          <div class="avatar-edit">
+            <input type="file" id="imageUpload" onchange="getBaseUrl()" name="image">
+            <label for="imageUpload"></label>
+          </div>
         </div>
       </div>
     </div>

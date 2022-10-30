@@ -1539,6 +1539,62 @@ table.table td i {
 	color: black;
 }
 
+/* Small devices (portrait phones, less than 600px)*/
+@media screen and (max-width: 600px) {
+	.pr-container {
+		margin-top: 60% !important;
+		overflow: hidden !important;
+		height: 60vh;
+	}
+
+	.pr-container .px-2 {
+		padding: 0% !important;
+		margin-right: 30%;
+	}
+
+	.pr-container .btn {
+		white-space: nowrap;
+		margin-left: -50%;
+	}
+
+}
+
+@media screen and (max-width: 892px) and (orientation: landscape) {
+
+	.pr-container {
+		margin-top: 10% !important;
+		margin-left: 20%;
+		overflow: hidden !important;
+		height: 100vh;
+	}
+
+	.pr-container .px-2 {
+		padding: 0% !important;
+		margin-right: 30%;
+	}
+
+	.pr-container .btn {
+		white-space: nowrap;
+		margin-left: -50%;
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* login.html Styling form */
 
 .section-login {
@@ -1555,7 +1611,7 @@ table.table td i {
 	justify-content: center;
 }
 
-.section-login .form-container { /*wip*/
+.section-login .form-container {
 	background: linear-gradient(-45deg,
 			rgba(113, 72, 32, 0.75) 0%,
 			rgba(81, 93, 51, 1) 100%) !important;
@@ -1823,8 +1879,8 @@ a:nth-child(1) {
 
 /*======================== media queries ===============================*/
 
-/* X-Small devices (portrait phones, less than 576px)*/
-@media (max-width: 575.98px) {
+/* Small devices (portrait phones, less than 600px)*/
+@media screen and (max-width: 600px) {
 	.product-details {
 		width: 100%;
 		overflow: auto;
@@ -1835,15 +1891,15 @@ a:nth-child(1) {
 	}
 
 	.kym-container .product-details>p {
-		font-size: calc(32px + (16 - 8) * (100vw - 400px) / (800 - 400));
-		line-height: calc(32px + (16 - 8) * (100vw - 400px) / (800 - 400));
+		font-size: calc(16px + (8 - 4) * (100vw - 400px) / (800 - 400)) !important;
+		line-height: calc(16px + (8 - 4) * (100vw - 400px) / (800 - 400)) !important;
 	}
-
 }
 
 
 /* Small devices (landscape phones, less than 768px)*/
-@media (max-width: 767.98px) {
+
+@media screen and (max-width: 892px) and (orientation: landscape) {
 
 	.product-details {
 		width: 100%;
@@ -1881,15 +1937,15 @@ a:nth-child(1) {
 	}
 
 	.kym-container .product-details>p {
-		font-size: calc(32px + (16 - 8) * (100vw - 400px) / (800 - 400));
-		line-height: calc(32px + (16 - 8) * (100vw - 400px) / (800 - 400));
+		font-size: calc(16px + (8 - 4) * (100vw - 400px) / (800 - 400));
+		line-height: calc(16px + (8 - 4) * (100vw - 400px) / (800 - 400));
 	}
 }
 
 /* Medium devices (tablets, less than 992px) */
 
-@media (max-width: 991.98px) and (orientation: landscape) {
 
+@media screen and (max-width: 892px) and (orientation: landscape) {
 	.product-details {
 		width: 100%;
 		overflow: auto;
