@@ -260,7 +260,7 @@ article {
 	position: relative;
 	width: 100%;
 	height: 50vh;
-	background-image: url("../images/logo.png");
+	background-image: url("../images/logo.600301121c6b.png");
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: contain;
@@ -641,7 +641,7 @@ article {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	background-image: url("../images/row-bg.jpg");
+	background-image: url("../images/row-bg.3e497c1ca8d0.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
 	width: 100%;
@@ -667,7 +667,7 @@ article {
 
 .reviews-box {
 	width: 100%;
-	max-width: fit-content ;
+	max-width: fit-content !important;
 	box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.1);
 	background-color: #ffffff;
 	padding: 20px;
@@ -872,7 +872,7 @@ article {
 @media screen and (max-width: 600px) {
 	.reviews-box {
 		width: 100%;
-		max-width: 1000px ;
+		max-width: 1000px !important;
 	}
 
 	/*datatables style*/
@@ -1208,13 +1208,13 @@ article {
 	.btn-primary:focus,
 	.btn-primary:active {
 		background-color: #495056;
-		outline: none ;
-		border: none ;
+		outline: none !important;
+		border: none !important;
 		box-shadow: none;
 	}
 
 	.form-content textarea {
-		position: static ;
+		position: static !important;
 		width: 100%;
 		padding: 8px 20px;
 		border-radius: 6px;
@@ -1240,8 +1240,8 @@ article {
 	}
 
 	.mv-up {
-		margin-top: -9px ;
-		margin-bottom: 8px ;
+		margin-top: -9px !important;
+		margin-bottom: 8px !important;
 	}
 
 	/*media query for mobile devices*/
@@ -1299,7 +1299,7 @@ article {
 		opacity: 0.7;
 		background: linear-gradient(-45deg,
 				rgba(113, 72, 32, 0.75) 0%,
-				rgba(81, 93, 51, 1) 100%) ;
+				rgba(81, 93, 51, 1) 100%) !important;
 		border: 2px solid rgb(113, 72, 32, 1);
 	}
 
@@ -1365,7 +1365,7 @@ article {
 		position: absolute;
 		left: 150px;
 		top: 0;
-		z-index: 999 ;
+		z-index: 999 !important;
 	}
 
 	#imagePreview {
@@ -1539,8 +1539,8 @@ article {
 	}
 
 	.pr-container .px-2 {
-		padding-right: 400px ;
-		padding-left: 400px ;
+		padding-right: 400px !important;
+		padding-left: 400px !important;
 	}
 
 	.pr-container .px {
@@ -1554,13 +1554,13 @@ article {
 	/* Small devices (portrait phones, less than 600px)*/
 	@media screen and (max-width: 600px) {
 		.pr-container {
-			margin-top: 60% ;
-			overflow: hidden ;
+			margin-top: 60% !important;
+			overflow: hidden !important;
 			height: 60vh;
 		}
 
 		.pr-container .px-2 {
-			padding: 0% ;
+			padding: 0% !important;
 			margin-right: 30%;
 		}
 
@@ -1574,14 +1574,14 @@ article {
 	@media screen and (max-width: 892px) and (orientation: landscape) {
 
 		.pr-container {
-			margin-top: 10% ;
+			margin-top: 10% !important;
 			margin-left: 20%;
-			overflow: hidden ;
+			overflow: hidden !important;
 			height: 100vh;
 		}
 
 		.pr-container .px-2 {
-			padding: 0% ;
+			padding: 0% !important;
 			margin-right: 30%;
 		}
 
@@ -1626,7 +1626,7 @@ article {
 	.section-login .form-container {
 		background: linear-gradient(-45deg,
 				rgba(113, 72, 32, 0.75) 0%,
-				rgba(81, 93, 51, 1) 100%) ;
+				rgba(81, 93, 51, 1) 100%) !important;
 		padding: 2.5rem 1.5rem;
 		flex: 1;
 		position: relative;
@@ -1685,7 +1685,7 @@ article {
 		border: 1px solid rgba(81, 93, 51, 1);
 		background: linear-gradient(-45deg,
 				rgba(113, 72, 32, 0.75) 0%,
-				rgba(81, 93, 51, 1) 100%) ;
+				rgba(81, 93, 51, 1) 100%) !important;
 		box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.4);
 		transition: box-shadow 0.2s linear;
 	}
@@ -1903,8 +1903,8 @@ article {
 		}
 
 		.kym-container .product-details>p {
-			font-size: calc(16px + (8 - 4) * (100vw - 400px) / (800 - 400)) ;
-			line-height: calc(16px + (8 - 4) * (100vw - 400px) / (800 - 400)) ;
+			font-size: calc(16px + (8 - 4) * (100vw - 400px) / (800 - 400)) !important;
+			line-height: calc(16px + (8 - 4) * (100vw - 400px) / (800 - 400)) !important;
 		}
 	}
 
@@ -2117,15 +2117,15 @@ article {
 
 	/* @media screen and (max-width: 600px) {
 	.form-holder {
-		zoom: .7 ;
-		margin-top: 120px ;
+		zoom: .7 !important;
+		margin-top: 120px !important;
 	}
 } */
 
 	/* add-product.html & edit-product.html styling */
 
 	.page-header {
-		margin-top: 5% ;
+		margin-top: 5% !important;
 	}
 
 	@media screen and (max-width: 600px) {
@@ -2146,7 +2146,7 @@ article {
 	/*approve-reviews.html , products.html & contact-us-admin styling*/
 
 	.table-container {
-		min-height: 100vh ;
+		min-height: 100vh !important;
 		width: 100%;
 	}
 
@@ -2180,7 +2180,7 @@ article {
 
 		.reviews {
 			margin-top: 40px;
-			margin-left: -100px ;
+			margin-left: -100px !important;
 		}
 
 		.date-submitted {

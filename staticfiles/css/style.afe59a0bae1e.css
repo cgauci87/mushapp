@@ -260,7 +260,7 @@ article {
 	position: relative;
 	width: 100%;
 	height: 50vh;
-	background-image: url("../images/logo.png");
+	background-image: url("../images/logo.600301121c6b.png");
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: contain;
@@ -641,7 +641,7 @@ article {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	background-image: url("../images/row-bg.jpg");
+	background-image: url("../images/row-bg.3e497c1ca8d0.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
 	width: 100%;
