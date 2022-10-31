@@ -1041,7 +1041,7 @@ function save_product_id_for_editing(product_id) {
 
 
 function change_current_password(e) {
-    e.preventDefault(e)
+    e.preventDefault()
     user_token = getCookie("token");
     var headers = {
         'Authorization': 'Token ' + getCookie("token") //Authentication - to verify the user login using token from cookies and provide security for the API
