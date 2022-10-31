@@ -667,7 +667,11 @@ article {
 
 .reviews-box {
 	width: 100%;
+<<<<<<< HEAD
 	max-width: fit-content ;
+=======
+	max-width: 1000px;
+>>>>>>> parent of 1df5a7a (fix .reviews-box div overlapping issue)
 	box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.1);
 	background-color: #ffffff;
 	padding: 20px;
@@ -1138,6 +1142,7 @@ article {
 				rgba(81, 93, 51, 1) 100%);
 	}
 
+<<<<<<< HEAD
 	.form-content h3 {
 		color: #fff;
 		text-align: left;
@@ -1148,6 +1153,123 @@ article {
 
 	.form-content h3.form-title {
 		margin-bottom: 30px;
+=======
+
+/* usr-account.html styling */
+
+#uf_first_name,
+#uf_last_name,
+#uf_location_select {
+	font-weight: 600;
+}
+
+/*============Profile Photo===============*/
+.profile-photo {
+	max-width: 100px;
+	width: 100%;
+	z-index: 30;
+	top: 300px;
+}
+
+
+/*===========Avatar upload===============*/
+
+.avatar-upload .avatar-edit {
+	position: absolute;
+	left: 150px;
+	top: 0;
+	z-index: 90;
+}
+
+#imagePreview {
+	background-image: url("https://res.cloudinary.com/diudkwkuw/image/upload/v1666370872/static/images/user-default-avatar.png");
+}
+
+.avatar-edit input {
+	display: none;
+}
+
+.avatar-edit input+label {
+	display: inline-block;
+	width: 34px;
+	height: 34px;
+	margin-bottom: 0;
+	border-radius: 100%;
+	background: #ffffff;
+	border: 1px solid transparent;
+	box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+	cursor: pointer;
+	font-weight: normal;
+	transition: all 0.2s ease-in-out;
+}
+
+.avatar-upload .avatar-edit input+label:hover {
+	background: #f1f1f1;
+	border-color: #d6d6d6;
+}
+
+.avatar-upload .avatar-edit input+label:after {
+	content: "\f040";
+	font-family: "FontAwesome";
+	color: #757575;
+	position: absolute;
+	top: 5px;
+	left: 0;
+	right: 0;
+	text-align: center;
+	margin: auto;
+}
+
+.avatar-upload {
+	width: 192px;
+	height: 192px;
+	border-radius: 100%;
+	border: 6px solid #f8f8f8;
+	box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+	z-index: 100;
+	margin-left: -22%;
+	margin-top: -6%;
+}
+
+
+.avatar-upload .avatar-preview>div {
+	width: 100%;
+	height: 100%;
+	border-radius: 100%;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.password-reset {
+	float: right;
+	border-radius: 100%;
+	border: 6px solid #f8f8f8;
+	box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+}
+
+.password-reset img {
+	width: 80px;
+}
+
+.submit-button {
+	float: left;
+	padding: 10px;
+	margin-top: 40px;
+}
+
+
+/*==========media query for mobile devices==========*/
+
+@media screen and (max-width: 600px) {
+
+	.avatar-upload {
+		width: 80px;
+		height: 80px;
+		margin-left: -38%;
+		margin-top: -20%;
+		border: 3px solid #816e4d;
+>>>>>>> parent of 1df5a7a (fix .reviews-box div overlapping issue)
 	}
 
 	.form-content p {
@@ -1362,6 +1484,7 @@ article {
 	/*===========Avatar upload===============*/
 
 	.avatar-upload .avatar-edit {
+<<<<<<< HEAD
 		position: absolute;
 		left: 150px;
 		top: 0;
@@ -1434,6 +1557,54 @@ article {
 		border-radius: 100%;
 		border: 6px solid #f8f8f8;
 		box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+=======
+		left: 70px;
+		top: -10px;
+	}
+
+	.avatar-edit input+label {
+		width: 24px;
+		height: 24px;
+	}
+
+	.avatar-upload .avatar-edit input+label:after {
+		top: 0px;
+	}
+
+	.password-reset {
+		border: 3px solid #fefcff;
+		margin-right: 30%;
+	}
+
+	.password-reset img {
+		width: 50px;
+	}
+
+	.submit-button {
+		margin-top: 10%;
+		margin-left: 12%;
+	}
+}
+
+
+@media screen and (max-width: 892px) and (orientation: landscape) {
+
+	.avatar-upload {
+		width: 80px;
+		height: 80px;
+		margin-top: -2%;
+		margin-left: 15%;
+		border: 3px solid #f8f8f8;
+	}
+
+	.avatar-upload .avatar-edit {
+		left: 70px;
+		top: -10px;
+	}
+
+	.password-reset {
+		border: 3px solid #f8f8f8;
+>>>>>>> parent of 1df5a7a (fix .reviews-box div overlapping issue)
 	}
 
 	.password-reset img {
