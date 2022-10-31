@@ -36,7 +36,7 @@
   </div>
 
 
-  <form method="post" onsubmit="update_profile()">
+  <form method="post" onsubmit="return update_profile(event)">
     {% csrf_token %}
     <!-- view/edit account details form -->
     <div class="row">

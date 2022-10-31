@@ -34,15 +34,15 @@
                 title="Products are the goods or services you sell."></i></label>
 
             <input type="text" id="add-product-title" class="form-control" name="productName" id="productNameLabel"
-              placeholder="Mushroom Name" aria-label="Mushroom Name">
+              placeholder="Mushroom Name" aria-label="Mushroom Name" required>
           </div>
 
           <!-- End Form Group -->
 
-          <label class="input-label">Description <span class="input-label-secondary">(Optional)</span></label>
+          <label class="input-label">Description</label>
           <div class="form-group">
             <textarea id="add-product-description" class="form-control" name="description" rows="3"
-              placeholder="Description"></textarea>
+              placeholder="Description" required></textarea>
           </div>
 
         </div>
@@ -58,7 +58,7 @@
         <!-- Body -->
         <div class="card-body">
           <!-- Product image -->
-          <input id="add-product-image" type="file" name="file">
+          <input id="add-product-image" type="file" name="file" required>
         </div>
         <div class="card-footer">
           <button id="add-product-button" onclick="add_product()" type="button" class="btn btn-success">Save</button>

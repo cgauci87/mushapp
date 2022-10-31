@@ -868,12 +868,11 @@ article {
 	transform: translateY(-10px);
 }
 
-
+/*wip*/
 @media screen and (max-width: 600px) {
-	#mq {
-		position: relative;
-		display: inline-block;
-	}
+	.reviews-box {
+		width: 100%;
+		max-width: 1000px !important;
 }
 
 /*datatables style*/
@@ -2092,6 +2091,7 @@ a:nth-child(1) {
 
 #content {
 	margin-top: 100px;
+	height: 100vh;
 }
 
 @media screen and (max-width: 600px) {
@@ -2125,7 +2125,7 @@ a:nth-child(1) {
 /* add-product.html & edit-product.html styling */
 
 .page-header {
-	margin-top: 5%;
+	margin-top: 5% !important;
 }
 
 @media screen and (max-width: 600px) {
@@ -2146,7 +2146,7 @@ a:nth-child(1) {
 /*approve-reviews.html , products.html & contact-us-admin styling*/
 
 .table-container {
-	height: 100vh;
+	min-height: 100vh !important;
 	width: 100%;
 }
 

@@ -51,9 +51,9 @@ function registerUser(e) {
         data: JSON.stringify(data), // Parse data into json before sending it to backend
         dataType: 'json', // The data type of body is json
         async: false,
-        success: function (resp) { // wip
+        success: function (resp) {
             console.log(resp);
-            alert("Your account has been created successfully."); // wip
+            alert("Your account has been created successfully.");
             setTimeout(function () {
                 document.location.href = "login.html"
             }, 100);
@@ -65,8 +65,9 @@ function registerUser(e) {
     });
 }
 
-
-function contactUsFrom() {
+// Get data from the user input of the contact us form on contact-us.html
+function contactUsFrom(e) {
+    e.preventDefault()
     var $inputs = $('#user-contactus-form :input'); // Get Data from user form by its inputs
     var data = {};
     $inputs.each(function () { // Iterate each input and get the values by it name
@@ -83,8 +84,9 @@ function contactUsFrom() {
             console.log(resp);
             // showing response message
             alert("Thank you for getting in touch!");
-            window.location.href = 'index.html'; // on success show message of api
-            // redirect to login page
+            setTimeout(function () {
+                document.location.href = "index.html"
+            }, 100); // redirect to homepage
         },
         error: function (resp) {
             console.log(resp);
@@ -93,6 +95,8 @@ function contactUsFrom() {
     });
 }
 
+
+// Get messages to be displayed on datatable of contact-us-admin.html
 function get_messages() {
     user_type = getCookie("user_type");
     user_token = getCookie("token");
@@ -623,7 +627,7 @@ function approval_of_all_reviews(status) {
     });
 }
 
-// getting user profile api
+// getting user profile api to be displayed on usr-account.html 
 function get_user_profile() {
     var token = getCookie("token");
     var headers = {
@@ -673,8 +677,9 @@ function get_user_profile() {
 }
 
 
-// update the user profile
-function update_profile() {
+// This function will update the user profile on usr-account.html upon editing of the form fields (excluding email address as it is a readonly field)
+function update_profile(e) {
+    e.preventDefault()
     user_token = getCookie("token");
     if (user_token == "") {
         $.ajax({
@@ -716,11 +721,12 @@ function update_profile() {
         headers: headers,
         async: false,
         success: function (resp) {
-            console.log(resp);
-            // showing response message
+            console.log(resp); // showing response message
             get_user_profile();
             alert(resp.message);
-            window.location.href = "index.html";
+            setTimeout(function () {
+                document.location.href = "index.html"
+            }, 100);
         },
         error: function (resp) {
             console.log(resp);
@@ -751,7 +757,8 @@ function getBaseUrl() {
     });
 }
 
-function add_product() { //bug
+// This function will get activated once admin adds a new product
+function add_product() {
     user_type = getCookie("user_type");
     if (user_type == 1) { // Access admin only
         var headers = {
@@ -796,6 +803,7 @@ function add_product() { //bug
         });
 }
 
+// This function will get activated once admin edit a specific product
 function edit_product() {
     user_type = getCookie("user_type");
     var headers = {
@@ -840,6 +848,9 @@ function edit_product() {
         });
 }
 
+
+
+// This function will get all products to be displayed on datatable of products.html
 function get_products() {
     user_type = getCookie("user_type");
     user_token = getCookie("token");
@@ -928,6 +939,7 @@ function get_products() {
         });
 }
 
+// Toogle function to hide or unhide a specfic product being displayed on carousel. This function is activated on products.html datatable. 
 function toggle_product(product_id) {
     var headers = {
         'Authorization': 'Token ' + getCookie("token") //Authentication - to verify the user login using token from cookies and provide security for the API
@@ -947,7 +959,7 @@ function toggle_product(product_id) {
 }
 
 
-
+// Delete product upon action button "Delete" on products.html datatable.
 function delete_product(product_id) {
 
     let text = "Are you sure you want to delete this product?\nAll reviews associated with this product would be deleted as well. This action cannot be undone.";
@@ -974,6 +986,8 @@ function delete_product(product_id) {
     });
 }
 
+
+// Delete message upon action button "Delete" on contact-us-admin.html datatable.
 function delete_message(message_id) {
 
     let text = "Are you sure you want to delete this message?\nThis action cannot be undone.";
@@ -996,10 +1010,9 @@ function delete_message(message_id) {
     });
 }
 
-function save_product_id_for_editing(product_id) {
-    setCookie("edit_product_id", product_id, 365);
-}
 
+
+// Get product details to edit a specific product on edit-product.html
 function get_product_by_id() {
     $.ajax({
         url: productUrl + "?id=" + getCookie("edit_product_id"),
@@ -1022,7 +1035,15 @@ function get_product_by_id() {
     });
 }
 
-function change_current_password() {
+
+// Save product details once editing has been completed on edit-product.html
+function save_product_id_for_editing(product_id) {
+    setCookie("edit_product_id", product_id, 365);
+}
+
+
+function change_current_password(e) {
+    e.preventDefault(e)
     user_token = getCookie("token");
     var headers = {
         'Authorization': 'Token ' + getCookie("token") //Authentication - to verify the user login using token from cookies and provide security for the API
@@ -1061,7 +1082,9 @@ function change_current_password() {
         success: function (resp) {
             console.log(resp);
             alert(resp.message);
-            window.location.href = "index.html";
+            setTimeout(function () {
+                document.location.href = "index.html"
+            }, 100);
         },
         error: function (xhr, status, error) {
             var err = eval("(" + xhr.responseText + ")");
@@ -1070,9 +1093,9 @@ function change_current_password() {
     });
 }
 
-function forgot_password_email() {
+function forgot_password_email(e) {
+    e.preventDefault()
     var email = $("#forgot-password-email").val();
-
     var data = {
         "email": email
     }
@@ -1084,7 +1107,10 @@ function forgot_password_email() {
         dataType: 'json',
         async: false,
         success: function (resp) {
-            window.location.href = "email-verification.html?email=" + email;
+            console.log(resp);
+            setTimeout(function () {
+                document.location.href = "email-verification.html?email=" + email;
+            }, 100);
         }
     });
 }

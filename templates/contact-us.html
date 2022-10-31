@@ -17,7 +17,7 @@
                         Fill up the form below to send us a message.
                     </p>
                     <!-- Form -->
-                    <form method="post" onsubmit="return contactUsFrom();" id="user-contactus-form">
+                    <form method="post" onsubmit="return contactUsFrom(event);" id="user-contactus-form">
                         {% csrf_token %}
                         <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
                         <input type="hidden" name="subject" value="New Submission from Web3Forms">
