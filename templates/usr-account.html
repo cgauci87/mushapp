@@ -18,19 +18,18 @@
 </head>
 
 <div class="container">
-  <div class="profile-photo position-relative">
 
-    <form method="post" enctype="multipart/form-data">
-      {% csrf_token %}
-      {{ ProfilePhotoForm }}
-      <div class="avatar-upload position-absolute top-50 start-50 translate-middle">
-        <div class="avatar-edit">
-          <input type="file" id="imageUpload" onchange="getBaseUrl()" name="image">
-          <label for="imageUpload"></label>
-        </div>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ ProfilePhotoForm }}
+    <div class="avatar-upload position-absolute top-50 start-50 translate-middle">
+      <div class="avatar-edit">
+        <input type="file" id="imageUpload" onchange="getBaseUrl()" name="image">
+        <label for="imageUpload"></label>
       </div>
-    </form>
-  </div>
+    </div>
+  </form>
+
   <div class="avatar-preview">
     <div id="imagePreview"></div>
   </div>
