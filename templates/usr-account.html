@@ -17,22 +17,26 @@
   <script src="{% static 'js/apis_handler.js' %}"></script>
 </head>
 
-<div class="container">
+<div class="container offset">
+  <div class="profile-photo position-relative">
 
-  <form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ ProfilePhotoForm }}
-    <div id="imagePreview">
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ ProfilePhotoForm }}
       <div class="avatar-upload position-absolute top-50 start-50 translate-middle">
         <div class="avatar-edit">
           <input type="file" id="imageUpload" onchange="getBaseUrl()" name="image">
           <label for="imageUpload"></label>
+          <div class="avatar-preview">
+            <div id="imagePreview"></div>
+          </div>
         </div>
       </div>
-    </div>
-  </form>
+    </form>
+  </div>
 
-  <form method="post" onsubmit="update_profile()">
+
+  <form method="post" onsubmit="return update_profile(event)">
     {% csrf_token %}
     <!-- view/edit account details form -->
     <div class="row">

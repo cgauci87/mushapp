@@ -16,8 +16,6 @@ import logging.config
 import dj_database_url
 import django_heroku
 import cloudinary
-import cloudinary.uploader
-import cloudinary.api
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -176,13 +174,11 @@ USE_I18N = True
 USE_TZ = True
 
 if DEBUG:
-    min_level = "DEBUG"
+    MIN_LEVEL = "DEBUG"
 else:
-    min_level = "INFO"
+    MIN_LEVEL = "INFO"
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.2/howto/static-files/
-APP_NAME = "reviewer backend"
+APP_NAME = "reviewer"
 LOGGER_NAME_PREFIX = APP_NAME + "."
 LOGGING = {
     "version": 1,
@@ -195,7 +191,7 @@ LOGGING = {
     },
     "handlers": {
         "console": {
-            "level": min_level,
+            "level": MIN_LEVEL,
             "class": "logging.StreamHandler",
             "formatter": "verbose",
         },
@@ -203,12 +199,12 @@ LOGGING = {
     "loggers": {
         APP_NAME: {
             "handlers": ["console"],
-            "level": min_level,
+            "level": MIN_LEVEL,
             "propagate": False,
         },
         "gunicorn": {
             "handlers": ["console"],
-            "level": min_level,
+            "level": MIN_LEVEL,
             "propagate": False,
         },
     },
