@@ -484,11 +484,11 @@ function get_product_detail() {
                     '<div class="location-user px-2">' +
                     '<i class="fa-solid fa-location-dot"></i><span>' + payload.user_reviews[i].location + '</span>' +
                     '</div>' +
-                    '<div class="date-submitted text-nowrap px-2">' +
+                    '<div class="date-submitted px-2">' +
                     '<i class="fa-regular fa-clock"></i><span>' + payload.user_reviews[i].date + '</span>' +
                     '</div>' +
                     '</div>' +
-                    '<div class="reviews text-nowrap offset">' +
+                    '<div class="reviews">' +
                     reviews_i +
                     '</div>' +
                     '</div>' +

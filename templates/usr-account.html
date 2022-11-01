@@ -39,7 +39,7 @@
   <form method="post" onsubmit="return update_profile(event)">
     {% csrf_token %}
     <!-- view/edit account details form -->
-    <div class="row">
+    <div class="row offset2">
       <!-- view/upload profile photo -->
       <div class="form-holder">
         <div class="form-content">
@@ -61,7 +61,7 @@
             </div>
             <div class="col-auto">
               <label for="uf_location_select">Country</label>
-              <select id="uf_location_select" class="form-select mt-3">
+              <select id="uf_location_select" class="form-select mt-3 form-control">
                 <option id="uf_location" selected></option>
                 <option value="Afghanistan">Afghanistan</option>
                 <option value="Åland Islands">Åland Islands</option>

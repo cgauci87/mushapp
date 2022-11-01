@@ -19,35 +19,25 @@
                     <!-- Form -->
                     <form method="post" onsubmit="return contactUsFrom(event);" id="user-contactus-form">
                         {% csrf_token %}
-                        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
-                        <input type="hidden" name="subject" value="New Submission from Web3Forms">
-                        <input type="checkbox" name="botcheck" id="" style="display: none;">
-
-                        <div class="flex mb-6 space-x-4">
-                            <div class="w-full md:w-1/2">
-                                <!-- First Name field -->
-                                <input type="text" name="first_name" id="first_name" placeholder="First Name" required
-                                    class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500">
-                            </div>
-                            <div class="w-full md:w-1/2">
-                                <!-- Last Name field-->
-                                <input type="text" name="last_name" id="lname" placeholder="Last Name" required
-                                    class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500">
-                            </div>
+                        <div class="col-auto">
+                            <!-- First Name field -->
+                            <input class="form-control" type="text" name="first_name" id="first_name"
+                                placeholder="First Name" required>
                         </div>
-
-                        <div class="flex mb-6 space-x-4">
-                            <div class="w-full md:w-1/2">
-                                <!-- Email address field -->
-                                <input type="email" name="email" id="email" placeholder="Email Address" required
-                                    class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500">
-                            </div>
+                        <div class="col-auto">
+                            <!-- Last Name field-->
+                            <input class="form-control" type="text" name="last_name" id="lname" placeholder="Last Name"
+                                required>
                         </div>
-                        <div class="mb-6">
+                        <div class="col-auto">
+                            <!-- Email address field -->
+                            <input class="form-control" type="email" name="email" id="email" placeholder="Email Address"
+                                required>
+                        </div>
+                        <div class="col-auto">
                             <!-- Message field -->
-                            <textarea rows="5" name="message" id="message" placeholder="Your Message"
-                                class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
-                                required></textarea>
+                            <textarea class="form-control" style="resize: none;" rows="5" name="message" id="message"
+                                placeholder="Your Message Here" required></textarea>
                         </div>
                         <div class="form-button mt-3">
                             <!-- Submit button -->

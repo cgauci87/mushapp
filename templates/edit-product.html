@@ -35,15 +35,15 @@
                 data-toggle="tooltip" data-placement="top" title="Products"></i></label>
 
             <input type="text" id="edit-product-title" class="form-control" name="productName" id="productNameLabel"
-              placeholder="Mushroom Name" aria-label="Mushroom Name">
+              placeholder="Mushroom Name" aria-label="Mushroom Name" required>
           </div>
 
           <!-- End Form Group -->
 
-          <label class="input-label">Description <span class="input-label-secondary">(Optional)</span></label>
+          <label class="input-label">Description</label>
           <div class="form-group">
-            <textarea id="edit-product-description" class="form-control" name="description" rows="3"
-              placeholder="Description"></textarea>
+            <textarea id="edit-product-description" class="form-control" name="description" rows="3" required
+              placeholder="Description" required></textarea>
           </div>
 
           <!-- End Quill -->
@@ -62,7 +62,7 @@
         <!-- End Header -->
         <!-- Body -->
         <div class="card-body">
-          <input id="edit-product-image" type="file" name="file">
+          <input id="edit-product-image" type="file" name="file" required>
           <!-- End Dropzone -->
         </div>
         <div class="card-footer">

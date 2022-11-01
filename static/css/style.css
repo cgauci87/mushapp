@@ -658,6 +658,7 @@ article {
 	background-repeat: no-repeat;
 	background-size: cover;
 	width: 100%;
+	overflow-wrap: break-word !important;
 }
 
 .product-heading p {
@@ -675,20 +676,24 @@ article {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	flex-wrap: wrap;
+	max-width: 800px !important;
+	flex-wrap: wrap !important;
 }
 
 .reviews-box {
-	width: 100%;
-	max-width: fit-content;
-	max-width: 1000px;
 	box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.1);
 	background-color: #ffffff;
 	padding: 20px;
 	margin: 15px;
 	cursor: pointer;
-	white-space: normal;
 }
+
+.client-comment {
+	max-width: 100% !important;
+	overflow-wrap: break-word !important;
+	box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, .08);
+}
+
 
 .profile-img {
 	width: 50px;
@@ -728,9 +733,6 @@ article {
 .date-submitted {
 	display: flex;
 	flex-direction: row;
-	float: left;
-	margin-top: -5px;
-	margin-left: 550px;
 }
 
 .date-submitted span {
@@ -778,31 +780,6 @@ article {
 	opacity: 0.7;
 }
 
-.modal {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	overflow: hidden;
-	width: 0;
-	height: 100%;
-	transition: .3s ease;
-	z-index: 999;
-	border: transparent;
-}
-
-.fade {
-	background-color: rgb(113, 72, 32, .4);
-	margin-top: 0%;
-}
-
-.close {
-	position: absolute;
-	background: rgb(255, 96, 92, 1);
-	color: white;
-	top: -.5px;
-	right: -.5px;
-}
 
 #image {
 	width: 100%;
@@ -810,19 +787,13 @@ article {
 }
 
 
-.dater {
-	display: flex;
-	flex-direction: row;
-	align-items: flex-end;
-	min-width: 20px;
-	min-height: 1em;
-	text-align: center;
-	text-transform: capitalize;
-}
-
-
 .reviews {
+	position: absolute;
+	display: flex;
 	color: #f9d71c;
+	padding-top: 120px;
+	padding-bottom: 60px;
+	z-index: 999;
 }
 
 .box-top {
@@ -831,6 +802,7 @@ article {
 	align-items: center;
 	margin-bottom: 20px;
 }
+
 
 .client-comment p {
 	font-size: 0.9rem;
@@ -842,57 +814,34 @@ article {
 	transition: all ease 0.3s;
 }
 
-.reviews {
-	margin-left: 0px;
-}
-
 /* media query for mobile devices - reviews section */
 
 
 @media screen and (max-width: 600px) {
-	.reviews-box {
-		width: 100%;
-		max-width: 1000px;
-	}
-}
 
-@media (max-width: 1060px) {
-	.reviews-box {
-		width: 45%;
-		padding: 10px;
-	}
-}
-
-@media (max-width: 790px) {
 
 	.reviews-box {
-		width: 100%;
+		max-width: 350px;
 	}
 
-	.reviews {
-		margin-top: 40px;
-		margin-left: -100px;
-	}
-
-	.date-submitted {
-		margin-left: 25px;
-	}
-
-	.testimonial-heading h1 {
-		font-size: 1.4rem;
+	.product-heading p {
+		font-size: 2.5rem;
+		letter-spacing: 5px;
 	}
 }
 
-@media (max-width: 340px) {
-	.box-top {
-		flex-wrap: wrap;
-		margin-bottom: 10px;
+@media screen and (max-width: 892px) and (orientation: landscape) {
+	.reviews-box {
+		max-width: 650px;
 	}
 
-	.reviews {
-		margin-top: 10px;
+	.product-heading p {
+		font-size: 2.5rem;
+		letter-spacing: 5px;
 	}
+
 }
+
 
 /* ###################################  FOOTER ################################### */
 
@@ -1171,7 +1120,7 @@ table.table td i {
 	justify-content: center;
 	-webkit-align-items: center;
 	align-items: center;
-	padding: 60px;
+	padding: 10px;
 }
 
 .form-content .form-items {
@@ -1213,222 +1162,21 @@ table.table td i {
 	margin-bottom: 30px;
 }
 
-/* ###################################  USR-ACCOUNT.html ################################### */
-
-#uf_first_name,
-#uf_last_name,
-#uf_location_select {
-	font-weight: 600;
+.stars {
+	display: flex;
+	padding: 0 20px;
 }
 
-/*============Profile Photo===============*/
-.profile-photo {
-	max-width: 100px;
-	width: 100%;
-	z-index: 30;
-	top: 100px;
-}
-
-
-/*===========Avatar upload===============*/
-
-.avatar-upload .avatar-edit {
-	position: absolute;
-	left: 150px;
-	top: 0;
-	z-index: 90;
-}
-
-#imagePreview {
-	background-image: url("https://res.cloudinary.com/diudkwkuw/image/upload/v1666370872/static/images/user-default-avatar.png");
-}
-
-.avatar-edit input {
-	display: none;
-}
-
-.avatar-edit input+label {
-	display: inline-block;
-	width: 34px;
-	height: 34px;
-	margin-bottom: 0;
-	border-radius: 100%;
-	background: #ffffff;
-	border: 1px solid transparent;
-	box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+.star1,
+.star2,
+.star3,
+.star4,
+.star5 {
+	margin-right: 5px;
+	font-size: 1.3rem;
 	cursor: pointer;
-	font-weight: normal;
-	transition: all 0.2s ease-in-out;
+	color: #f9d71c;
 }
-
-.avatar-upload .avatar-edit input+label:hover {
-	background: #f1f1f1;
-	border-color: #d6d6d6;
-}
-
-.avatar-upload .avatar-edit input+label:after {
-	content: "\f040";
-	font-family: "FontAwesome";
-	color: #757575;
-	position: absolute;
-	top: 5px;
-	left: 0;
-	right: 0;
-	text-align: center;
-	margin: auto;
-}
-
-.avatar-upload {
-	width: 192px;
-	height: 192px;
-	border-radius: 100%;
-	border: 6px solid #f8f8f8;
-	box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
-	z-index: 100;
-	margin-left: -22%;
-	margin-top: -6%;
-}
-
-
-.avatar-upload .avatar-preview>div {
-	width: 100%;
-	height: 100%;
-	border-radius: 100%;
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center;
-}
-
-.password-reset {
-	float: right;
-	border-radius: 100%;
-	border: 6px solid #f8f8f8;
-	box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
-}
-
-.password-reset img {
-	width: 80px;
-}
-
-.submit-button {
-	float: left;
-	padding: 10px;
-	margin-top: 40px;
-}
-
-
-/*==========media query for mobile devices==========*/
-
-@media screen and (max-width: 600px) {
-
-	.avatar-upload {
-		width: 80px;
-		height: 80px;
-		margin-left: -38%;
-		margin-top: -20%;
-		border: 3px solid #816e4d;
-	}
-
-	.form-content p {
-		color: #fff;
-		text-align: left;
-		font-size: 17px;
-		font-weight: 300;
-		line-height: 20px;
-		margin-bottom: 30px;
-	}
-
-	.form-content input[type="text"],
-	.form-content input[type="password"],
-	.form-content input[type="email"],
-	.form-content select {
-		width: 100%;
-		padding: 9px 20px;
-		text-align: left;
-		border: 0;
-		outline: 0;
-		border-radius: 6px;
-		background-color: #fff;
-		font-size: 15px;
-		font-weight: 300;
-		color: #8d8d8d;
-		-webkit-transition: all 0.3s ease;
-		transition: all 0.3s ease;
-		margin-top: 16px;
-	}
-
-	.form-label {
-		color: #fff;
-	}
-
-	.btn-primary {
-		background-color: rgba(32, 73, 113, 1);
-		outline: none;
-		border: 0px;
-		box-shadow: none;
-	}
-
-	.btn-primary:hover,
-	.btn-primary:focus,
-	.btn-primary:active {
-		background-color: #495056;
-		outline: none;
-		border: none;
-		box-shadow: none;
-	}
-
-	.form-content textarea {
-		position: static;
-		width: 100%;
-		padding: 8px 20px;
-		border-radius: 6px;
-		text-align: left;
-		background-color: #fff;
-		border: 0;
-		font-size: 15px;
-		font-weight: 300;
-		color: #8d8d8d;
-		outline: none;
-		resize: none;
-		height: 120px;
-		-webkit-transition: none;
-		transition: none;
-		margin-bottom: 14px;
-	}
-
-	.form-content textarea:hover,
-	.form-content textarea:focus {
-		border: 0;
-		background-color: #ebeff8;
-		color: #8d8d8d;
-	}
-
-	.mv-up {
-		margin-top: -9px;
-		margin-bottom: 8px;
-	}
-}
-
-/*media query for mobile devices*/
-
-@media screen and (max-width: 600px) {
-
-	.form-body {
-		overflow: hidden;
-	}
-
-	form {
-		width: 295px;
-		margin-left: 100px;
-		overflow: hidden;
-	}
-
-	.form-items h3,
-	.form-items>p {
-		margin-left: 100px;
-	}
-}
-
 
 
 /* ###################################  WHO-ARE-WE.html ################################### */
@@ -1494,7 +1242,7 @@ table.table td i {
 /* ###################################  USR-REGISTRATION.html ################################### */
 
 .form-content .form-items .form-control {
-	margin: 5%;
+	margin: 2.5%;
 }
 
 .form-content .form-items,
@@ -1506,8 +1254,9 @@ table.table td i {
 
 @media screen and (max-width: 600px) {
 
+
 	.form-items {
-		margin-left: -25%;
+		margin: 0 auto;
 		background: linear-gradient(-45deg,
 				rgba(113, 72, 32, 1) 0%,
 				rgba(81, 93, 51, 1) 100%);
@@ -1517,6 +1266,10 @@ table.table td i {
 
 
 /* ###################################  USR-ACCOUNT.html ################################### */
+
+.offset {
+	margin-top: 1.8%;
+}
 
 #uf_first_name,
 #uf_last_name,
@@ -1562,7 +1315,6 @@ table.table td i {
 	box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
 	cursor: pointer;
 	font-weight: normal;
-
 	transition: all 0.2s ease-in-out;
 }
 
@@ -1624,7 +1376,7 @@ table.table td i {
 
 .password-reset {
 	border: 3px solid #fefcff;
-	margin-right: 30%;
+	margin-right: 0%;
 }
 
 .password-reset img {
@@ -1632,92 +1384,68 @@ table.table td i {
 }
 
 .submit-button {
-	margin-top: 10%;
-	margin-left: 12%;
+	margin-top: 5%;
+	margin-left: 2.5%;
+	padding: 0%;
 }
 
 
-
-@media screen and (max-width: 892px) and (orientation: landscape) {
-
-	.avatar-upload {
-		width: 80px;
-		height: 80px;
-		margin-top: -2%;
-		margin-left: 15%;
-		border: 3px solid #f8f8f8;
-	}
-
-	.avatar-upload .avatar-edit {
-		left: 70px;
-		top: -10px;
-	}
-
-	.password-reset {
-		border: 3px solid #f8f8f8;
-	}
-
-	.password-reset img {
-		width: 80px;
-	}
-
-	.submit-button {
-		float: left;
-		padding: 10px;
-		margin-top: 40px;
-	}
-
-}
 
 /*==========media query for mobile devices==========*/
 
 @media screen and (max-width: 600px) {
 
 	.offset {
-		overflow: hidden;
+		margin-top: 0%;
 	}
 
 	.avatar-upload .avatar-preview {
 		width: 80px;
 		height: 80px;
-		margin-left: -38%;
-		margin-top: -20%;
 		border: 3px solid #816e4d;
 	}
 
 	.avatar-upload .avatar-edit {
-		left: -10px;
-		top: -10px;
+		left: 200px;
+		top: 250px;
 	}
 
 	.avatar-upload .avatar-edit input+label {
-		width: 24px;
-		height: 24px;
-		margin-left: 30px;
+		margin-left: 0%;
+		background-color: rgba(255, 255, 255, 0);
 	}
 
 	.avatar-upload .avatar-edit input+label:after {
 		top: 0px;
-		left: 1px;
+		left: -60%;
 	}
 
 	.password-reset {
+		position: absolute;
 		border: 3px solid #fefcff;
-		margin-right: 30%;
+		margin-top: 135%;
+		margin-left: 55%;
+		z-index: 99;
 	}
 
 	.password-reset img {
-		width: 50px;
+		width: 30px;
 	}
 
 	.submit-button {
-		margin-top: 10%;
-		margin-left: 12%;
+		margin: 0%;
+		padding: 0%;
 	}
+
+
 }
 
 
 @media screen and (max-width: 892px) and (orientation: landscape) {
+
+	.offset {
+		margin-top: 10%;
+	}
 
 	.avatar-upload .avatar-preview {
 		width: 80px;
@@ -1731,7 +1459,6 @@ table.table td i {
 		top: -10px;
 	}
 
-
 	.avatar-upload .avatar-edit input+label:after {
 		top: 5px;
 		left: -45px;
@@ -1744,11 +1471,6 @@ table.table td i {
 
 	.password-reset img {
 		width: 50px;
-	}
-
-	.submit-button {
-		margin-top: 5%;
-		margin-left: 12%;
 	}
 
 }
@@ -2108,8 +1830,33 @@ a:nth-child(1) {
 	}
 
 	.information {
-		font-size: calc(8px + (4 - 2) * (100vw - 400px) / (800 - 400));
-		line-height: calc(8px + (4 - 2) * (100vw - 400px) / (800 - 400));
+		font-size: calc(16px + (8 - 4) * (100vw - 400px) / (800 - 400));
+		line-height: calc(16px + (8 - 4) * (100vw - 400px) / (800 - 400));
+	}
+
+	.product-details-reishi::before {
+		content: "";
+		background-image: url("https://res.cloudinary.com/diudkwkuw/image/upload/v1666901688/static/images/reishi-tea_mnaj5f.jpg");
+		background-size: cover;
+		position: absolute;
+		top: 0px;
+		right: 0px;
+		bottom: 0px;
+		left: 0px;
+		opacity: .2;
+	}
+
+
+	.product-details-lionsmane::before {
+		content: "";
+		background-image: url("https://res.cloudinary.com/diudkwkuw/image/upload/v1666901687/static/images/lionsmane-table_cb9xok.jpg");
+		background-size: cover;
+		position: absolute;
+		top: 0px;
+		right: 0px;
+		bottom: 0px;
+		left: 0px;
+		opacity: .2;
 	}
 
 }
@@ -2160,92 +1907,6 @@ a:nth-child(1) {
 	}
 }
 
-/* Medium devices (tablets, less than 992px) */
-
-
-@media screen and (max-width: 892px) and (orientation: landscape) {
-	.product-details {
-		width: 100%;
-		overflow: auto;
-	}
-
-	.product-image {
-		display: none;
-	}
-
-	.product-details-reishi::before {
-		content: "";
-		background-image: url("https://res.cloudinary.com/diudkwkuw/image/upload/v1666901688/static/images/reishi-tea_mnaj5f.jpg");
-		background-size: cover;
-		position: absolute;
-		top: 0px;
-		right: 0px;
-		bottom: 0px;
-		left: 0px;
-		opacity: .2;
-	}
-
-	.product-details-lionsmane::before {
-		content: "";
-		background-image: url("https://res.cloudinary.com/diudkwkuw/image/upload/v1666901687/static/images/lionsmane-table_cb9xok.jpg");
-		background-size: cover;
-		position: absolute;
-		top: 0px;
-		right: 0px;
-		bottom: 0px;
-		left: 0px;
-		opacity: .2;
-	}
-
-	.kym-container .product-details>p {
-		position: relative;
-		filter: invert(100);
-		font-weight: 500;
-	}
-}
-
-@media (max-width: 991.98px) and (orientation: portrait) {
-
-	.product-details {
-		width: 100%;
-		overflow: auto;
-	}
-
-	.product-image {
-		display: none;
-	}
-
-	.product-details-reishi::before {
-		content: "";
-		background-image: url("https://res.cloudinary.com/diudkwkuw/image/upload/v1666901688/static/images/reishi-tea_mnaj5f.jpg");
-		background-size: cover;
-		position: absolute;
-		top: 0px;
-		right: 0px;
-		bottom: 0px;
-		left: 0px;
-		opacity: .2;
-	}
-
-	.product-details-lionsmane::before {
-		content: "";
-		background-image: url("https://res.cloudinary.com/diudkwkuw/image/upload/v1666901687/static/images/lionsmane-table_cb9xok.jpg");
-		background-size: cover;
-		position: absolute;
-		top: 0px;
-		right: 0px;
-		bottom: 0px;
-		left: 0px;
-		opacity: .2;
-	}
-
-	.kym-container .product-details>p {
-		font-size: calc(32px + (16 - 8) * (100vw - 400px) / (800 - 400));
-		line-height: calc(32px + (16 - 8) * (100vw - 400px) / (800 - 400));
-	}
-
-}
-
 /* ################################### FORUM.html ################################### */
 
 .fm-container h1 {
@@ -2256,6 +1917,7 @@ a:nth-child(1) {
 	color: #333;
 	margin-top: 180px;
 	text-align: center;
+	height: 100vh;
 }
 
 .fm-container li {
@@ -2303,7 +1965,6 @@ a:nth-child(1) {
 @media screen and (max-width: 600px) {
 
 	#content {
-		margin-left: -30%;
 		padding: 5%;
 	}
 
@@ -2343,10 +2004,6 @@ a:nth-child(1) {
 		overflow: auto;
 	}
 }
-
-
-
-
 
 
 /* ================================================= */
