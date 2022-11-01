@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Source+Sans+Pro&display=swap');
 
+
+/* ###################################  GENERAL SYLING ################################### */
+
 :root {
 	--primary-font: 'Playfair Display', serif;
 	--secondary-font: 'Source Sans Pro', sans-serif;
@@ -44,6 +47,13 @@ h3 {
 }
 
 
+::selection {
+	color: #ffffff;
+	background-color: #252525;
+}
+
+/* ###################################  NAVIGATION BAR ################################### */
+
 /*=================== navbar ====================*/
 nav {
 	background: linear-gradient(-45deg,
@@ -62,6 +72,8 @@ nav {
 	border-top: 0;
 	border-bottom: .3em solid;
 }
+
+/* ###################################  HERO  ################################### */
 
 
 /*=================== Heading content + hero image ====================*/
@@ -268,7 +280,8 @@ article {
 
 }
 
-/*carousel*/
+/* ###################################  CAROUSEL ################################### */
+
 
 #slider {
 	margin-top: 80px;
@@ -409,7 +422,7 @@ article {
 	color: #060606;
 }
 
-/*=================reviews============================*/
+/* ###################################  REVIEWS ################################### */
 
 /*circle progress bar*/
 
@@ -667,6 +680,7 @@ article {
 
 .reviews-box {
 	width: 100%;
+	max-width: fit-content;
 	max-width: 1000px;
 	box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.1);
 	background-color: #ffffff;
@@ -828,6 +842,60 @@ article {
 	transition: all ease 0.3s;
 }
 
+.reviews {
+	margin-left: 0px;
+}
+
+/* media query for mobile devices - reviews section */
+
+
+@media screen and (max-width: 600px) {
+	.reviews-box {
+		width: 100%;
+		max-width: 1000px;
+	}
+}
+
+@media (max-width: 1060px) {
+	.reviews-box {
+		width: 45%;
+		padding: 10px;
+	}
+}
+
+@media (max-width: 790px) {
+
+	.reviews-box {
+		width: 100%;
+	}
+
+	.reviews {
+		margin-top: 40px;
+		margin-left: -100px;
+	}
+
+	.date-submitted {
+		margin-left: 25px;
+	}
+
+	.testimonial-heading h1 {
+		font-size: 1.4rem;
+	}
+}
+
+@media (max-width: 340px) {
+	.box-top {
+		flex-wrap: wrap;
+		margin-bottom: 10px;
+	}
+
+	.reviews {
+		margin-top: 10px;
+	}
+}
+
+/* ###################################  FOOTER ################################### */
+
 .footer {
 	background: linear-gradient(-45deg,
 			rgba(113, 72, 32, 0.75) 20%,
@@ -869,12 +937,7 @@ article {
 }
 
 
-@media screen and (max-width: 600px) {
-	#mq {
-		position: relative;
-		display: inline-block;
-	}
-}
+/* ###################################  DATATABLES ################################### */
 
 /*datatables style*/
 
@@ -990,7 +1053,7 @@ table.table td i {
 }
 
 
-/*toogle*/
+/* ###################################  TOOGLE SWITCH ################################### */
 
 .toggle-switch {
 	position: relative;
@@ -1085,8 +1148,7 @@ table.table td i {
 	transform: translate3d(.81094rem, 50%, 0)
 }
 
-/* write-a-review.html form styling */
-
+/* ###################################  WRITE-A-REIEW.html ################################### */
 
 .form-holder {
 	display: flex;
@@ -1151,199 +1213,7 @@ table.table td i {
 	margin-bottom: 30px;
 }
 
-.form-content p {
-	color: #fff;
-	text-align: left;
-	font-size: 17px;
-	font-weight: 300;
-	line-height: 20px;
-	margin-bottom: 30px;
-}
-
-.form-content input[type="text"],
-.form-content input[type="password"],
-.form-content input[type="email"],
-.form-content select {
-	width: 100%;
-	padding: 9px 20px;
-	text-align: left;
-	border: 0;
-	outline: 0;
-	border-radius: 6px;
-	background-color: #fff;
-	font-size: 15px;
-	font-weight: 300;
-	color: #8d8d8d;
-	-webkit-transition: all 0.3s ease;
-	transition: all 0.3s ease;
-	margin-top: 16px;
-}
-
-.form-label {
-	color: #fff;
-}
-
-.stars {
-	display: flex;
-	padding: 0 20px;
-}
-
-.star1,
-.star2,
-.star3,
-.star4,
-.star5 {
-	margin-right: 5px;
-	font-size: 1.3rem;
-	cursor: pointer;
-}
-
-.btn-primary {
-	background-color: rgba(32, 73, 113, 1);
-	outline: none;
-	border: 0px;
-	box-shadow: none;
-}
-
-.btn-primary:hover,
-.btn-primary:focus,
-.btn-primary:active {
-	background-color: #495056;
-	outline: none !important;
-	border: none !important;
-	box-shadow: none;
-}
-
-.form-content textarea {
-	position: static !important;
-	width: 100%;
-	padding: 8px 20px;
-	border-radius: 6px;
-	text-align: left;
-	background-color: #fff;
-	border: 0;
-	font-size: 15px;
-	font-weight: 300;
-	color: #8d8d8d;
-	outline: none;
-	resize: none;
-	height: 120px;
-	-webkit-transition: none;
-	transition: none;
-	margin-bottom: 14px;
-}
-
-.form-content textarea:hover,
-.form-content textarea:focus {
-	border: 0;
-	background-color: #ebeff8;
-	color: #8d8d8d;
-}
-
-.mv-up {
-	margin-top: -9px !important;
-	margin-bottom: 8px !important;
-}
-
-/*media query for mobile devices*/
-
-@media screen and (max-width: 600px) {
-
-	.form-body {
-		overflow: hidden;
-	}
-
-	form {
-		width: 295px;
-		margin-left: 100px;
-		overflow: hidden;
-	}
-
-	.form-items h3,
-	.form-items>p {
-		margin-left: 100px;
-	}
-}
-
-
-
-
-/* who-are-we.html styling*/
-
-.about {
-	background-color: white;
-	color: black;
-	padding-top: 20px;
-	padding-bottom: 30px;
-	margin-top: 40px;
-}
-
-.about h1 {
-	padding: 10px 0;
-	margin-bottom: 20px;
-
-}
-
-.about h2 {
-	opacity: .8;
-}
-
-.about span {
-	display: block;
-	width: 100px;
-	height: 100px;
-	line-height: 100px;
-	margin: auto;
-	border-radius: 50%;
-	font-size: 40px;
-	color: #FFFFFF;
-	opacity: 0.7;
-	background: linear-gradient(-45deg,
-			rgba(113, 72, 32, 0.75) 0%,
-			rgba(81, 93, 51, 1) 100%) !important;
-	border: 2px solid rgb(113, 72, 32, 1);
-}
-
-.about-item:hover span {
-	opacity: 1;
-	border: 2px solid rgb(113, 72, 32, 1);
-	font-size: 42px;
-	-webkit-transform: scale(1.1, 1.1) rotate(360deg);
-	-moz-transform: scale(1.1, 1.1) rotate(360deg);
-	-o-transform: scale(1.1, 1.1) rotate(360deg);
-	transform: scale(1.1, 1.1) rotate(360deg);
-}
-
-.about-item:hover h2 {
-	opacity: 1;
-	-webkit-transform: scale(1.1, 1.1);
-	-moz-transform: scale(1.1, 1.1);
-	-o-transform: scale(1.1, 1.1);
-	transform: scale(1.1, 1.1);
-}
-
-.about .lead {
-	font-size: 14px;
-	font-weight: bold;
-}
-
-
-/* usr-registration.html styling  */
-
-/* media query for mobile devices */
-
-@media screen and (max-width: 600px) {
-
-	.form-items {
-		margin-left: -25%;
-		background: linear-gradient(-45deg,
-				rgba(113, 72, 32, 1) 0%,
-				rgba(81, 93, 51, 1) 100%);
-	}
-}
-
-
-/* usr-account.html styling */
+/* ###################################  USR-ACCOUNT.html ################################### */
 
 #uf_first_name,
 #uf_last_name,
@@ -1366,18 +1236,18 @@ table.table td i {
 	position: absolute;
 	left: 150px;
 	top: 0;
+	z-index: 90;
 }
 
-.avatar-preview #imagePreview {
-	position: absolute;
-	z-index: 9999 !important;
+#imagePreview {
+	background-image: url("https://res.cloudinary.com/diudkwkuw/image/upload/v1666370872/static/images/user-default-avatar.png");
 }
 
-.avatar-upload .avatar-edit input {
+.avatar-edit input {
 	display: none;
 }
 
-.avatar-upload .avatar-edit input+label {
+.avatar-edit input+label {
 	display: inline-block;
 	width: 34px;
 	height: 34px;
@@ -1414,6 +1284,7 @@ table.table td i {
 	border-radius: 100%;
 	border: 6px solid #f8f8f8;
 	box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+	z-index: 100;
 	margin-left: -22%;
 	margin-top: -6%;
 }
@@ -1458,34 +1329,313 @@ table.table td i {
 		border: 3px solid #816e4d;
 	}
 
-	.avatar-upload .avatar-edit {
-		left: 70px;
-		top: -10px;
+	.form-content p {
+		color: #fff;
+		text-align: left;
+		font-size: 17px;
+		font-weight: 300;
+		line-height: 20px;
+		margin-bottom: 30px;
 	}
 
-	.avatar-edit input+label {
-		width: 24px;
-		height: 24px;
+	.form-content input[type="text"],
+	.form-content input[type="password"],
+	.form-content input[type="email"],
+	.form-content select {
+		width: 100%;
+		padding: 9px 20px;
+		text-align: left;
+		border: 0;
+		outline: 0;
+		border-radius: 6px;
+		background-color: #fff;
+		font-size: 15px;
+		font-weight: 300;
+		color: #8d8d8d;
+		-webkit-transition: all 0.3s ease;
+		transition: all 0.3s ease;
+		margin-top: 16px;
 	}
 
-	.avatar-upload .avatar-edit input+label:after {
-		top: 0px;
+	.form-label {
+		color: #fff;
 	}
 
-	.password-reset {
-		border: 3px solid #fefcff;
-		margin-right: 30%;
+	.btn-primary {
+		background-color: rgba(32, 73, 113, 1);
+		outline: none;
+		border: 0px;
+		box-shadow: none;
 	}
 
-	.password-reset img {
-		width: 50px;
+	.btn-primary:hover,
+	.btn-primary:focus,
+	.btn-primary:active {
+		background-color: #495056;
+		outline: none;
+		border: none;
+		box-shadow: none;
 	}
 
-	.submit-button {
-		margin-top: 10%;
-		margin-left: 12%;
+	.form-content textarea {
+		position: static;
+		width: 100%;
+		padding: 8px 20px;
+		border-radius: 6px;
+		text-align: left;
+		background-color: #fff;
+		border: 0;
+		font-size: 15px;
+		font-weight: 300;
+		color: #8d8d8d;
+		outline: none;
+		resize: none;
+		height: 120px;
+		-webkit-transition: none;
+		transition: none;
+		margin-bottom: 14px;
+	}
+
+	.form-content textarea:hover,
+	.form-content textarea:focus {
+		border: 0;
+		background-color: #ebeff8;
+		color: #8d8d8d;
+	}
+
+	.mv-up {
+		margin-top: -9px;
+		margin-bottom: 8px;
 	}
 }
+
+/*media query for mobile devices*/
+
+@media screen and (max-width: 600px) {
+
+	.form-body {
+		overflow: hidden;
+	}
+
+	form {
+		width: 295px;
+		margin-left: 100px;
+		overflow: hidden;
+	}
+
+	.form-items h3,
+	.form-items>p {
+		margin-left: 100px;
+	}
+}
+
+
+
+/* ###################################  WHO-ARE-WE.html ################################### */
+
+.about {
+	background-color: white;
+	color: black;
+	padding-top: 20px;
+	padding-bottom: 30px;
+	margin-top: 40px;
+}
+
+.about h1 {
+	padding: 10px 0;
+	margin-bottom: 20px;
+
+}
+
+.about h2 {
+	opacity: .8;
+}
+
+.about span {
+	display: block;
+	width: 100px;
+	height: 100px;
+	line-height: 100px;
+	margin: auto;
+	border-radius: 50%;
+	font-size: 40px;
+	color: #FFFFFF;
+	opacity: 0.7;
+	background: linear-gradient(-45deg,
+			rgba(113, 72, 32, 0.75) 0%,
+			rgba(81, 93, 51, 1) 100%);
+	border: 2px solid rgb(113, 72, 32, 1);
+}
+
+.about-item:hover span {
+	opacity: 1;
+	border: 2px solid rgb(113, 72, 32, 1);
+	font-size: 42px;
+	-webkit-transform: scale(1.1, 1.1) rotate(360deg);
+	-moz-transform: scale(1.1, 1.1) rotate(360deg);
+	-o-transform: scale(1.1, 1.1) rotate(360deg);
+	transform: scale(1.1, 1.1) rotate(360deg);
+}
+
+.about-item:hover h2 {
+	opacity: 1;
+	-webkit-transform: scale(1.1, 1.1);
+	-moz-transform: scale(1.1, 1.1);
+	-o-transform: scale(1.1, 1.1);
+	transform: scale(1.1, 1.1);
+}
+
+.about .lead {
+	font-size: 14px;
+	font-weight: bold;
+}
+
+
+/* ###################################  USR-REGISTRATION.html ################################### */
+
+.form-content .form-items .form-control {
+	margin: 5%;
+}
+
+.form-content .form-items,
+.form-items a {
+	color: #fefcff;
+}
+
+/* media query for mobile devices */
+
+@media screen and (max-width: 600px) {
+
+	.form-items {
+		margin-left: -25%;
+		background: linear-gradient(-45deg,
+				rgba(113, 72, 32, 1) 0%,
+				rgba(81, 93, 51, 1) 100%);
+	}
+
+}
+
+
+/* ###################################  USR-ACCOUNT.html ################################### */
+
+#uf_first_name,
+#uf_last_name,
+#uf_location_select {
+	font-weight: 600;
+}
+
+/*============Profile Photo===============*/
+.profile-photo {
+	max-width: 100px;
+	width: 100%;
+	z-index: 30;
+	top: 300px;
+}
+
+
+/*===========Avatar upload===============*/
+
+.avatar-upload .avatar-edit {
+	position: absolute;
+	left: 150px;
+	top: 0;
+	z-index: 999;
+}
+
+#imagePreview {
+	background-image: url("https://res.cloudinary.com/diudkwkuw/image/upload/v1666370872/static/images/user-default-avatar.png");
+}
+
+.avatar-upload .avatar-edit input {
+	display: none;
+}
+
+
+.avatar-upload .avatar-edit input+label {
+	display: inline-block;
+	width: 34px;
+	height: 34px;
+	margin-bottom: 0;
+	border-radius: 100%;
+	background: #ffffff;
+	border: 1px solid transparent;
+	box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+	cursor: pointer;
+	font-weight: normal;
+
+	transition: all 0.2s ease-in-out;
+}
+
+.avatar-upload .avatar-edit input+label:hover {
+	background: #f1f1f1;
+	border-color: #d6d6d6;
+}
+
+.avatar-upload .avatar-edit input+label:after {
+	content: "\f040";
+	font-family: "FontAwesome";
+	color: #757575;
+	position: absolute;
+	top: 5px;
+	left: -80%;
+	right: 0;
+	text-align: center;
+	margin: auto;
+}
+
+.avatar-upload .avatar-preview {
+	width: 192px;
+	height: 192px;
+	border-radius: 100%;
+	border: 6px solid #f8f8f8;
+	box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+	z-index: 100;
+	margin-left: -80%;
+	margin-top: -40%;
+}
+
+
+.avatar-upload .avatar-preview>div {
+	width: 100%;
+	height: 100%;
+	border-radius: 100%;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.password-reset {
+	float: right;
+	border-radius: 100%;
+	border: 6px solid #f8f8f8;
+	box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+	left: 70px;
+	top: -10px;
+}
+
+.avatar-edit input+label {
+	width: 24px;
+	height: 24px;
+}
+
+.avatar-upload .avatar-edit input+label:after {
+	top: 0px;
+}
+
+.password-reset {
+	border: 3px solid #fefcff;
+	margin-right: 30%;
+}
+
+.password-reset img {
+	width: 50px;
+}
+
+.submit-button {
+	margin-top: 10%;
+	margin-left: 12%;
+}
+
 
 
 @media screen and (max-width: 892px) and (orientation: landscape) {
@@ -1508,6 +1658,91 @@ table.table td i {
 	}
 
 	.password-reset img {
+		width: 80px;
+	}
+
+	.submit-button {
+		float: left;
+		padding: 10px;
+		margin-top: 40px;
+	}
+
+}
+
+/*==========media query for mobile devices==========*/
+
+@media screen and (max-width: 600px) {
+
+	.offset {
+		overflow: hidden;
+	}
+
+	.avatar-upload .avatar-preview {
+		width: 80px;
+		height: 80px;
+		margin-left: -38%;
+		margin-top: -20%;
+		border: 3px solid #816e4d;
+	}
+
+	.avatar-upload .avatar-edit {
+		left: -10px;
+		top: -10px;
+	}
+
+	.avatar-upload .avatar-edit input+label {
+		width: 24px;
+		height: 24px;
+		margin-left: 30px;
+	}
+
+	.avatar-upload .avatar-edit input+label:after {
+		top: 0px;
+		left: 1px;
+	}
+
+	.password-reset {
+		border: 3px solid #fefcff;
+		margin-right: 30%;
+	}
+
+	.password-reset img {
+		width: 50px;
+	}
+
+	.submit-button {
+		margin-top: 10%;
+		margin-left: 12%;
+	}
+}
+
+
+@media screen and (max-width: 892px) and (orientation: landscape) {
+
+	.avatar-upload .avatar-preview {
+		width: 80px;
+		height: 80px;
+		border: 3px solid #816e4d;
+		margin-left: -100%;
+	}
+
+	.avatar-upload .avatar-edit {
+		left: -30px;
+		top: -10px;
+	}
+
+
+	.avatar-upload .avatar-edit input+label:after {
+		top: 5px;
+		left: -45px;
+	}
+
+	.password-reset {
+		border: 3px solid #f8f8f8;
+
+	}
+
+	.password-reset img {
 		width: 50px;
 	}
 
@@ -1518,16 +1753,15 @@ table.table td i {
 
 }
 
-
-/* password-reset.html styling */
+/* ###################################  PASSWORD-RESET.html ################################### */
 
 .pr-container {
 	margin-bottom: 150px;
 }
 
 .pr-container .px-2 {
-	padding-right: 400px !important;
-	padding-left: 400px !important;
+	padding-right: 400px;
+	padding-left: 400px;
 }
 
 .pr-container .px {
@@ -1538,7 +1772,48 @@ table.table td i {
 	color: black;
 }
 
-/* login.html Styling form */
+/* Small devices (portrait phones, less than 600px)*/
+@media screen and (max-width: 600px) {
+	.pr-container {
+		margin-top: 60%;
+		overflow: hidden;
+		height: 60vh;
+	}
+
+	.pr-container .px-2 {
+		padding: 0%;
+		margin-right: 30%;
+	}
+
+	.pr-container .btn {
+		white-space: nowrap;
+		margin-left: -50%;
+	}
+
+}
+
+@media screen and (max-width: 892px) and (orientation: landscape) {
+
+	.pr-container {
+		margin-top: 10%;
+		margin-left: 20%;
+		overflow: hidden;
+		height: 100vh;
+	}
+
+	.pr-container .px-2 {
+		padding: 0%;
+		margin-right: 30%;
+	}
+
+	.pr-container .btn {
+		white-space: nowrap;
+		margin-left: -50%;
+	}
+
+}
+
+/* ###################################  LOGIN.html ################################### */
 
 .section-login {
 	margin-top: 200px;
@@ -1554,10 +1829,10 @@ table.table td i {
 	justify-content: center;
 }
 
-.section-login .form-container { /*wip*/
+.section-login .form-container {
 	background: linear-gradient(-45deg,
 			rgba(113, 72, 32, 0.75) 0%,
-			rgba(81, 93, 51, 1) 100%) !important;
+			rgba(81, 93, 51, 1) 100%);
 	padding: 2.5rem 1.5rem;
 	flex: 1;
 	position: relative;
@@ -1616,7 +1891,7 @@ table.table td i {
 	border: 1px solid rgba(81, 93, 51, 1);
 	background: linear-gradient(-45deg,
 			rgba(113, 72, 32, 0.75) 0%,
-			rgba(81, 93, 51, 1) 100%) !important;
+			rgba(81, 93, 51, 1) 100%);
 	box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.4);
 	transition: box-shadow 0.2s linear;
 }
@@ -1713,8 +1988,7 @@ table.table td i {
 }
 
 
-/*know-your-mushrooms.html styling*/
-
+/* ###################################  KNOW-YOUR-MUSHROOMS.html ################################### */
 
 .kym-container {
 	box-shadow: 0 15px 30px 1px rgba(128, 128, 128, 0.31);
@@ -1749,7 +2023,7 @@ table.table td i {
 
 }
 
-.kym-container .product-details>p {
+.information {
 	text-align: justify;
 	font-size: calc(14px + (8 - 4) * (100vw - 400px) / (800 - 400));
 	line-height: calc(14px + (9 - 4.5) * (100vw - 400px) / (800 - 400));
@@ -1822,8 +2096,8 @@ a:nth-child(1) {
 
 /*======================== media queries ===============================*/
 
-/* X-Small devices (portrait phones, less than 576px)*/
-@media (max-width: 575.98px) {
+/* Small devices (portrait phones, less than 600px)*/
+@media screen and (max-width: 600px) {
 	.product-details {
 		width: 100%;
 		overflow: auto;
@@ -1833,16 +2107,17 @@ a:nth-child(1) {
 		display: none;
 	}
 
-	.kym-container .product-details>p {
-		font-size: calc(32px + (16 - 8) * (100vw - 400px) / (800 - 400));
-		line-height: calc(32px + (16 - 8) * (100vw - 400px) / (800 - 400));
+	.information {
+		font-size: calc(8px + (4 - 2) * (100vw - 400px) / (800 - 400));
+		line-height: calc(8px + (4 - 2) * (100vw - 400px) / (800 - 400));
 	}
 
 }
 
 
 /* Small devices (landscape phones, less than 768px)*/
-@media (max-width: 767.98px) {
+
+@media screen and (max-width: 892px) and (orientation: landscape) {
 
 	.product-details {
 		width: 100%;
@@ -1880,15 +2155,15 @@ a:nth-child(1) {
 	}
 
 	.kym-container .product-details>p {
-		font-size: calc(32px + (16 - 8) * (100vw - 400px) / (800 - 400));
-		line-height: calc(32px + (16 - 8) * (100vw - 400px) / (800 - 400));
+		font-size: calc(16px + (8 - 4) * (100vw - 400px) / (800 - 400));
+		line-height: calc(16px + (8 - 4) * (100vw - 400px) / (800 - 400));
 	}
 }
 
 /* Medium devices (tablets, less than 992px) */
 
-@media (max-width: 991.98px) and (orientation: landscape) {
 
+@media screen and (max-width: 892px) and (orientation: landscape) {
 	.product-details {
 		width: 100%;
 		overflow: auto;
@@ -1971,7 +2246,7 @@ a:nth-child(1) {
 
 }
 
-/* forum.html styling */
+/* ################################### FORUM.html ################################### */
 
 .fm-container h1 {
 	color: var(--primary-text);
@@ -2018,10 +2293,11 @@ a:nth-child(1) {
 
 
 
-/* forgot-password.html styling */
+/* ###################################  FORGOT-PASSWORD.html ################################### */
 
 #content {
 	margin-top: 100px;
+	height: 100vh;
 }
 
 @media screen and (max-width: 600px) {
@@ -2034,25 +2310,7 @@ a:nth-child(1) {
 }
 
 
-
-
-/*edit-product.html styling*/
-
-.page-header {
-	margin-top: 40px;
-}
-
-
-/*contact-us form*/
-
-/* @media screen and (max-width: 600px) {
-	.form-holder {
-		zoom: .7 !important;
-		margin-top: 120px !important;
-	}
-} */
-
-/* add-product.html & edit-product.html styling */
+/* ###################################  ADD-PRODUCT.html / EDIT-PRODUCT.html ################################### */
 
 .page-header {
 	margin-top: 5%;
@@ -2073,10 +2331,10 @@ a:nth-child(1) {
 }
 
 
-/*approve-reviews.html , products.html & contact-us-admin styling*/
+/* ###################################  APPROVE-REVIEWS.html / PRODUCTS.html / CONTACT-US-ADMIN.html ################################### */
 
 .table-container {
-	height: 100vh;
+	min-height: 100vh;
 	width: 100%;
 }
 
@@ -2088,55 +2346,6 @@ a:nth-child(1) {
 
 
 
-/* media query for mobile devices - reviews section */
-
-.reviews {
-	margin-left: 0px;
-}
-
-@media (max-width: 1060px) {
-	.reviews-box {
-		width: 45%;
-		padding: 10px;
-	}
-}
-
-@media (max-width: 790px) {
-
-
-	.reviews-box {
-		width: 100%;
-	}
-
-	.reviews {
-		margin-top: 40px;
-		margin-left: -100px !important;
-	}
-
-	.date-submitted {
-		margin-left: 25px;
-	}
-
-	.testimonial-heading h1 {
-		font-size: 1.4rem;
-	}
-}
-
-@media (max-width: 340px) {
-	.box-top {
-		flex-wrap: wrap;
-		margin-bottom: 10px;
-	}
-
-	.reviews {
-		margin-top: 10px;
-	}
-}
-
-::selection {
-	color: #ffffff;
-	background-color: #252525;
-}
 
 
 
