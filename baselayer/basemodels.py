@@ -4,7 +4,7 @@ from django.db import models
 
 
 class LogsMixin(models.Model):
-    """Add generic fields and relevant methods common to support most models"""
+    """Generic fields and relevant methods common to support most models"""
     is_deleted = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)

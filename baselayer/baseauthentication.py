@@ -16,7 +16,7 @@ class CSRFCheck(CsrfViewMiddleware):
 
 class JWTAuthentication(BaseAuthentication):
     """
-        custom authentication class for JWT
+        custom JWT authentication for USER
     """
 
     @csrf_exempt
@@ -28,7 +28,7 @@ class JWTAuthentication(BaseAuthentication):
             return None
         try:
             access_token = authorization_header.split(' ')[1]
-            payload = jwt.decode(access_token, settings.SECRET_KEY, algorithms=['HS256'])
+            payload = jwt.decode(access_token, settings.SECRET_KEY, algorithms=['HS256'])  # Algorithm Used
 
         except IndexError:
             raise exceptions.AuthenticationFailed('Token prefix missing')
@@ -47,7 +47,7 @@ class JWTAuthentication(BaseAuthentication):
 
 class JWTAdminAuthentication(BaseAuthentication):
     """
-        custom authentication class for JWT
+        custom JWT authentication for ADMIN
     """
 
     @csrf_exempt
@@ -59,7 +59,7 @@ class JWTAdminAuthentication(BaseAuthentication):
             return None
         try:
             access_token = authorization_header.split(' ')[1]
-            payload = jwt.decode(access_token, settings.SECRET_KEY, algorithms=['HS256'])
+            payload = jwt.decode(access_token, settings.SECRET_KEY, algorithms=['HS256'])  # Algorithm Used
 
         except IndexError:
             raise exceptions.AuthenticationFailed('Token prefix missing')
@@ -82,6 +82,6 @@ def generate_access_token(user):
         'iat': datetime.datetime.utcnow(),
         'user_type': user.user_type
     }
-    encoded_token = jwt.encode(access_token_payload, settings.SECRET_KEY, algorithm='HS256')
+    encoded_token = jwt.encode(access_token_payload, settings.SECRET_KEY, algorithm='HS256') # Algorithm Used
     # access_token = encoded_token.decode('utf-8')
     return encoded_token

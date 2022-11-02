@@ -5,9 +5,7 @@ from baselayer.baseauthentication import generate_access_token
 from django.utils import timezone
 
 # Choice classes
-# User and Admin authentication
-
-
+# User and Admin authentication Model
 class UserTypeChoices(models.TextChoices):
     ADMIN = 1, "Admin"
     USER = 3, "User"
@@ -24,11 +22,9 @@ class User(LogsMixin, AbstractUser):
         max_length=100, null=True, blank=True)
 
     def get_access_token(self):
-        return generate_access_token(self)
+        return generate_access_token(self) # Generate access token
 
 # ContactUs Form Model
-
-
 class ContactUs(LogsMixin, models.Model):
 
     first_name = models.CharField(max_length=100, null=True, blank=True)

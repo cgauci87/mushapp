@@ -68,7 +68,7 @@ class BaseAPIView(APIView):
         )
 
     def send_created_response(self, message, payload=None, **kwargs):
-        """compose response for new object creation."""
+        """ response for new object creation."""
         return self.send_response(
             status_code=status.HTTP_201_CREATED,
             payload=payload,
@@ -77,7 +77,7 @@ class BaseAPIView(APIView):
         )
 
     def send_bad_request_response(self, message):
-        """ compose response for bad request """
+        """  response for bad request """
         return self.send_response(
             success=False,
             status_code=status.HTTP_400_BAD_REQUEST,
