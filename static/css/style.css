@@ -730,11 +730,9 @@ article {
 	padding-left: 5px;
 }
 
-.date-submitted{
-	position: absolute;
+.date-submitted {
 	display: flex;
-	padding-top: 0%;
-	margin-left: 60%
+	flex-direction: row;
 }
 
 .date-submitted span {
@@ -843,7 +841,7 @@ article {
 	.date-submitted{
 		position: absolute;
 		display: flex;
-		padding-top: 65px;
+		padding-top: 45px;
 		margin-left: 60%
 	}
 	

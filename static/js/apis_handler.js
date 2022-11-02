@@ -1106,12 +1106,10 @@ function forgot_password_email(e) {
         async: false,
         success: function (resp) {
             console.log(resp);
-            setTimeout(function () {
-                document.location.href = "email-verification.html?email=" + email;
-            }, 100);
-        }
-    });
-}
+            window.location.href = "email-verification.html?email="+email;
+         }
+     });
+ }
 
 function change_forgot_password() {
     var password = $("#resetPasswordSrPassword").val();
@@ -1135,6 +1133,7 @@ function change_forgot_password() {
         dataType: 'json',
         async: false,
         success: function (resp) {
+            console.log(resp);
             alert("Your password has been reset successfully");
             window.location.href = "login.html";
         }
