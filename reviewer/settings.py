@@ -28,8 +28,6 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
 
 ALLOWED_HOSTS = ['mushcommunity-app.herokuapp.com', 'localhost']
 CORS_ORIGIN_ALLOW_ALL = True
@@ -130,16 +128,17 @@ if os.environ.get("DEVELOPMENT") == "True":
             'NAME': BASE_DIR / 'db.sqlite3',
         }
     }
-
+    
     DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
+    DEBUG = True
 else:
-    # Heroku database
+    # Heroku database PRODUCTION
     DATABASES = {
         'default': dj_database_url.parse(os.environ.get("DATABASE_URL")),
     }
 
     DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
+    DEBUG = False # PRODUCTION
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
