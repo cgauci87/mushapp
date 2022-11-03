@@ -208,7 +208,7 @@ function get_all_products_for_user() {
             payload = resp.payload;
             console.log(payload);
             for (var i = 0; i < payload.length; i++) {
-                var product = payload[i]; // Show All products in sliders including images of cloudinary media uploaded by admin
+                var product = payload[i]; // Show All products in #slider (Carousel) - images of cloudinary media uploaded by admin in products.html
                 $('#slider').append('<div class="post-slide"> <div class="post-img"><img src="' + product.image + '"alt="Mushroom Image"> <a href="#" class="over-layer"><i class="fa fa-link"></i></a></div><div class="post-content"><h3 class="post-title"><a href="#">' + payload[i].title + '</a></h3><p class="post-description">' + payload[i].description + '</p> <a onclick="save_product_id(' + payload[i].id + ')" class="read-more reveal-product-reviews">Reviews</a></div></div>');
                 $('#write_review_product_dropdown').append('<option value="' + payload[i].id + '">' + payload[i].title + '</option>'); // show all product in write review dropdown
             }
@@ -262,7 +262,7 @@ function write_a_review(e) {
             alert("Success, Once the admin approves your review, it will be displayed on the website");
             // redirect to layout page
             window.location.href = "index.html";
-            setCookie("rating", "", 365);
+            setCookie("rating", "", 365); // to clear "rating" cookie so if the same user will write another review - the new rating will save.
         },
         error: function (xhr, status, error) {
             var err = eval("(" + xhr.responseText + ")");
