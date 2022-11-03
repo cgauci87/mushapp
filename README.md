@@ -13,7 +13,7 @@
 
 [Live application can be found here](https://mushcommunity-app.herokuapp.com/)
 
-This is a full-stack framework project built using Python, Django, JavaScript, HTML and CSS. This is a mushroom community website designed
+This is a full-stack framework project built using Python, Django Rest Framework and JQuery-ajax, JavaScript, HTML and CSS. This is a mushroom community website designed
 to display reviews to mushroom fanatics and allow them to make reviews. This project has been built for educational purposes.
 
 ---
@@ -443,7 +443,7 @@ Throughout the process of building this website, I have used various sources onl
 
 [AJAX Request](https://davidwalsh.name/xmlhttprequest)
 
-[AJAX, CSRF & CORS](https://www.django-rest-framework.org/topics/ajax-csrf-cors/)((
+[AJAX, CSRF & CORS](https://www.django-rest-framework.org/topics/ajax-csrf-cors/)
 
 [Star Rating](https://www.w3schools.com/howto/howto_css_user_rating.asp)
 
