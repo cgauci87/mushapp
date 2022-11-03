@@ -1,7 +1,7 @@
 from . import views
 from django.urls import path
 
-
+# url patterns -  all templates binded
 urlpatterns = [
     path('', views.index, name='index'),
     path('index.html', views.index, name='index'),
